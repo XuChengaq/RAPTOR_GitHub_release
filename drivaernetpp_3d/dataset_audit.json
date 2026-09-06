@@ -1,0 +1,772 @@
+{
+  "source_archive": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\DrivAerNetPP_100\\mixed_3d.zip",
+  "outer_integrity_error": null,
+  "nested_archive": "mixed_3d/mixed_3d_add_elem_features.zip",
+  "nested_integrity_error": null,
+  "vehicle_file_count": 5428,
+  "vehicle_family_counts": {
+    "E_S_WWC_WM": 682,
+    "E_S_WW_WM": 695,
+    "F_D_WM_WW": 1307,
+    "F_S_WWC_WM": 684,
+    "F_S_WWS_WM": 678,
+    "N_S_WWC_WM": 382,
+    "N_S_WWS_WM": 330,
+    "N_S_WW_WM": 670
+  },
+  "sample_schema": {
+    "E_S_WW_WM": [
+      {
+        "path": "DrivAerNet/E_S_WW_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              20139,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              40268,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 20138.0
+          },
+          "features_list": {
+            "shape": [
+              20139,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -12.706615576229177,
+            "max": 0.9972481508874301
+          },
+          "elem_features_list": {
+            "shape": [
+              40268,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -18.60914710010025,
+            "max": 0.9999205950700957
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/E_S_WW_WM/0515.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19019,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              38032,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19018.0
+          },
+          "features_list": {
+            "shape": [
+              19019,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -12.292972065133624,
+            "max": 0.9932223714854774
+          },
+          "elem_features_list": {
+            "shape": [
+              38032,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -18.016271133544745,
+            "max": 0.9999374535714476
+          }
+        }
+      }
+    ],
+    "E_S_WWC_WM": [
+      {
+        "path": "DrivAerNet/E_S_WWC_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              20122,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              40166,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 20121.0
+          },
+          "features_list": {
+            "shape": [
+              20122,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -13.026952707635324,
+            "max": 0.9974045764447863
+          },
+          "elem_features_list": {
+            "shape": [
+              40166,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -18.12435717459106,
+            "max": 0.999984428677841
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/E_S_WWC_WM/0515.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19978,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              39882,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19977.0
+          },
+          "features_list": {
+            "shape": [
+              19978,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -14.427644582267925,
+            "max": 0.9972327251456319
+          },
+          "elem_features_list": {
+            "shape": [
+              39882,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -17.6092162591576,
+            "max": 0.9999634956362278
+          }
+        }
+      }
+    ],
+    "F_D_WM_WW": [
+      {
+        "path": "DrivAerNet/F_D_WM_WW/0719.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19737,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              39499,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19736.0
+          },
+          "features_list": {
+            "shape": [
+              19737,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -13.476173961948339,
+            "max": 0.9940874527224416
+          },
+          "elem_features_list": {
+            "shape": [
+              39499,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -30.76281477612458,
+            "max": 0.999973551721268
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/F_D_WM_WW/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19020,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              38069,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19019.0
+          },
+          "features_list": {
+            "shape": [
+              19020,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -21.60641812937823,
+            "max": 0.9973370522002378
+          },
+          "elem_features_list": {
+            "shape": [
+              38069,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -78.39087118699635,
+            "max": 0.999990480034453
+          }
+        }
+      }
+    ],
+    "N_S_WWS_WM": [
+      {
+        "path": "DrivAerNet/N_S_WWS_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19334,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              38670,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19333.0
+          },
+          "features_list": {
+            "shape": [
+              19334,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -11.553414185925925,
+            "max": 0.9968072987878772
+          },
+          "elem_features_list": {
+            "shape": [
+              38670,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -16.46690634681351,
+            "max": 0.9996146013594202
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/N_S_WWS_WM/0281.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              20653,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              41310,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 20652.0
+          },
+          "features_list": {
+            "shape": [
+              20653,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -11.428021203843953,
+            "max": 0.995388795703669
+          },
+          "elem_features_list": {
+            "shape": [
+              41310,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -20.183638052866364,
+            "max": 0.9999943143840725
+          }
+        }
+      }
+    ],
+    "F_S_WWC_WM": [
+      {
+        "path": "DrivAerNet/F_S_WWC_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19521,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              38966,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19520.0
+          },
+          "features_list": {
+            "shape": [
+              19521,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -11.644773140735136,
+            "max": 0.9934599153223728
+          },
+          "elem_features_list": {
+            "shape": [
+              38966,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -17.56290705498699,
+            "max": 0.9998658370050358
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/F_S_WWC_WM/0515.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19196,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              38320,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19195.0
+          },
+          "features_list": {
+            "shape": [
+              19196,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -14.07255614140738,
+            "max": 0.9920450404412829
+          },
+          "elem_features_list": {
+            "shape": [
+              38320,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -25.692006033257453,
+            "max": 0.9999864217875762
+          }
+        }
+      }
+    ],
+    "F_S_WWS_WM": [
+      {
+        "path": "DrivAerNet/F_S_WWS_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              20949,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              41902,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 20948.0
+          },
+          "features_list": {
+            "shape": [
+              20949,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -14.791340803165854,
+            "max": 0.9977173414143984
+          },
+          "elem_features_list": {
+            "shape": [
+              41902,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -25.73142711550003,
+            "max": 0.999992005180996
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/F_S_WWS_WM/0515.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              20762,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              41524,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 20761.0
+          },
+          "features_list": {
+            "shape": [
+              20762,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -12.52614555421565,
+            "max": 0.9957988298569308
+          },
+          "elem_features_list": {
+            "shape": [
+              41524,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -19.26020419262651,
+            "max": 0.9999971869241729
+          }
+        }
+      }
+    ],
+    "N_S_WW_WM": [
+      {
+        "path": "DrivAerNet/N_S_WW_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              20749,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              41491,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 20748.0
+          },
+          "features_list": {
+            "shape": [
+              20749,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -12.39915158076325,
+            "max": 0.997536510232848
+          },
+          "elem_features_list": {
+            "shape": [
+              41491,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -16.917553333383356,
+            "max": 0.9997628041043319
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/N_S_WW_WM/0515.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19512,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              39018,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19511.0
+          },
+          "features_list": {
+            "shape": [
+              19512,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -12.361519175046281,
+            "max": 0.9944677791419737
+          },
+          "elem_features_list": {
+            "shape": [
+              39018,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -18.86933259420908,
+            "max": 0.9999825794846983
+          }
+        }
+      }
+    ],
+    "N_S_WWC_WM": [
+      {
+        "path": "DrivAerNet/N_S_WWC_WM/0328.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              19307,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              38542,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 19306.0
+          },
+          "features_list": {
+            "shape": [
+              19307,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -11.545904126017613,
+            "max": 0.993477864806447
+          },
+          "elem_features_list": {
+            "shape": [
+              38542,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -16.65744198035276,
+            "max": 0.9998736148934722
+          }
+        }
+      },
+      {
+        "path": "DrivAerNet/N_S_WWC_WM/0281.npz",
+        "required_fields_present": true,
+        "arrays": {
+          "nodes_list": {
+            "shape": [
+              21016,
+              3
+            ],
+            "dtype": "float32",
+            "finite": true,
+            "min": -1.0,
+            "max": 1.0
+          },
+          "elems_list": {
+            "shape": [
+              41951,
+              4
+            ],
+            "dtype": "int64",
+            "finite": true,
+            "min": 0.0,
+            "max": 21015.0
+          },
+          "features_list": {
+            "shape": [
+              21016,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -12.065917508134286,
+            "max": 0.9899466354148178
+          },
+          "elem_features_list": {
+            "shape": [
+              41951,
+              1
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "min": -19.84260483268148,
+            "max": 0.9998755753967511
+          }
+        }
+      }
+    ]
+  },
+  "target_scope": "single-channel vehicle surface node/element field"
+}

@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "model": "no_adapter",
+  "scope": "100-vehicle single-channel surface-field reconstruction",
+  "seed": 42,
+  "samples": 100,
+  "train_samples": 80,
+  "validation_samples": 10,
+  "test_samples": 10,
+  "points_per_vehicle": 4096,
+  "knn_k": 12,
+  "epochs_completed": 100,
+  "best_validation_normalized_mse": 0.11636460572481155,
+  "test_normalized_mse": 0.14553359672427177,
+  "train_seconds_this_invocation": 2827.6468348503113,
+  "peak_memory_mib": 103.7568359375,
+  "parameters": 195345,
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "protocol": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 1e-06,
+    "amp": true,
+    "gradient_clip": 1.0,
+    "patience": 15
+  },
+  "note": "no_adapter uses the RAPTOR wrapper with its local adapter disabled; it audits the exact Transolver-style backbone independently."
+}

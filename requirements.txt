@@ -1,0 +1,9 @@
+matplotlib>=3.8
+numpy>=1.26
+PyYAML>=6.0
+pytest>=8.0
+scipy>=1.11
+
+# Install a CUDA-enabled PyTorch build separately for the local CUDA version.
+# AirfRANS must also be installed or available from the official source tree.
+

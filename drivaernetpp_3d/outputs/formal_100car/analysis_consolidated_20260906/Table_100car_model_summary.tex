@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Vehicle-level accuracy and resource statistics for the 100-car experiment. The confidence intervals are 95\% vehicle-level bootstrap intervals for the mean normalized MSE.}
+\label{tab:car_summary}
+\small
+\begin{tabular}{clccccrrr}
+\toprule
+Rank & Model & Mean & Median & SD & 95\% CI & Params. & Memory & Time \\
+ & & & & & & & (MiB) & (min) \\
+\midrule
+1 & \textbf{RAPTOR} & 0.1357 & 0.1109 & 0.0558 & [0.1099, 0.1730] & 245,525 & 117.8 & 55.3 \\
+2 & Transolver-Tiny & 0.1455 & 0.1175 & 0.0564 & [0.1163, 0.1819] & 195,345 & 103.8 & 40.5 \\
+2 & RAPTOR w/o adapter & 0.1455 & 0.1175 & 0.0564 & [0.1161, 0.1819] & 195,345 & 103.8 & 47.1 \\
+4 & PointNet & 0.4863 & 0.4365 & 0.0971 & [0.4322, 0.5458] & 21,057 & 23.9 & 49.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

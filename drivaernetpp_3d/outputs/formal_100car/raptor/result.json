@@ -1,0 +1,28 @@
+{
+  "status": "complete",
+  "model": "raptor",
+  "scope": "100-vehicle single-channel surface-field reconstruction",
+  "seed": 42,
+  "samples": 100,
+  "train_samples": 80,
+  "validation_samples": 10,
+  "test_samples": 10,
+  "points_per_vehicle": 4096,
+  "knn_k": 12,
+  "epochs_completed": 100,
+  "best_validation_normalized_mse": 0.11969734132289886,
+  "test_normalized_mse": 0.13568356931209563,
+  "train_seconds_this_invocation": 3317.1882798671722,
+  "peak_memory_mib": 117.76904296875,
+  "parameters": 245525,
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "protocol": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 1e-06,
+    "amp": true,
+    "gradient_clip": 1.0,
+    "patience": 15
+  },
+  "note": ""
+}

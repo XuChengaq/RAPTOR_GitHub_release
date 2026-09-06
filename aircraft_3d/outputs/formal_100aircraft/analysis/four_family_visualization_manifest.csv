@@ -1,0 +1,5 @@
+family,sample,test_index,nodes,triangles,transolver_tiny_normalized_mse,raptor_normalized_mse,raptor_improvement_percent,selection_rule
+J-20,Plane/J20/0037.npz,0,26768,53536,0.7629244,0.7150293,6.2778,closest to within-family median paired improvement
+P180,Plane/P180/0747.npz,2,23974,47936,0.1875787,0.2008434,-7.0715,closest to within-family median paired improvement
+Boeing 737,Plane/boeing737/0648.npz,6,27192,54371,1.3861819,1.1499671,17.0407,closest to within-family median paired improvement
+ERJ,Plane/erj/0695.npz,8,20585,41162,0.1200628,0.1100475,8.3417,closest to within-family median paired improvement

@@ -1,0 +1,15 @@
+{
+  "archive": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\DrivAerNetPP_100\\mixed_3d.zip",
+  "output": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\aircraft_3d\\outputs\\formal_100aircraft",
+  "points": 4096,
+  "knn": 12,
+  "epochs": 100,
+  "patience": 15,
+  "seed": 42,
+  "lr": 0.001,
+  "weight_decay": 1e-06,
+  "models": [
+    "transolver_tiny",
+    "raptor"
+  ]
+}

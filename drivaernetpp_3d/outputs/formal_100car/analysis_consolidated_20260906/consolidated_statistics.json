@@ -1,0 +1,109 @@
+{
+  "protocol": "100 cars; fixed 80/10/10 split; 4096 nodes; seed 42",
+  "statistical_unit": "held-out vehicle (n=10)",
+  "model_summary": {
+    "raptor": {
+      "rank": 1,
+      "mean": 0.1356835663318634,
+      "median": 0.11090003699064255,
+      "std": 0.05581959709525108,
+      "q1": 0.1056966707110405,
+      "q3": 0.14401349425315857,
+      "ci95": [
+        0.10993263367563486,
+        0.1729745201766491
+      ],
+      "parameters": 245525,
+      "peak_memory_mib": 117.76904296875,
+      "train_minutes": 55.286471331119536,
+      "best_val_mse": 0.11969734132289886
+    },
+    "transolver_tiny": {
+      "rank": 2,
+      "mean": 0.14553359150886536,
+      "median": 0.11747455596923828,
+      "std": 0.05643250048160553,
+      "q1": 0.10941766947507858,
+      "q3": 0.17314259707927704,
+      "ci95": [
+        0.11631207019090653,
+        0.1818611524999142
+      ],
+      "parameters": 195345,
+      "peak_memory_mib": 103.7568359375,
+      "train_minutes": 40.48219400246938,
+      "best_val_mse": 0.11636460572481155
+    },
+    "no_adapter": {
+      "rank": 2,
+      "mean": 0.14553359150886536,
+      "median": 0.11747455596923828,
+      "std": 0.05643250048160553,
+      "q1": 0.10941766947507858,
+      "q3": 0.17314259707927704,
+      "ci95": [
+        0.1161248829215765,
+        0.18194751478731633
+      ],
+      "parameters": 195345,
+      "peak_memory_mib": 103.7568359375,
+      "train_minutes": 47.12744724750519,
+      "best_val_mse": 0.11636460572481155
+    },
+    "pointnet": {
+      "rank": 4,
+      "mean": 0.4863092303276062,
+      "median": 0.4364798069000244,
+      "std": 0.09706226736307144,
+      "q1": 0.4157043695449829,
+      "q3": 0.5521552562713623,
+      "ci95": [
+        0.43223891481757165,
+        0.5458419471979141
+      ],
+      "parameters": 21057,
+      "peak_memory_mib": 23.94873046875,
+      "train_minutes": 48.95860116879145,
+      "best_val_mse": 0.46979870498180387
+    }
+  },
+  "paired_raptor_comparisons": {
+    "pointnet": {
+      "mean_improvement_percent": 71.85581970214844,
+      "median_improvement_percent": 75.95653533935547,
+      "ci95": [
+        64.99121608734131,
+        76.9236831665039
+      ],
+      "wins": 10,
+      "losses": 0,
+      "ties": 0,
+      "wilcoxon_one_sided_p": 0.0009765625
+    },
+    "transolver_tiny": {
+      "mean_improvement_percent": 6.161978721618652,
+      "median_improvement_percent": 4.806544780731201,
+      "ci95": [
+        0.5840969711542132,
+        12.517416024208073
+      ],
+      "wins": 7,
+      "losses": 3,
+      "ties": 0,
+      "wilcoxon_one_sided_p": 0.0322265625
+    },
+    "no_adapter": {
+      "mean_improvement_percent": 6.161978721618652,
+      "median_improvement_percent": 4.806544780731201,
+      "ci95": [
+        0.5213120162487032,
+        12.473786711692812
+      ],
+      "wins": 7,
+      "losses": 3,
+      "ties": 0,
+      "wilcoxon_one_sided_p": 0.0322265625
+    }
+  },
+  "figure": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\drivaernetpp_3d\\outputs\\formal_100car\\analysis_consolidated_20260906\\Figure_100car_consolidated_statistics.png"
+}

@@ -1,0 +1,56 @@
+{
+  "device": "cuda",
+  "ranking_metric": "four-variable macro relative L2",
+  "tasks": [
+    {
+      "task": "reynolds",
+      "test_index": 27,
+      "top3": [
+        {
+          "rank": 1,
+          "model": "RAPTOR",
+          "macro_rel_l2": 0.22192386427601096,
+          "sample_pressure_rel_l2": 0.1822195202112198
+        },
+        {
+          "rank": 2,
+          "model": "Transolver-Tiny",
+          "macro_rel_l2": 0.22796333861601653,
+          "sample_pressure_rel_l2": 0.34446170926094055
+        },
+        {
+          "rank": 3,
+          "model": "PointNet",
+          "macro_rel_l2": 0.2609582133591175,
+          "sample_pressure_rel_l2": 0.3178335130214691
+        }
+      ]
+    },
+    {
+      "task": "aoa",
+      "test_index": 119,
+      "top3": [
+        {
+          "rank": 1,
+          "model": "RAPTOR",
+          "macro_rel_l2": 0.2969246998069695,
+          "sample_pressure_rel_l2": 0.05200796201825142
+        },
+        {
+          "rank": 2,
+          "model": "LinearNO-Tiny",
+          "macro_rel_l2": 0.2980174682644763,
+          "sample_pressure_rel_l2": 0.09228622168302536
+        },
+        {
+          "rank": 3,
+          "model": "Transolver-Tiny",
+          "macro_rel_l2": 0.3137734808088345,
+          "sample_pressure_rel_l2": 0.10354577004909515
+        }
+      ]
+    }
+  ],
+  "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_top3_macro_pressure_2x3.png",
+  "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_top3_macro_pressure_2x3.pdf"
+}

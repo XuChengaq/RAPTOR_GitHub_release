@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{Paired vehicle-level comparison of RAPTOR with the baselines. Positive improvement denotes a lower normalized MSE for RAPTOR.}
+\label{tab:car_paired}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Reference & Mean improvement & 95\% CI & W/L/T & $p$ \\
+\midrule
+PointNet & 71.86\% & [64.99, 76.92]\% & 10/0/0 & 0.0010 \\
+Transolver-Tiny & 6.16\% & [0.58, 12.52]\% & 7/3/0 & 0.0322 \\
+RAPTOR w/o adapter & 6.16\% & [0.52, 12.47]\% & 7/3/0 & 0.0322 \\
+\bottomrule
+\end{tabular}
+\end{table}

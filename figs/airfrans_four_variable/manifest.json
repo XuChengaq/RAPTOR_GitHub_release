@@ -1,0 +1,48 @@
+{
+  "selection_rule": "sample paired improvement closest to the formal task-level aggregate improvement",
+  "device": "cuda",
+  "tasks": {
+    "reynolds": {
+      "index": 27,
+      "sample_transolver_errors": [
+        0.16849048414676243,
+        0.20523447220757388,
+        0.3444616948462078,
+        0.16354449409762145
+      ],
+      "sample_raptor_errors": [
+        0.1691634496444228,
+        0.27615067096319407,
+        0.18221949980515498,
+        0.22967835512859405
+      ],
+      "sample_paired_improvement_percent": 2.7807988736190445,
+      "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_four_variable\\Figure_AirfRANS_reynolds_four_variable.png",
+      "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_four_variable\\Figure_AirfRANS_reynolds_four_variable.pdf",
+      "aggregate_raptor_macro": 0.22192386427601096,
+      "aggregate_transolver_macro": 0.22796333861601653
+    },
+    "aoa": {
+      "index": 119,
+      "sample_transolver_errors": [
+        0.11260654633410387,
+        0.10987507608921393,
+        0.10354576702149583,
+        0.1274209682862839
+      ],
+      "sample_raptor_errors": [
+        0.08141515439687505,
+        0.1235485677378456,
+        0.05200795997590288,
+        0.17201890399795233
+      ],
+      "sample_paired_improvement_percent": 5.393728129240593,
+      "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_four_variable\\Figure_AirfRANS_aoa_four_variable.png",
+      "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_four_variable\\Figure_AirfRANS_aoa_four_variable.pdf",
+      "aggregate_raptor_macro": 0.2969246998069695,
+      "aggregate_transolver_macro": 0.3137734808088345
+    }
+  },
+  "summary_png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_four_variable\\Figure_AirfRANS_four_variable_quantitative_summary.png",
+  "summary_pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_four_variable\\Figure_AirfRANS_four_variable_quantitative_summary.pdf"
+}

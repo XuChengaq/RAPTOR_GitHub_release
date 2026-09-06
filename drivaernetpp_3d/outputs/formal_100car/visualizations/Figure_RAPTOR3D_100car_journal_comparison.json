@@ -1,0 +1,21 @@
+{
+  "sample_index_within_test_split": 1,
+  "field_scale_1_99_percent": [
+    -6.131282329559326,
+    0.9715135681629178
+  ],
+  "error_scale_99_percent": 3.369722843170166,
+  "sample_normalized_mse": {
+    "pointnet": 0.6048992872238159,
+    "transolver_tiny": 0.17974993586540222,
+    "raptor": 0.12826788425445557,
+    "no_adapter": 0.17974993586540222
+  },
+  "overall_test_normalized_mse": {
+    "pointnet": 0.48630923926830294,
+    "transolver_tiny": 0.14553359672427177,
+    "raptor": 0.13568356931209563,
+    "no_adapter": 0.14553359672427177
+  },
+  "raptor_improvement_over_transolver_tiny_percent": 6.768215473185905
+}

@@ -1,0 +1,25 @@
+models: [transolver_plus_tiny, mono_tiny]
+tasks: [scarce]
+seeds: [42]
+data_root: ../AirfRANS_engineering_validation/data/AirfRANS/Dataset
+cache_dir: cache
+output_dir: outputs/modern_smoke
+train_simulations: 8
+test_simulations: 4
+validation_fraction: 0.25
+points_per_simulation: 512
+surface_fraction: 0.20
+token_count: 64
+knn_k: 12
+hidden_dim: 64
+depth: 2
+heads: 4
+slice_count: 16
+mono_modes: 16
+mono_layers: 1
+epochs: 2
+learning_rate: 0.001
+weight_decay: 0.000001
+amp: true
+patience: 2
+data_seed: 2026

@@ -1,0 +1,46 @@
+{
+  "device": "cuda",
+  "error_definition": "100*abs(pred-truth)/(p99(truth)-p1(truth))",
+  "tasks": [
+    {
+      "task": "reynolds",
+      "test_index": 27,
+      "error_color_limit_percent": 35.73207473754883,
+      "top2": [
+        {
+          "rank": 1,
+          "model": "RAPTOR",
+          "macro_rel_l2": 0.22192386427601096,
+          "sample_pressure_rel_l2": 0.1822195202112198
+        },
+        {
+          "rank": 2,
+          "model": "Transolver-Tiny",
+          "macro_rel_l2": 0.22796333861601653,
+          "sample_pressure_rel_l2": 0.34446170926094055
+        }
+      ]
+    },
+    {
+      "task": "aoa",
+      "test_index": 119,
+      "error_color_limit_percent": 8.605276107788086,
+      "top2": [
+        {
+          "rank": 1,
+          "model": "RAPTOR",
+          "macro_rel_l2": 0.2969246998069695,
+          "sample_pressure_rel_l2": 0.05200796201825142
+        },
+        {
+          "rank": 2,
+          "model": "LinearNO-Tiny",
+          "macro_rel_l2": 0.2980174682644763,
+          "sample_pressure_rel_l2": 0.09228622168302536
+        }
+      ]
+    }
+  ],
+  "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_truth_top2_pressure_error_2x3.png",
+  "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_truth_top2_pressure_error_2x3.pdf"
+}

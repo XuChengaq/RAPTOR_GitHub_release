@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "model": "transolver_tiny",
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "loss": 1.1369065046310425,
+  "output_shape": [
+    1,
+    4096,
+    1
+  ]
+}

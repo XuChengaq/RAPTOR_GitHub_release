@@ -1,0 +1,63 @@
+{
+  "overall": {
+    "test_samples": 10,
+    "transolver_tiny_mean_normalized_mse": 0.8435956835746765,
+    "raptor_mean_normalized_mse": 0.7713310718536377,
+    "overall_mse_improvement_percent": 8.566261436381785,
+    "mean_vehicle_paired_improvement_percent": 3.8084864616394043,
+    "median_vehicle_paired_improvement_percent": 3.456364631652832,
+    "raptor_wins": 6,
+    "raptor_losses": 4,
+    "all_families_improved_by_mean_mse": false
+  },
+  "by_family": [
+    {
+      "family": "J20",
+      "test_samples": 2,
+      "transolver_tiny_mean_normalized_mse": 0.6878165602684021,
+      "raptor_mean_normalized_mse": 0.6619240045547485,
+      "family_mean_mse_improvement_percent": 3.764456573065017,
+      "mean_vehicle_paired_improvement_percent": 3.456364631652832,
+      "absolute_error_reduction_sum": 0.051785171031951904,
+      "share_of_overall_error_reduction_percent": 7.166039013837506,
+      "raptor_wins": 2,
+      "raptor_losses": 0
+    },
+    {
+      "family": "P180",
+      "test_samples": 2,
+      "transolver_tiny_mean_normalized_mse": 0.18243902921676636,
+      "raptor_mean_normalized_mse": 0.197882279753685,
+      "family_mean_mse_improvement_percent": -8.464883091747666,
+      "mean_vehicle_paired_improvement_percent": -8.505274772644043,
+      "absolute_error_reduction_sum": -0.03088650107383728,
+      "share_of_overall_error_reduction_percent": -4.274078221340372,
+      "raptor_wins": 0,
+      "raptor_losses": 2
+    },
+    {
+      "family": "boeing737",
+      "test_samples": 3,
+      "transolver_tiny_mean_normalized_mse": 2.1145918369293213,
+      "raptor_mean_normalized_mse": 1.888884425163269,
+      "family_mean_mse_improvement_percent": 10.673805120415603,
+      "mean_vehicle_paired_improvement_percent": 8.940817832946777,
+      "absolute_error_reduction_sum": 0.6771230697631836,
+      "share_of_overall_error_reduction_percent": 93.70038253032867,
+      "raptor_wins": 2,
+      "raptor_losses": 1
+    },
+    {
+      "family": "erj",
+      "test_samples": 3,
+      "transolver_tiny_mean_normalized_mse": 0.11722346395254135,
+      "raptor_mean_normalized_mse": 0.10901502519845963,
+      "family_mean_mse_improvement_percent": 7.002385424649252,
+      "mean_vehicle_paired_improvement_percent": 7.120077133178711,
+      "absolute_error_reduction_sum": 0.024625331163406372,
+      "share_of_overall_error_reduction_percent": 3.4076566771741947,
+      "raptor_wins": 2,
+      "raptor_losses": 1
+    }
+  ]
+}

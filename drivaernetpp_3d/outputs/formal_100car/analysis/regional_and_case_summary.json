@@ -1,0 +1,65 @@
+{
+  "region_definition": {
+    "Front": "lowest 20% of longitudinal x coordinates",
+    "Rear": "highest 20% of longitudinal x coordinates",
+    "Roof": "middle 60% in x and highest 30% in z",
+    "Lower / wheel zone": "middle 60% in x and lowest 25% in z",
+    "Side": "remaining middle-body nodes"
+  },
+  "mean_region_normalized_mse": {
+    "pointnet": {
+      "Front": 0.563034451007843,
+      "Roof": 0.4111596792936325,
+      "Side": 0.48644989132881167,
+      "Lower / wheel zone": 0.28358025997877123,
+      "Rear": 0.6486175954341888
+    },
+    "transolver_tiny": {
+      "Front": 0.0942939031869173,
+      "Roof": 0.220894505828619,
+      "Side": 0.1484043437987566,
+      "Lower / wheel zone": 0.09111366346478462,
+      "Rear": 0.1448816679418087
+    },
+    "raptor": {
+      "Front": 0.1137082576751709,
+      "Roof": 0.1721528261899948,
+      "Side": 0.1379838727414608,
+      "Lower / wheel zone": 0.08505439758300781,
+      "Rear": 0.14791568815708162
+    }
+  },
+  "raptor_improvement_over_transolver_tiny_percent": {
+    "Front": -20.58919382069574,
+    "Roof": 22.065591652352108,
+    "Side": 7.021675235750833,
+    "Lower / wheel zone": 6.6502274756175455,
+    "Rear": -2.094136724386355
+  },
+  "representative_cases": [
+    {
+      "type": "Largest RAPTOR gain",
+      "test_index": 1,
+      "source_member": "DrivAerNet/F_S_WWC_WM/0241.npz",
+      "raptor_improvement_percent": 28.640928268432617,
+      "transolver_mse": 0.17974993586540222,
+      "raptor_mse": 0.12826788425445557
+    },
+    {
+      "type": "Median RAPTOR gain",
+      "test_index": 9,
+      "source_member": "DrivAerNet/F_S_WWC_WM/0229.npz",
+      "raptor_improvement_percent": 6.071645736694336,
+      "transolver_mse": 0.10201215744018555,
+      "raptor_mse": 0.09581834077835083
+    },
+    {
+      "type": "RAPTOR regression case",
+      "test_index": 5,
+      "source_member": "DrivAerNet/N_S_WW_WM/0283.npz",
+      "raptor_improvement_percent": -9.513839721679688,
+      "transolver_mse": 0.09878913313150406,
+      "raptor_mse": 0.10818777233362198
+    }
+  ]
+}

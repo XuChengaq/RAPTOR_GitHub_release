@@ -1,0 +1,45 @@
+{
+  "device": "cuda",
+  "ranking_metric": "four-variable macro relative L2",
+  "layout": "ground truth plus top two models per task",
+  "tasks": [
+    {
+      "task": "reynolds",
+      "test_index": 27,
+      "top2": [
+        {
+          "rank": 1,
+          "model": "RAPTOR",
+          "macro_rel_l2": 0.22192386427601096,
+          "sample_pressure_rel_l2": 0.1822195202112198
+        },
+        {
+          "rank": 2,
+          "model": "Transolver-Tiny",
+          "macro_rel_l2": 0.22796333861601653,
+          "sample_pressure_rel_l2": 0.34446170926094055
+        }
+      ]
+    },
+    {
+      "task": "aoa",
+      "test_index": 119,
+      "top2": [
+        {
+          "rank": 1,
+          "model": "RAPTOR",
+          "macro_rel_l2": 0.2969246998069695,
+          "sample_pressure_rel_l2": 0.05200796201825142
+        },
+        {
+          "rank": 2,
+          "model": "LinearNO-Tiny",
+          "macro_rel_l2": 0.2980174682644763,
+          "sample_pressure_rel_l2": 0.09228622168302536
+        }
+      ]
+    }
+  ],
+  "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_truth_top2_macro_pressure_2x3.png",
+  "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_truth_top2_macro_pressure_2x3.pdf"
+}

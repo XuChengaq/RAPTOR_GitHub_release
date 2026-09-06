@@ -1,0 +1,47 @@
+# Python and test artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and IDE state
+.venv/
+venv/
+.idea/
+.vscode/
+*.code-workspace
+
+# Datasets, caches, checkpoints, and large prediction payloads
+cache/
+**/cache/
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+
+# Runtime logs and temporary build products
+logs/
+*.log
+*.stdout
+*.stderr
+.pptx_build/
+*.inspect.ndjson
+tmp_*
+
+# Smoke and intermediate outputs
+outputs/smoke/
+outputs/modern_smoke/
+outputs/transolver_plus_fixed_smoke/
+drivaernetpp_3d/outputs/small_trial/
+drivaernetpp_3d/outputs/small_trial_visual_retrain/
+
+# Raster duplicates; retain publication PDFs and compact numerical evidence
+**/outputs/**/*.png
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+

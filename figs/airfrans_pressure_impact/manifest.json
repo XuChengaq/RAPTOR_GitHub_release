@@ -1,0 +1,126 @@
+{
+  "device": "cuda",
+  "selection": "aggregate-matched representative case",
+  "figures": [
+    {
+      "task": "reynolds",
+      "test_index": 27,
+      "sample_pressure_errors": {
+        "MLP": 0.31115928292274475,
+        "GraphSAGE": 0.4399675130844116,
+        "PointNet": 0.3178335130214691,
+        "Graph U-Net": 0.2290063053369522,
+        "Sparse Token": 0.33986255526542664,
+        "Transolver-Tiny": 0.34446170926094055,
+        "Transolver++-Tiny": 0.48073264956474304,
+        "MoNo-Tiny": 0.3083495497703552,
+        "LinearNO-Tiny": 0.17388935387134552,
+        "RAPTOR": 0.1822195202112198
+      },
+      "aggregate_pressure_ranking": [
+        [
+          "MoNo-Tiny",
+          0.21502105849484235
+        ],
+        [
+          "RAPTOR",
+          0.2251490000727968
+        ],
+        [
+          "PointNet",
+          0.23380941152572632
+        ],
+        [
+          "LinearNO-Tiny",
+          0.236021106767477
+        ],
+        [
+          "Transolver-Tiny",
+          0.23659873040002077
+        ],
+        [
+          "Graph U-Net",
+          0.30220767855644226
+        ],
+        [
+          "Transolver++-Tiny",
+          0.34343973975149356
+        ],
+        [
+          "Sparse Token",
+          0.4034113883972168
+        ],
+        [
+          "MLP",
+          0.5578151345252991
+        ],
+        [
+          "GraphSAGE",
+          0.5654208064079285
+        ]
+      ],
+      "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_reynolds_pressure_all_models.png",
+      "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_reynolds_pressure_all_models.pdf"
+    },
+    {
+      "task": "aoa",
+      "test_index": 119,
+      "sample_pressure_errors": {
+        "MLP": 0.18464922904968262,
+        "GraphSAGE": 0.22279150784015656,
+        "PointNet": 0.147380530834198,
+        "Graph U-Net": 0.1807485967874527,
+        "Sparse Token": 0.15979142487049103,
+        "Transolver-Tiny": 0.10354577004909515,
+        "Transolver++-Tiny": 0.08430078625679016,
+        "MoNo-Tiny": 0.11656801402568817,
+        "LinearNO-Tiny": 0.09228622168302536,
+        "RAPTOR": 0.05200796201825142
+      },
+      "aggregate_pressure_ranking": [
+        [
+          "PointNet",
+          0.3257034122943878
+        ],
+        [
+          "RAPTOR",
+          0.3349721536142087
+        ],
+        [
+          "LinearNO-Tiny",
+          0.3512444544865064
+        ],
+        [
+          "MoNo-Tiny",
+          0.3541632795434787
+        ],
+        [
+          "Transolver-Tiny",
+          0.3731291023651539
+        ],
+        [
+          "Graph U-Net",
+          0.4029513895511627
+        ],
+        [
+          "Transolver++-Tiny",
+          0.4455777245249154
+        ],
+        [
+          "Sparse Token",
+          0.4575824737548828
+        ],
+        [
+          "GraphSAGE",
+          0.5534379482269287
+        ],
+        [
+          "MLP",
+          0.6697261333465576
+        ]
+      ],
+      "png": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_aoa_pressure_all_models.png",
+      "pdf": "C:\\Users\\cheng\\OneDrive\\Desktop\\cx\\RAPTOR\\figs\\airfrans_pressure_impact\\Figure_AirfRANS_aoa_pressure_all_models.pdf"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "source_member": "DrivAerNet/F_S_WWC_WM/0241.npz",
+  "sample_index_within_test_split": 1,
+  "vertices": 20529,
+  "triangular_faces": 40980,
+  "visualization_interpolation": "nearest neighbor from 4096 sampled nodes to full mesh",
+  "sample_normalized_mse_on_original_4096_nodes": {
+    "pointnet": 0.6048992872238159,
+    "transolver_tiny": 0.17974993586540222,
+    "raptor": 0.12826788425445557
+  }
+}

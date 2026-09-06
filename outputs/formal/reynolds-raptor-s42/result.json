@@ -1,0 +1,43 @@
+{
+  "rel_l2_ux": 0.1394728572667219,
+  "rel_l2_uy": 0.22917099595301435,
+  "rel_l2_p": 0.2251490000727968,
+  "rel_l2_nut": 0.2939026038115108,
+  "mse_ux": 45.22734451293945,
+  "mse_uy": 49.94192886352539,
+  "mse_p": 715498.625,
+  "mse_nut": 7.438751481458894e-07,
+  "macro_rel_l2": 0.22192386427601096,
+  "surface_pressure_mse": 1427969.375,
+  "inference_ms_per_sim": 8.968532999861054,
+  "peak_memory_mib": 118.5,
+  "model": "raptor",
+  "task": "reynolds",
+  "seed": 42,
+  "epochs": 100,
+  "best_validation_mse": 0.03449402684345841,
+  "train_seconds": 7852.403805017471,
+  "parameters": 245976,
+  "device": "cuda",
+  "hidden_dim": 64,
+  "depth": 4,
+  "heads": 4,
+  "slice_count": 64,
+  "knn_k": 12,
+  "adapter_scales": [
+    -0.30767086148262024,
+    -0.16820849478244781,
+    0.14076735079288483,
+    0.2553381323814392
+  ],
+  "connection_audit": {
+    "nodes": 4096,
+    "knn_connections_per_layer": 49152,
+    "point_to_slice_scores_per_layer": 262144,
+    "slice_attention_scores_per_layer": 4096,
+    "dense_node_connections_per_layer": 16777216,
+    "uses_dense_node_attention": false
+  },
+  "protocol": "matched_airfrans_formal_v1",
+  "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN resource adapters"
+}

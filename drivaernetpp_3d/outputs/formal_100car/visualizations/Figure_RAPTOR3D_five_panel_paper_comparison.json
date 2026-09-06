@@ -1,0 +1,10 @@
+{
+  "source_member": "DrivAerNet/F_S_WWC_WM/0229.npz",
+  "test_index": 9,
+  "selection": "median RAPTOR-gain case",
+  "vertices": 20291,
+  "triangular_faces": 40504,
+  "transolver_tiny_normalized_mse": 0.10201215744018555,
+  "raptor_normalized_mse": 0.09581834077835083,
+  "full_mesh_interpolation": "nearest neighbor from original 4096 sampled nodes"
+}
