@@ -121,9 +121,11 @@ def main() -> None:
         "pdf.fonttype": 42,
         "ps.fonttype": 42,
     })
-    fig = plt.figure(figsize=(19.2, 7.8), facecolor="white")
-    fig.subplots_adjust(left=0.025, right=0.975, top=0.875, bottom=0.145,
-                        wspace=0.005, hspace=0.15)
+    # A wide 2x6 plate is unavoidable, so maximize the useful 3-D area inside
+    # every panel instead of leaving Matplotlib's large default camera margin.
+    fig = plt.figure(figsize=(19.2, 6.7), facecolor="white")
+    fig.subplots_adjust(left=0.012, right=0.988, top=0.94, bottom=0.10,
+                        wspace=-0.03, hspace=-0.02)
     axes = np.asarray([
         [fig.add_subplot(2, 6, row * 6 + col + 1, projection="3d") for col in range(6)]
         for row in range(2)
@@ -147,8 +149,11 @@ def main() -> None:
                 case["faces"],
                 case["face_values"][key],
             )
+            # Enlarge the aircraft without changing its geometry or camera.
+            # ``zoom`` changes only the projection inside the subplot.
+            ax.set_box_aspect((2.25, 1.25, 0.55), zoom=1.20)
             if row_index == 0:
-                ax.set_title(f"({chr(97 + col)}) {title}", fontsize=10.8, pad=-3)
+                ax.set_title(f"({chr(97 + col)}) {title}", fontsize=10.5, pad=-7)
 
         axes[row_index, 0].text2D(
             0.01,
@@ -182,7 +187,7 @@ def main() -> None:
 
         # Compact row-specific legends preserve detail while maintaining fair
         # Transolver/RAPTOR comparisons within each aircraft.
-        y = 0.515 if row_index == 0 else 0.078
+        y = 0.500 if row_index == 0 else 0.045
         field_cax = fig.add_axes([0.205, y, 0.245, 0.014])
         error_cax = fig.add_axes([0.700, y, 0.245, 0.014])
         field_cb = fig.colorbar(
