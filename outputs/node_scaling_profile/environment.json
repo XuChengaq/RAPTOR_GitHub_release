@@ -1,0 +1,36 @@
+{
+  "timestamp_local": "2026-09-19 11:23:43 +0800",
+  "python": "3.12.13",
+  "python_executable": ".conda\\pt251cu121\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch": "2.5.1+cu121",
+  "torch_cuda_build": "12.1",
+  "cuda_available": true,
+  "numpy": "2.3.1",
+  "protocol": {
+    "nodes": [
+      1024,
+      2048,
+      4096,
+      8192,
+      16384
+    ],
+    "slices": 64,
+    "neighbors": 12,
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "batch_size": 1,
+    "amp_dtype": "float16",
+    "knn_in_model_timing": "precomputed deterministic indices",
+    "warmup": 10,
+    "measured_iterations": 30,
+    "knn_repeats": 10,
+    "knn_warmup": 1,
+    "knn_threads": 8
+  },
+  "scipy": "1.16.0",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "gpu_total_memory_mib": 6140.5,
+  "nvidia_smi": "596.58, NVIDIA GeForce RTX 4050 Laptop GPU, 6141"
+}

@@ -6,8 +6,17 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import Normalize
+from matplotlib.cm import ScalarMappable
+from matplotlib.colors import Normalize, PowerNorm
 from matplotlib.ticker import MaxNLocator
+
+from make_boeing737_high_quality import (
+    add_surface,
+    face_normals,
+    interpolate_to_full,
+    read_original_sample,
+    shaded_colors,
+)
 
 
 HERE = Path(__file__).resolve().parent
@@ -130,7 +139,6 @@ def plot_surface_comparison(manifest, predictions, errors, improvement, families
     family_order = list(manifest["families"])
     y_mean = float(predictions["raptor"]["y_mean"].reshape(-1)[0])
     y_std = float(predictions["raptor"]["y_std"].reshape(-1)[0])
-    y_true = predictions["raptor"]["y_true"] * y_std + y_mean
     pred_t = predictions["transolver_tiny"]["y_pred"] * y_std + y_mean
     pred_r = predictions["raptor"]["y_pred"] * y_std + y_mean
     xyz_all = predictions["raptor"]["x"]
@@ -142,52 +150,102 @@ def plot_surface_comparison(manifest, predictions, errors, improvement, families
         target = np.median(family_values)
         representatives.append(int(indices[np.argmin(np.abs(family_values - target))]))
 
-    fig = plt.figure(figsize=(16.5, 11.2), constrained_layout=True)
-    subfigs = fig.subfigures(len(family_order), 1, hspace=0.025)
-    column_titles = ("Ground truth", "Transolver-Tiny", "|Error|: Transolver", "RAPTOR", "|Error|: RAPTOR")
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans",
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
+    })
+    fig = plt.figure(figsize=(19.2, 13.6), facecolor="white")
+    grid = fig.add_gridspec(
+        len(family_order), 5,
+        left=0.035, right=0.987, top=0.890, bottom=0.035,
+        wspace=0.035, hspace=0.180,
+    )
+    column_titles = (
+        "Ground truth", "Transolver-Tiny", "|Error|: Transolver",
+        "RAPTOR", "|Error|: RAPTOR",
+    )
+    for col, title in enumerate(column_titles):
+        position = grid[0, col].get_position(fig)
+        fig.text(
+            (position.x0 + position.x1) / 2,
+            0.958,
+            title,
+            ha="center",
+            va="center",
+            fontsize=12.2,
+            fontweight="bold",
+        )
+
     for row_index, (family, sample_index) in enumerate(zip(family_order, representatives)):
-        subfig = subfigs[row_index]
-        axes = subfig.subplots(1, 5, subplot_kw={"projection": "3d"})
-        xyz = xyz_all[sample_index]
-        truth = y_true[sample_index, :, 0]
-        trans = pred_t[sample_index, :, 0]
-        raptor = pred_r[sample_index, :, 0]
+        sample = manifest["test"][sample_index]
+        nodes, faces, truth = read_original_sample(sample)
+        sampled_xyz = xyz_all[sample_index]
+        trans = interpolate_to_full(nodes, sampled_xyz, pred_t[sample_index, :, 0])
+        raptor = interpolate_to_full(nodes, sampled_xyz, pred_r[sample_index, :, 0])
+        normals = face_normals(nodes, faces)
+
         field_min, field_max = np.percentile(truth, [1, 99])
         error_t, error_r = np.abs(trans - truth), np.abs(raptor - truth)
-        error_max = max(np.percentile(error_t, 99), np.percentile(error_r, 99), 1e-8)
-        panels = (
-            (truth, "turbo", Normalize(field_min, field_max)),
-            (trans, "turbo", Normalize(field_min, field_max)),
-            (error_t, "magma", Normalize(0, error_max)),
-            (raptor, "turbo", Normalize(field_min, field_max)),
-            (error_r, "magma", Normalize(0, error_max)),
+        error_max = max(
+            float(np.percentile(error_t, 97.5)),
+            float(np.percentile(error_r, 97.5)),
+            1e-8,
         )
-        for col, (ax, (values, cmap, norm)) in enumerate(zip(axes, panels)):
-            scatter = ax.scatter(xyz[:, 0], xyz[:, 1], xyz[:, 2], c=values, cmap=cmap, norm=norm,
-                                 s=2.7, linewidths=0, rasterized=True)
-            equal_3d_axes(ax, xyz)
-            if row_index == 0:
-                ax.set_title(column_titles[col], fontsize=11, fontweight="semibold", pad=0)
+        field_norm = Normalize(field_min, field_max, clip=True)
+        error_norm = PowerNorm(gamma=0.45, vmin=0, vmax=error_max, clip=True)
+        panels = (
+            shaded_colors(truth[faces].mean(axis=1), field_norm, "turbo", normals),
+            shaded_colors(trans[faces].mean(axis=1), field_norm, "turbo", normals),
+            shaded_colors(error_t[faces].mean(axis=1), error_norm, "turbo", normals, 0.06),
+            shaded_colors(raptor[faces].mean(axis=1), field_norm, "turbo", normals),
+            shaded_colors(error_r[faces].mean(axis=1), error_norm, "turbo", normals, 0.06),
+        )
+        axes = [fig.add_subplot(grid[row_index, col], projection="3d") for col in range(5)]
+        for col, (ax, colors) in enumerate(zip(axes, panels)):
+            add_surface(ax, nodes, faces, colors)
+            ax.set_box_aspect((2.25, 1.25, 0.55), zoom=1.16)
             if col in (1, 3):
                 value = errors[MODELS[0] if col == 1 else MODELS[1]][sample_index]
-                ax.text2D(0.03, 0.02, f"MSE={value:.3f}", transform=ax.transAxes, fontsize=8,
-                          bbox=dict(facecolor="white", alpha=0.82, edgecolor="none", pad=2))
+                ax.text2D(
+                    0.03, 0.025, f"MSE = {value:.3f}",
+                    transform=ax.transAxes, fontsize=8.5,
+                    bbox=dict(
+                        boxstyle="round,pad=0.22", facecolor="white",
+                        alpha=0.90, edgecolor="#78909c",
+                    ),
+                )
             if col in (2, 4):
-                cb = subfig.colorbar(scatter, ax=ax, fraction=0.035, pad=-0.01, shrink=0.58)
-                cb.ax.tick_params(labelsize=6, width=0.5)
-        sample_name = Path(manifest["test"][sample_index]).stem
-        subfig.suptitle(
-            f"{family}  |  sample {sample_name}  |  RAPTOR paired improvement {improvement[sample_index]:+.1f}%",
-            x=0.005, y=0.93, ha="left", fontsize=10.5, fontweight="bold",
+                cb = fig.colorbar(
+                    ScalarMappable(norm=error_norm, cmap="turbo"),
+                    ax=ax, fraction=0.030, pad=0.005, shrink=0.68,
+                )
+                cb.ax.tick_params(labelsize=6.8, width=0.5)
+
+        sample_name = Path(sample).stem
+        row_position = grid[row_index, 0].get_position(fig)
+        fig.text(
+            row_position.x0,
+            row_position.y1 + 0.010,
+            f"{family}  |  sample {sample_name}  |  "
+            f"RAPTOR paired improvement {improvement[sample_index]:+.1f}%",
+            ha="left",
+            va="bottom",
+            fontsize=10.8,
+            fontweight="bold",
         )
 
 # =============================================================================
 #     fig.suptitle("Aircraft surface-field reconstruction: ground truth, predictions, and absolute errors",
 #                  fontsize=15, fontweight="bold")
 # =============================================================================
+    stem = "aircraft_truth_prediction_error_high_quality"
     for suffix in ("png", "pdf"):
-        fig.savefig(ANALYSIS / f"aircraft_truth_prediction_error.{suffix}", dpi=400 if suffix == "png" else 300,
-                    bbox_inches="tight", facecolor="white")
+        fig.savefig(
+            ANALYSIS / f"{stem}.{suffix}",
+            dpi=500 if suffix == "png" else 300,
+            facecolor="white",
+        )
     plt.close(fig)
 
 

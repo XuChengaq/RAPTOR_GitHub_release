@@ -29,7 +29,7 @@ read from saved JSON/CSV files rather than reconstructed from plot labels.
 
 ### RAPTOR results
 
-| Task | ux | uy | p | turbulent viscosity | Macro relative L2 |
+| Task | ux | uy | p/rho | turbulent viscosity | Macro relative L2 |
 |---|---:|---:|---:|---:|---:|
 | Reynolds | 0.1395 | 0.2292 | 0.2251 | 0.2939 | **0.2219** |
 | AoA | 0.1510 | 0.2189 | 0.3350 | 0.4828 | **0.2969** |
@@ -44,29 +44,33 @@ Primary evidence:
 
 | Variant | Reynolds macro error | AoA macro error |
 |---|---:|---:|
-| Without local adapter | 0.2432 | 0.3138 |
+| Without local adapter | 0.2280 | 0.3138 |
 | Nonzero gate initialization, alpha=0.1 | 0.2456 | 0.3222 |
 | RAPTOR, zero initialization | **0.2219** | **0.2969** |
 
-The ablation supports the empirical contribution of the local adapter and zero
-initialization under the evaluated protocol. It is not a universal optimization
-guarantee.
+The Reynolds no-adapter value is the independently trained Transolver-Tiny
+backbone reported in the main comparison and is not treated as a seed-matched
+paired ablation. The AoA no-adapter checkpoint is matched. The zero-versus-
+nonzero initialization comparison supports the baseline-preserving design
+under the evaluated protocol, but it is not a universal optimization guarantee.
 
 ## 3. Three-dimensional automobile experiment
 
-The formal benchmark selects 100 automobile surfaces, uses a deterministic
-80/10/10 split, samples 4,096 nodes per vehicle, and predicts one normalized
-surface-field channel. It is a surface reconstruction experiment rather than a
-complete volumetric-flow reconstruction.
+The formal benchmark selects 100 automobile surfaces from Mixed-3D, uses a
+deterministic 80/10/10 split, samples 4,096 nodes per vehicle, and predicts the
+standardized surface pressure coefficient $C_p$. The automobile geometries are
+derived from DrivAerNet++; Mixed-3D provides the panel-method target at
+$\mathbf{v}_\infty=[1,0,0]$. This is a surface reconstruction experiment rather
+than a complete volumetric-flow reconstruction.
 
-| Model | Mean test MSE | Parameters | Peak memory (MiB) |
+| Model | Mean test sMSE | Parameters | Peak memory (MiB) |
 |---|---:|---:|---:|
 | PointNet | 0.4863 | 21,057 | 23.95 |
-| Transolver-Tiny | 0.1455 | 195,345 | 103.76 |
-| RAPTOR without adapter | 0.1455 | 195,345 | 103.76 |
-| RAPTOR | **0.1357** | 245,525 | 117.77 |
+| Transolver-Tiny | 0.145534 | 195,345 | 103.76 |
+| RAPTOR without adapter | 0.145534 | 195,345 | 103.76 |
+| RAPTOR | **0.135684** | 245,525 | 117.77 |
 
-RAPTOR reduces mean test MSE by 6.77% relative to Transolver-Tiny. Regional
+RAPTOR reduces mean test sMSE by 6.77% relative to Transolver-Tiny. Regional
 analysis shows spatially nonuniform gains, motivating adaptive local gating
 rather than a claim of universal regional superiority.
 
@@ -78,16 +82,17 @@ Primary evidence and scripts:
 - `drivaernetpp_3d/consolidate_100car_analysis.py`
 - `drivaernetpp_3d/outputs/formal_100car/analysis_consolidated_20260906/`
 
-## 4. Three-dimensional aircraft transfer experiment
+## 4. Three-dimensional aircraft geometry evaluation
 
-The experiment uses a stratified set of 100 aircraft drawn from J-20, P180,
-Boeing 737, and ERJ families. The split is 80/10/10; both models use the same
-4,096 points, 12-NN graph, seed, and optimization protocol.
+The experiment uses a stratified set of 100 OpenVSP-derived aircraft from the
+Mixed-3D J-20, P180, Boeing 737, and ERJ families. The split is 80/10/10; both
+models use the same 4,096 sampled points, seed, and optimization protocol. The
+target is the standardized panel-method surface pressure coefficient $C_p$.
 
-| Model | Mean test normalized MSE | Parameters | Peak memory (MiB) |
+| Model | Mean test sMSE | Parameters | Peak memory (MiB) |
 |---|---:|---:|---:|
-| Transolver-Tiny | 0.8436 | 195,345 | 103.76 |
-| RAPTOR | **0.7713** | 245,525 | 117.77 |
+| Transolver-Tiny | 0.843596 | 195,345 | 103.76 |
+| RAPTOR | **0.771331** | 245,525 | 117.77 |
 
 The overall reduction is 8.57%. RAPTOR wins on 6/10 test aircraft. Family mean
 changes are +3.76% for J-20, -8.46% for P180, +10.67% for Boeing 737, and
@@ -103,7 +108,28 @@ Primary evidence and scripts:
 - `aircraft_3d/outputs/formal_100aircraft/analysis/summary.json`
 - `aircraft_3d/outputs/formal_100aircraft/analysis/per_aircraft_metrics.csv`
 
-## 5. Tests
+## 5. Empirical node-scaling profile
+
+The isolated profile fixes $S=64$, $K=12$, $d=64$, $L=4$, and batch size one.
+Model execution uses 10 warm-up and 30 measured CUDA iterations. Exact CPU
+`torch.cdist + topk` KNN construction is timed separately with one warm-up and
+10 measured runs.
+
+At $N=16{,}384$, RAPTOR completes a mixed-precision training step in
+$66.99\pm1.07$ ms with 410.31 MiB peak allocated GPU memory. Explicit dense
+attention reaches an 8,274.59 MiB CUDA allocation and
+$12.51\pm0.35$ s per training step at $N=8{,}192$ through WDDM shared-memory
+spillover; $N=16{,}384$ was not attempted. The exact KNN distance matrix grows
+from 4 MiB at $N=1{,}024$ to 1,024 MiB at $N=16{,}384$.
+
+Primary evidence and script:
+
+- `scripts/profile_node_scaling.py`
+- `outputs/node_scaling_profile/node_scaling_results.csv`
+- `outputs/node_scaling_profile/knn_scaling_results.csv`
+- `outputs/node_scaling_profile/environment.json`
+
+## 6. Tests
 
 - `tests/test_model.py`: model shapes, gradients, gates, and equivalence checks.
 - `tests/test_modern_baselines.py`: matched modern-baseline checks.
@@ -116,7 +142,7 @@ python -m pytest -q tests drivaernetpp_3d/test_formal_100car.py aircraft_3d/test
 
 Formal training additionally requires CUDA and the original datasets.
 
-## 6. Reproducibility boundaries
+## 7. Reproducibility boundaries
 
 - Raw datasets are excluded because they are large and governed by their source
   distribution terms.
@@ -126,4 +152,6 @@ Formal training additionally requires CUDA and the original datasets.
   errors are computed on the matched sampled nodes.
 - Evidence uses one random seed and controlled 3D subsets; broader multi-seed
   and full-dataset studies remain future work.
+- The node-scaling results characterize one hardware/software configuration
+  and do not establish hardware-independent speed superiority.
 

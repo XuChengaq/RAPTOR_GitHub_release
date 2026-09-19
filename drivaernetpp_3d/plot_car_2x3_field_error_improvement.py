@@ -60,8 +60,8 @@ def main() -> None:
                           wspace=.005, hspace=.13)
     titles = [
         "(a) Ground truth", "(b) Transolver-Tiny", "(c) RAPTOR",
-        f"(d) Transolver-Tiny |error|\nMSE = {trans_mse:.3f}",
-        f"(e) RAPTOR |error|\nMSE = {raptor_mse:.3f}",
+        f"(d) Transolver-Tiny |error|\nsMSE = {trans_mse:.3f}",
+        f"(e) RAPTOR |error|\nsMSE = {raptor_mse:.3f}",
         f"(f) RAPTOR local improvement\nrepresentative gain = {gain:.2f}%",
     ]
     cmaps = ["turbo", "turbo", "turbo", "magma", "magma", "RdYlGn"]

@@ -16,6 +16,10 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from scipy.spatial import cKDTree
 
 
+plt.rcParams["pdf.fonttype"] = 42
+plt.rcParams["ps.fonttype"] = 42
+
+
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parent
 sys.path.insert(0, str(PROJECT / "drivaernetpp_3d"))
@@ -170,14 +174,16 @@ def main() -> None:
         add_surface(ax, nodes, faces, colors)
         ax.set_title(title, fontsize=11.5, fontweight="bold", pad=-4)
 
-    axes[2].text2D(0.04, 0.03, f"Normalized MSE = {mse_t:.3f}", transform=axes[2].transAxes,
+    axes[2].text2D(0.04, 0.03, f"sMSE = {mse_t:.3f}", transform=axes[2].transAxes,
                    fontsize=9, bbox=dict(boxstyle="round,pad=0.25", facecolor="white", alpha=0.88,
                                         edgecolor="#78909c"))
     improvement = 100.0 * (mse_t - mse_r) / mse_t
-    axes[4].text2D(0.04, 0.03, f"Normalized MSE = {mse_r:.3f}  ({improvement:+.1f}%)",
+    gain_color = "#16837a" if improvement >= 0 else "#c74440"
+    gain_fill = "#e5f6f3" if improvement >= 0 else "#fdecea"
+    axes[4].text2D(0.04, 0.03, f"sMSE = {mse_r:.3f}  ({improvement:+.1f}%)",
                    transform=axes[4].transAxes, fontsize=9,
-                   bbox=dict(boxstyle="round,pad=0.25", facecolor="#e5f6f3", alpha=0.92,
-                             edgecolor="#16837a"))
+                   bbox=dict(boxstyle="round,pad=0.25", facecolor=gain_fill, alpha=0.92,
+                             edgecolor=gain_color), color=gain_color)
 
     field_map = ScalarMappable(norm=field_norm, cmap="turbo")
     error_map = ScalarMappable(norm=error_norm, cmap="turbo")
@@ -193,11 +199,13 @@ def main() -> None:
         colorbar.ax.tick_params(labelsize=8, width=0.6)
 
     sample_id = Path(args.sample).stem
-    fig.suptitle(f"{args.display_name} surface-field reconstruction on test sample {sample_id}",
-                 fontsize=16, fontweight="bold")
-    fig.text(0.5, 0.012,
-             "Original 27,192-node / 54,371-triangle surface; predictions interpolated from the matched 4,096-point protocol.",
-             ha="center", fontsize=8.5, color="#455a64")
+# =============================================================================
+#     fig.suptitle(f"{args.display_name} surface-field reconstruction on test sample {sample_id}",
+#                  fontsize=16, fontweight="bold")
+#     fig.text(0.5, 0.012,
+#              "Original 27,192-node / 54,371-triangle surface; predictions interpolated from the matched 4,096-point protocol.",
+#              ha="center", fontsize=8.5, color="#455a64")
+# =============================================================================
     for suffix in ("png", "pdf"):
         fig.savefig(ANALYSIS / f"{args.slug}_{sample_id}_high_quality.{suffix}",
                     dpi=500 if suffix == "png" else 300, bbox_inches="tight", facecolor="white")

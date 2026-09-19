@@ -1,0 +1,15 @@
+{
+  "model": "raptor",
+  "model_label": "RAPTOR",
+  "nodes": 2048,
+  "phase": "forward",
+  "status": "ok",
+  "latency_ms_mean": 14.3078400293986,
+  "latency_ms_std": 3.5046049525582292,
+  "latency_ms_p50": 15.07532787322998,
+  "latency_ms_p95": 18.32995843887329,
+  "peak_allocated_mib": 16.9228515625,
+  "peak_reserved_mib": 26.0,
+  "parameters": 245525,
+  "error": null
+}

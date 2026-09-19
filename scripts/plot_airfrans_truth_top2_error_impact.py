@@ -1,4 +1,4 @@
-"""High-contrast 2x3 AirfRANS figure: pressure truth and top-two error maps."""
+"""High-contrast 2x3 AirfRANS figure: p/rho truth and top-two error maps."""
 from __future__ import annotations
 
 import json
@@ -52,7 +52,7 @@ def main() -> None:
         p_art = ax.tripcolor(tri, truth[ids], shading="gouraud", cmap="RdBu_r",
                              norm=pnorm, rasterized=True)
         base.airfoil_patch(ax, xy, surface)
-        ax.set_title("Ground Truth · pressure $p$", fontsize=11, fontweight="bold")
+        ax.set_title(r"Ground truth · $p/\rho$", fontsize=11, fontweight="bold")
         ax.text(.025, .045, rf"physical scale: $[-{pscale:.0f},\,{pscale:.0f}]$",
                 transform=ax.transAxes, fontsize=8,
                 bbox=dict(boxstyle="round,pad=.24", fc="white", ec="#D7DEE7", alpha=.94))
@@ -67,7 +67,7 @@ def main() -> None:
             ax_e.set_title(f"Macro rank #{rank} · {name}", fontsize=11,
                            fontweight="bold", color="#0B5CAD" if name == "RAPTOR" else "#182230")
             sample_p = base.rel_l2(pred, truth)
-            ax_e.text(.025, .045, rf"macro $L_2$={macro:.3f}  |  sample $p$ $L_2$={sample_p:.3f}",
+            ax_e.text(.025, .045, rf"macro $L_2$={macro:.3f}  |  sample $p/\rho$ rel. $L_2$={sample_p:.3f}",
                       transform=ax_e.transAxes, fontsize=8,
                       fontweight="bold" if name == "RAPTOR" else "normal",
                       bbox=dict(boxstyle="round,pad=.24", fc="white",
@@ -88,7 +88,7 @@ def main() -> None:
                           ha="center", fontsize=12, fontweight="bold", color="#44546A")
         cax = fig.add_axes([.925, .555 if row == 0 else .17, .012, .22])
         cb = fig.colorbar(e_art, cax=cax)
-        cb.set_label(r"Normalized $|p-\hat p|$ (\%)", fontsize=8)
+        cb.set_label(r"Normalized $|p/\rho-\widehat{p/\rho}|$ (\%)", fontsize=8)
         cb.ax.tick_params(labelsize=7)
         manifest["tasks"].append({"task": slug, "test_index": idx,
                                   "error_color_limit_percent": emax, "top2": task_rows})

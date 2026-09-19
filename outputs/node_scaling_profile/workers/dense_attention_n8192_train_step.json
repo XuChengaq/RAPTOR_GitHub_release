@@ -1,0 +1,15 @@
+{
+  "model": "dense_attention",
+  "model_label": "Dense attention",
+  "nodes": 8192,
+  "phase": "train_step",
+  "status": "ok",
+  "latency_ms_mean": 12512.481803385417,
+  "latency_ms_std": 346.5359363337885,
+  "latency_ms_p50": 12405.89404296875,
+  "latency_ms_p95": 13209.747558593748,
+  "peak_allocated_mib": 8274.5859375,
+  "peak_reserved_mib": 9256.0,
+  "parameters": 204545,
+  "error": null
+}

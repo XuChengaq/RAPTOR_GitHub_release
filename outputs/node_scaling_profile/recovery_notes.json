@@ -1,0 +1,8 @@
+{
+  "recovered_after_host_restart": true,
+  "completed_model_workers": 28,
+  "expected_model_workers": 30,
+  "dense_n8192_training_memory_note": "The run completed, but peak CUDA allocation exceeded physical VRAM and is classified as shared-memory spill rather than an in-VRAM result.",
+  "dense_n16384_policy": "Not attempted to avoid further memory oversubscription.",
+  "knn_is_excluded_from_model_latency": true
+}

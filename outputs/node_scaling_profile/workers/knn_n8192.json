@@ -1,0 +1,15 @@
+{
+  "nodes": 8192,
+  "k": 12,
+  "implementation": "CPU torch.cdist + torch.topk (self excluded)",
+  "pairwise_distance_matrix_mib": 256.0,
+  "torch_num_threads": 8,
+  "warmup_iterations": 1,
+  "measured_iterations": 10,
+  "status": "ok",
+  "latency_ms_mean": 79.21272000021418,
+  "latency_ms_std": 12.50005478686867,
+  "latency_ms_p50": 73.23485000051733,
+  "latency_ms_p95": 98.74203000035776,
+  "error": null
+}

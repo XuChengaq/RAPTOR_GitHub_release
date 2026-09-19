@@ -5,38 +5,38 @@
     {
       "task": "reynolds",
       "test_index": 27,
-      "error_color_limit_percent": 35.73207473754883,
+      "error_color_limit_percent": 35.60253143310547,
       "top2": [
         {
           "rank": 1,
           "model": "RAPTOR",
           "macro_rel_l2": 0.22192386427601096,
-          "sample_pressure_rel_l2": 0.1822195202112198
+          "sample_pressure_rel_l2": 0.1822594404220581
         },
         {
           "rank": 2,
           "model": "Transolver-Tiny",
           "macro_rel_l2": 0.22796333861601653,
-          "sample_pressure_rel_l2": 0.34446170926094055
+          "sample_pressure_rel_l2": 0.3442462682723999
         }
       ]
     },
     {
       "task": "aoa",
       "test_index": 119,
-      "error_color_limit_percent": 8.605276107788086,
+      "error_color_limit_percent": 8.542380332946777,
       "top2": [
         {
           "rank": 1,
           "model": "RAPTOR",
           "macro_rel_l2": 0.2969246998069695,
-          "sample_pressure_rel_l2": 0.05200796201825142
+          "sample_pressure_rel_l2": 0.052064716815948486
         },
         {
           "rank": 2,
           "model": "LinearNO-Tiny",
           "macro_rel_l2": 0.2980174682644763,
-          "sample_pressure_rel_l2": 0.09228622168302536
+          "sample_pressure_rel_l2": 0.09228847920894623
         }
       ]
     }

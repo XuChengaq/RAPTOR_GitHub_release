@@ -10,14 +10,18 @@ from matplotlib.ticker import MaxNLocator
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 
+plt.rcParams["pdf.fonttype"] = 42
+plt.rcParams["ps.fonttype"] = 42
+
+
 HERE = Path(__file__).resolve().parent
 ANALYSIS = HERE / "outputs" / "formal_100aircraft" / "analysis"
 
 SAMPLES = (
-    ("J-20", "j20_0037_full_surface_fields.npz", 0.7629244, 0.7150293),
-    ("P180", "p180_0747_full_surface_fields.npz", 0.1875787, 0.2008434),
-    ("Boeing 737", "boeing737_0648_full_surface_fields.npz", 1.3861819, 1.1499671),
-    ("ERJ", "erj_0695_full_surface_fields.npz", 0.1200628, 0.1100475),
+    ("J20 0037", "j20_0037_full_surface_fields.npz", 0.7629244, 0.7150293),
+    ("P180 0747", "p180_0747_full_surface_fields.npz", 0.1875787, 0.2008434),
+    ("B737 0648", "boeing737_0648_full_surface_fields.npz", 1.3861819, 1.1499671),
+    ("ERJ 0695", "erj_0695_full_surface_fields.npz", 0.1200628, 0.1100475),
 )
 
 
@@ -78,14 +82,15 @@ def main() -> None:
     field_norm = Normalize(field_lo, field_hi, clip=True)
     error_norm = PowerNorm(gamma=0.45, vmin=0.0, vmax=error_hi, clip=True)
 
-    fig = plt.figure(figsize=(19.2, 13.6), facecolor="white")
+    fig = plt.figure(figsize=(18.0, 12.0), facecolor="white")
     grid = fig.add_gridspec(
-        4, 6, left=0.055, right=0.985, top=0.925, bottom=0.105,
-        wspace=0.005, hspace=0.055,
+        4, 5, left=0.070, right=0.990, top=0.955, bottom=0.105,
+        wspace=0.008, hspace=0.040,
     )
     column_titles = (
-        "Input surface mesh", "Ground truth", "Transolver-Tiny prediction",
-        "Transolver-Tiny |error|", "RAPTOR prediction", "RAPTOR |error|",
+        "Ground\ntruth", "Transolver-Tiny\nprediction",
+        "Transolver-Tiny\nabsolute error", "RAPTOR\nprediction",
+        "RAPTOR\nabsolute error",
     )
 
     for row, item in enumerate(datasets):
@@ -98,11 +103,7 @@ def main() -> None:
         face_et = item["transolver_abs_error"][faces].mean(axis=1)
         face_er = item["raptor_abs_error"][faces].mean(axis=1)
 
-        light = np.clip(np.abs(normals @ np.array([-0.35, -0.45, 0.82])), 0, 1)
-        gray = 0.55 + 0.35 * light
-        geometry = np.column_stack([gray, gray, gray, np.ones_like(gray)])
         panels = (
-            geometry,
             shaded_colors(face_truth, field_norm, "turbo", normals),
             shaded_colors(face_t, field_norm, "turbo", normals),
             shaded_colors(face_et, error_norm, "turbo", normals, 0.05),
@@ -116,50 +117,38 @@ def main() -> None:
             axes.append(ax)
             add_surface(ax, nodes, faces, colors)
             if row == 0:
-                ax.set_title(column_titles[col], fontsize=11.3, fontweight="bold", pad=-3)
+                ax.set_title(column_titles[col], fontsize=17.0, fontweight="bold", pad=-2)
 
         improvement = 100.0 * (item["mse_t"] - item["mse_r"]) / item["mse_t"]
         family_color = "#16837a" if improvement >= 0 else "#c74b50"
         axes[0].text2D(
-            -0.07, 0.50, item["family"], transform=axes[0].transAxes,
-            rotation=90, va="center", ha="center", fontsize=12.2,
+            -0.11, 0.50, item["family"], transform=axes[0].transAxes,
+            rotation=90, va="center", ha="center", fontsize=15.0,
             fontweight="bold", color="#17223b",
         )
-        axes[2].text2D(
-            0.03, 0.035, f"MSE = {item['mse_t']:.3f}", transform=axes[2].transAxes,
-            fontsize=8.4, bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
+        axes[1].text2D(
+            0.03, 0.035, f"sMSE = {item['mse_t']:.3f}", transform=axes[1].transAxes,
+            fontsize=12.5, bbox=dict(boxstyle="round,pad=0.22", facecolor="white",
                                     alpha=0.90, edgecolor="#78909c"),
         )
-        axes[4].text2D(
-            0.03, 0.035, f"MSE = {item['mse_r']:.3f}  ({improvement:+.1f}%)",
-            transform=axes[4].transAxes, fontsize=8.4, fontweight="bold",
+        axes[3].text2D(
+            0.03, 0.035, f"sMSE = {item['mse_r']:.3f}  ({improvement:+.1f}%)",
+            transform=axes[3].transAxes, fontsize=12.5, fontweight="bold",
             bbox=dict(boxstyle="round,pad=0.22", facecolor="white", alpha=0.92,
                       edgecolor=family_color), color=family_color,
         )
 
     field_map = ScalarMappable(norm=field_norm, cmap="turbo")
     error_map = ScalarMappable(norm=error_norm, cmap="turbo")
-    field_cax = fig.add_axes([0.20, 0.050, 0.26, 0.016])
-    error_cax = fig.add_axes([0.57, 0.050, 0.26, 0.016])
+    field_cax = fig.add_axes([0.18, 0.050, 0.29, 0.018])
+    error_cax = fig.add_axes([0.56, 0.050, 0.29, 0.018])
     field_cb = fig.colorbar(field_map, cax=field_cax, orientation="horizontal")
     error_cb = fig.colorbar(error_map, cax=error_cax, orientation="horizontal")
-    field_cb.set_label("Surface-field value (one scale across all aircraft)", fontsize=9)
-    error_cb.set_label("Absolute error (one power scale; 97.5th-percentile cap)", fontsize=9)
+    field_cb.set_label(r"$C_p$ (shared scale across all aircraft)", fontsize=12)
+    error_cb.set_label("Absolute error (shared power scale; 97.5th-percentile cap)", fontsize=12)
     error_cb.set_ticks(np.linspace(0.0, error_hi, 5))
     for colorbar in (field_cb, error_cb):
-        colorbar.ax.tick_params(labelsize=7.6, width=0.6)
-
-    fig.suptitle(
-        "Four-aircraft surface-field reconstruction: truth, predictions, and localized errors",
-        fontsize=16.5, fontweight="bold", y=0.974,
-    )
-    fig.text(
-        0.5, 0.012,
-        "Continuous original triangle surfaces; predictions interpolated from the identical 4,096-point seed-42 protocol. "
-        "Positive percentages favor RAPTOR; P180 is retained as a negative case.",
-        ha="center", fontsize=8.8, color="#455a64",
-    )
-
+        colorbar.ax.tick_params(labelsize=10.5, width=0.6)
     for suffix in ("png", "pdf"):
         fig.savefig(
             ANALYSIS / f"four_aircraft_truth_prediction_error_high_quality.{suffix}",

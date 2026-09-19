@@ -1,0 +1,15 @@
+{
+  "model": "transolver_tiny",
+  "model_label": "Transolver-Tiny",
+  "nodes": 2048,
+  "phase": "train_step",
+  "status": "ok",
+  "latency_ms_mean": 25.950993156433107,
+  "latency_ms_std": 7.397191167363581,
+  "latency_ms_p50": 23.87763214111328,
+  "latency_ms_p95": 35.89340047836301,
+  "peak_allocated_mib": 61.27197265625,
+  "peak_reserved_mib": 78.0,
+  "parameters": 195345,
+  "error": null
+}

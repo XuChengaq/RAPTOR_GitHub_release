@@ -111,7 +111,7 @@ def main() -> None:
         axes[0].bar(x + (k - 1) * width, mean_regions[m], width=width,
                     color=colors[m], label={"pointnet":"PointNet", "transolver_tiny":"Transolver-Tiny", "raptor":"RAPTOR"}[m])
     axes[0].set_xticks(x, ["Front", "Roof", "Side", "Lower /\nwheel zone", "Rear"])
-    axes[0].set_ylabel("Regional normalized MSE ↓")
+    axes[0].set_ylabel("Regional sMSE ↓")
     axes[0].set_title("(a) Geometry-region reconstruction error", loc="left", weight="bold")
     axes[0].legend(frameon=False)
     axes[0].grid(axis="y", alpha=0.25)
