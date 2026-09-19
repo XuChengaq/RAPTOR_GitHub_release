@@ -284,37 +284,39 @@ def main():
 
     ax.text(10.03, 3.31, "Node feature", ha="left", va="center",
             fontsize=8.9, color=INK)
-    ax.text(10.03, 3.08, r"$\mathbf{x}_i\in\mathbb{R}^{64}$", ha="left",
+    ax.text(10.03, 3.08, r"$\mathbf{z}_i^{(l)}\in\mathbb{R}^{64}$", ha="left",
             va="center", fontsize=9.0, color=INK)
     vector_squares(ax, 10.05, 2.77, n=5, size=0.115, gap=0.04)
 
     ax.text(10.03, 2.07, "Mean of\n12-NN neighbors", ha="left", va="center",
             fontsize=8.5, color=INK, linespacing=1.15)
-    ax.text(10.03, 1.70, r"$\bar{\mathbf{x}}_i\in\mathbb{R}^{64}$",
+    ax.text(10.03, 1.70, r"$\bar{\mathbf{z}}_i^{(l)}\in\mathbb{R}^{64}$",
             ha="left", va="center", fontsize=9.0, color=INK)
     vector_squares(ax, 10.05, 1.38, n=5, size=0.115, gap=0.04)
 
-    rounded_box(ax, 12.29, 2.12, 1.20, 0.86, "Concatenate\n(128 dim)",
+    # The implementation normalizes only the center-node feature before
+    # concatenation; the aggregated neighborhood feature is used directly.
+    rounded_box(ax, 11.43, 2.55, 0.78, 0.56, "LayerNorm",
+                face="white", edge=TEAL, fontsize=7.7, linewidth=1.0)
+    arrow(ax, (11.18, 2.83), (11.43, 2.83), color=TEAL, lw=1.08)
+
+    rounded_box(ax, 12.55, 2.12, 1.12, 0.86, "Concatenate\n(128 dim)",
                 face=TEAL_LIGHT, edge=TEAL, fontsize=8.5, linewidth=1.0)
-    vector_squares(ax, 12.50, 2.28, n=4, size=0.10, gap=0.035,
+    vector_squares(ax, 12.73, 2.28, n=4, size=0.10, gap=0.035,
                    color="#39B9B2", ellipsis=False)
-    residual_x = 11.48
-    ax.plot([11.18, residual_x], [2.83, 2.83], color=TEAL,
-            linewidth=1.08, zorder=5)
-    dot(ax, residual_x, 2.83, color=TEAL_DARK)
-    orth_arrow(ax, [(residual_x, 2.83), (11.82, 2.83), (11.82, 2.72),
-                    (12.29, 2.72)], color=TEAL, lw=1.08)
-    orth_arrow(ax, [(11.18, 1.44), (11.82, 1.44), (11.82, 2.38),
-                    (12.29, 2.38)], color=TEAL, lw=1.08)
+    orth_arrow(ax, [(12.21, 2.83), (12.35, 2.83), (12.35, 2.72),
+                    (12.55, 2.72)], color=TEAL, lw=1.08)
+    orth_arrow(ax, [(11.18, 1.44), (12.31, 1.44), (12.31, 2.38),
+                    (12.55, 2.38)], color=TEAL, lw=1.08)
 
-    rounded_box(ax, 13.86, 2.12, 1.13, 0.86, "LayerNorm\n+\n2-layer MLP",
+    rounded_box(ax, 13.98, 2.20, 0.94, 0.70, "2-layer\nMLP",
                 face="white", edge=TEAL, fontsize=8.2, linewidth=1.0)
-    arrow(ax, (13.49, 2.55), (13.86, 2.55), color=TEAL, lw=1.10)
+    arrow(ax, (13.67, 2.55), (13.98, 2.55), color=TEAL, lw=1.10)
 
-    gate_x, gate_y = 15.46, 2.55
+    gate_x, gate_y = 15.34, 2.55
     sum_node(ax, gate_x, gate_y, r=0.17, edge=ORANGE, symbol=r"$\times$")
-    arrow(ax, (14.99, 2.55), (15.29, 2.55), color=TEAL, lw=1.10)
-    rounded_box(ax, 14.86, 3.03, 1.20, 0.52,
+    arrow(ax, (14.92, 2.55), (15.17, 2.55), color=TEAL, lw=1.10)
+    rounded_box(ax, 14.74, 3.03, 1.20, 0.52,
                 "Gate: " + r"$\tanh(\alpha_l)$" + "\n" +
                 r"$\alpha_l=0$ initially",
                 face="#FFF7F2", edge=ORANGE, color=ORANGE,
@@ -323,27 +325,24 @@ def main():
     arrow(ax, (gate_x, 3.03), (gate_x, 2.72), color=ORANGE, lw=1.0,
           mutation=8)
 
-    plus_x = 16.32
+    plus_x = 16.16
     sum_node(ax, plus_x, gate_y, r=0.15)
     arrow(ax, (15.63, gate_y), (plus_x - 0.15, gate_y), color=TEAL, lw=1.10)
 
-    # Shift the residual trunk away from the feature labels. A small gap at
-    # the lower local branch keeps the two paths visually distinct.
-    ax.plot([residual_x, residual_x], [2.83, 1.54], color=INK,
-            linewidth=1.05, zorder=4)
-    ax.plot([residual_x, residual_x], [1.34, 0.48], color=INK,
-            linewidth=1.05, zorder=4)
-    ax.plot([residual_x, plus_x], [0.48, 0.48], color=INK,
+    # The backbone output is a separate input to the final residual addition;
+    # it is not the same tensor as the local adapter's center-node input.
+    ax.plot([10.32, plus_x], [0.48, 0.48], color=INK,
             linewidth=1.05, zorder=4)
     arrow(ax, (plus_x, 0.48), (plus_x, gate_y - 0.15), lw=1.05)
-    ax.text(13.10, 0.68, "backbone output (residual path)", ha="center",
-            va="bottom", fontsize=8.2, color=INK)
+    ax.text(13.12, 0.68,
+            "Physics-Attention backbone output  " + r"$\mathbf{Z}_{\mathrm{PA}}^{(l)}$",
+            ha="center", va="bottom", fontsize=8.0, color=INK)
 
-    rounded_box(ax, 16.75, 2.17, 1.10, 0.76,
+    rounded_box(ax, 16.55, 2.17, 1.30, 0.76,
                 "Updated node\nfeature\n" + r"$\mathbf{Z}^{(l+1)}$",
                 face=TEAL_LIGHT, edge=TEAL, color=INK,
                 fontsize=7.8, linewidth=0.95, radius=0.055)
-    arrow(ax, (plus_x + 0.15, gate_y), (16.75, gate_y), lw=1.12)
+    arrow(ax, (plus_x + 0.15, gate_y), (16.55, gate_y), lw=1.12)
 
     fig.savefig(OUT / "Fig1.pdf", bbox_inches="tight", pad_inches=0.035)
     fig.savefig(OUT / "Fig1.png", dpi=360, bbox_inches="tight",

@@ -289,7 +289,7 @@ token compression. A zero-initialized bounded gate controls the contribution of 
         keepaspectratio
 	]{figs/Fig1.pdf}
     \captionof{figure}{Architecture of RAPTOR.
-    (a) Overall prediction architecture illustrated using the AirfRANS configuration.  (b) Multi-head Physics-Attention backbone, which compresses node features into physics tokens, performs global token interaction,  and maps the updated tokens back to the original nodes.  (c) Zero-initialized local adapter, which aggregates \(K\)-nearest-neighbor information and injects a gated local correction into the global backbone.}
+    (a) Overall prediction architecture illustrated using the AirfRANS configuration.  (b) Multi-head Physics-Attention backbone, which compresses node features into physics tokens, performs global token interaction, and maps the updated tokens back to the original nodes.  (c) Zero-initialized local adapter. LayerNorm is applied only to the center-node feature before it is concatenated with the unnormalized mean of its \(K\) neighbors; the resulting local message is gated and added to the Physics-Attention backbone output.}
     \label{fig1}
 \end{minipage}
 \end{center}
@@ -554,37 +554,44 @@ Let \(\widehat{\mathbf{Y}}^{(q)}\) and \(\mathbf{Y}^{(q)}\) denote the normalize
     \label{eq:training_loss}
 \end{equation}
 
-Normalization statistics are computed using only the training set. For AirfRANS, all seven inputs and four outputs are standardized channel-wise. For the three-dimensional tasks, coordinates remain in their stored units and only \(C_p\) is standardized using the scalar training-set mean and standard deviation. Model selection uses validation loss with early stopping; the validation-selected checkpoint is restored for test evaluation, after which predictions are transformed back to physical units where required. Algorithm~\ref{alg:raptor} summarizes this training and reconstruction procedure while making the task-dependent preprocessing explicit.
+Normalization statistics are computed using only the training set. For AirfRANS, all seven inputs and four outputs are standardized channel-wise. For the three-dimensional tasks, coordinates remain in their stored units and only \(C_p\) is standardized using the scalar training-set mean and standard deviation. Model selection uses validation loss with early stopping; the validation-selected checkpoint is restored for test evaluation, after which predictions are transformed back to physical units where required. Because the surrounding optimizer and early-stopping loop is standard, Algorithm~\ref{alg:raptor} instead exposes the RAPTOR-specific graph construction and block update used in every forward pass.
 
 \begin{algorithm}[H]
-\caption{Compact training and aerodynamic-field reconstruction procedure for RAPTOR}
+\caption{RAPTOR construction and forward propagation}
 \label{alg:raptor}
 \footnotesize
 \begin{algorithmic}[1]
-\Require Training, validation, and test sets
-\(\mathcal D_{\mathrm{tr}},\mathcal D_{\mathrm{val}},\mathcal D_{\mathrm{te}}\);
-training-set preprocessors \(\mathcal P_X,\mathcal P_Y\);
-slices \(S\), neighbors \(K\), and blocks \(L\)
-\Ensure Validation-selected checkpoint \(\theta_{\mathrm{best}}\) and reconstructed test fields \(\widehat{\mathbf Y}_{\mathrm{te}}\)
-\State Fit \(\mathcal P_X,\mathcal P_Y\) on \(\mathcal D_{\mathrm{tr}}\) and precompute the directed, self-excluding \(K\)-NN sets \(\mathcal N_K^{(q)}\) for each sampled geometry
-\State Initialize \(\theta\) and set \(\alpha_l\gets0\) for \(l=0,\ldots,L-1\)
-\For{each training epoch}
-    \For{each mini-batch \((\mathbf X,\mathbf Y)\)}
-        \State \(\mathbf Z^{(0)}\gets\phi_{\mathrm{in}}\!\left(\mathcal P_X(\mathbf X)\right)\)
-        \For{\(l=0,\ldots,L-1\)}
-            \State \(\mathbf Z_{\mathrm{PA}}^{(l)}\gets
-            \operatorname{PhysicsAttn}^{(l)}(\mathbf Z^{(l)},S)\); \quad
-            \(\mathbf M_{\mathrm{loc}}^{(l)}\gets
-            \operatorname{LocalAdapter}^{(l)}(\mathbf Z^{(l)},\mathcal N_K)\)
-            \State \(\mathbf Z^{(l+1)}\gets\mathbf Z_{\mathrm{PA}}^{(l)}+
-            \tanh(\alpha_l)\mathbf M_{\mathrm{loc}}^{(l)}\)
-        \EndFor
-        \State Decode \(\widehat{\mathbf Y}\) and update \(\theta\) by minimizing \(\mathcal L_{\mathrm{train}}\)
-    \EndFor
-    \State Evaluate \(\mathcal D_{\mathrm{val}}\); update \(\theta_{\mathrm{best}}\) on improvement and apply early stopping
+\Require Sampled node features \(\mathbf X\), coordinates \(\mathbf C=\{\mathbf c_i\}_{i=1}^{N}\), input preprocessor \(\mathcal P_X\), slices \(S\), neighbors \(K\), and blocks \(L\)
+\Ensure Normalized field prediction \(\widehat{\mathbf Y}\)
+\ForAll{nodes \(i=1,\ldots,N\)}
+    \State \(\mathcal N_K(i)\gets\operatorname{KNN}_K
+    (\mathbf c_i,\{\mathbf c_j:j\ne i\})\)
+    \Comment{precomputed once per sampled geometry}
 \EndFor
-\State Restore \(\theta_{\mathrm{best}}\), predict \(\mathcal D_{\mathrm{te}}\), and apply \(\mathcal P_Y^{-1}\) where required
-\State \Return \(\theta_{\mathrm{best}},\widehat{\mathbf Y}_{\mathrm{te}}\)
+\State Initialize \(\alpha_l\gets0\) for \(l=0,\ldots,L-1\)
+\State \(\mathbf Z^{(0)}\gets\phi_{\mathrm{in}}
+\!\left(\mathcal P_X(\mathbf X)\right)\)
+\For{\(l=0,\ldots,L-1\)}
+    \State \(\mathbf U_{\mathrm{PA}}^{(l)}\gets\mathbf Z^{(l)}+
+    \operatorname{PhysicsAttn}^{(l)}
+    \!\left(\operatorname{LN}_{1}^{(l)}(\mathbf Z^{(l)}),S\right)\)
+    \State \(\mathbf Z_{\mathrm{PA}}^{(l)}\gets\mathbf U_{\mathrm{PA}}^{(l)}+
+    \operatorname{FFN}^{(l)}
+    \!\left(\operatorname{LN}_{2}^{(l)}(\mathbf U_{\mathrm{PA}}^{(l)})\right)\)
+    \ForAll{nodes \(i=1,\ldots,N\) in parallel}
+        \State \(\overline{\mathbf z}_{i}^{(l)}\gets
+        K^{-1}\!\sum_{j\in\mathcal N_K(i)}\mathbf z_j^{(l)}\)
+        \State \(\mathbf m_i^{(l)}\gets\phi_{\mathrm{loc}}^{(l)}
+        \!\left([\operatorname{LN}_{\mathrm{loc}}^{(l)}(\mathbf z_i^{(l)});
+        \overline{\mathbf z}_{i}^{(l)}]\right)\)
+    \EndFor
+    \State \(\mathbf M_{\mathrm{loc}}^{(l)}\gets
+    [\mathbf m_1^{(l)},\ldots,\mathbf m_N^{(l)}]^{\top}\)
+    \State \(\mathbf Z^{(l+1)}\gets\mathbf Z_{\mathrm{PA}}^{(l)}+
+    \tanh(\alpha_l)\mathbf M_{\mathrm{loc}}^{(l)}\)
+\EndFor
+\State \(\widehat{\mathbf Y}\gets\phi_{\mathrm{out}}(\mathbf Z^{(L)})\)
+\State \Return \(\widehat{\mathbf Y}\)
 \end{algorithmic}
 \end{algorithm}
 
