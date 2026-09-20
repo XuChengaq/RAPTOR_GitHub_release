@@ -1,4 +1,14 @@
-"""High-contrast 2x3 AirfRANS figure: p/rho truth and top-two error maps."""
+"""High-contrast 2x3 AirfRANS figure: p/rho truth and top-two error maps.
+
+For each task, the displayed case is selected with the same pressure metric
+reported in the panel annotations.  Let e_q^m denote the relative L2 pressure
+error of model m on test case q and let epsilon^m denote the pooled test-set
+pressure error.  The selected case minimizes
+
+    |(e_q^b - e_q^R) / e_q^b - (epsilon^b - epsilon^R) / epsilon^b|,
+
+where R is RAPTOR and b is the other displayed (macro-rank-2) model.
+"""
 from __future__ import annotations
 
 import json
@@ -18,18 +28,79 @@ from plot_airfrans_top3_macro_pressure import macro_error
 OUT = base.PROJECT / "figs" / "airfrans_pressure_impact"
 
 
+def predict_all_pressure(name: str, root: Path, data, device: torch.device) -> np.ndarray:
+    """Predict p/rho for every test case while loading the checkpoint once."""
+    model = base.build_model(name)
+    model.load_state_dict(torch.load(root / "best.pt", map_location="cpu", weights_only=True))
+    model = model.to(device).eval()
+    rows = []
+    with torch.inference_mode():
+        for x, knn, groups in zip(data["test_x"], data["test_knn"], data["test_groups"]):
+            xn = ((x - data["xmean"]) / data["xstd"]).astype("float32")
+            xt = torch.from_numpy(xn)[None].to(device)
+            kt = torch.from_numpy(knn)[None].to(device)
+            gt = torch.from_numpy(groups)[None].to(device)
+            with torch.amp.autocast("cuda", enabled=device.type == "cuda"):
+                out = model(xt, kt, gt)
+            pred = out.float().cpu().numpy()[0] * data["ystd"] + data["ymean"]
+            rows.append(pred[:, 2].astype("float32"))
+    del model
+    if device.type == "cuda":
+        torch.cuda.empty_cache()
+    return np.stack(rows)
+
+
+def sample_relative_l2(pred: np.ndarray, truth: np.ndarray) -> np.ndarray:
+    """Per-case relative L2 error over all sampled nodes."""
+    num = np.sqrt(np.sum((pred - truth) ** 2, axis=1, dtype=np.float64))
+    den = np.sqrt(np.sum(truth**2, axis=1, dtype=np.float64)) + 1e-12
+    return num / den
+
+
 def main() -> None:
     base.style()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     fig, axes = plt.subplots(2, 3, figsize=(13.3, 5.5))
     plt.subplots_adjust(left=.045, right=.91, bottom=.12, top=.86,
                         wspace=.10, hspace=.42)
-    manifest = {"device": str(device), "error_definition":
-                "100*abs(pred-truth)/(p99(truth)-p1(truth))", "tasks": []}
+    manifest = {
+        "device": str(device),
+        "map_error_definition": "100*abs(pred-truth)/(p99(truth)-p1(truth))",
+        "selection_metric": "pressure relative L2 over all 4096 sampled nodes",
+        "selection_rule": (
+            "argmin_q abs(((e_base_q-e_raptor_q)/e_base_q) - "
+            "((eps_base-eps_raptor)/eps_base))"
+        ),
+        "tasks": [],
+    }
 
     for row, (slug, cfg) in enumerate(base.TASKS.items()):
         data = np.load(cfg["cache"])
-        idx = cfg["index"]
+        ranked = sorted(
+            ((name, root, macro_error(root / "result.json"))
+             for name, root in cfg["roots"].items()), key=lambda x: x[2])[:2]
+        if ranked[0][0] != "RAPTOR":
+            raise RuntimeError(f"Expected RAPTOR to be macro rank 1 for {slug}; got {ranked}")
+        raptor_name, raptor_root, _ = ranked[0]
+        base_name, base_root, _ = ranked[1]
+        all_predictions = {
+            name: predict_all_pressure(name, root, data, device)
+            for name, root, _ in ranked
+        }
+        truth_all = data["test_y"][..., 2]
+        sample_errors = {
+            name: sample_relative_l2(all_predictions[name], truth_all)
+            for name, _, _ in ranked
+        }
+        raptor_result = json.loads((raptor_root / "result.json").read_text(encoding="utf-8"))
+        base_result = json.loads((base_root / "result.json").read_text(encoding="utf-8"))
+        aggregate_gain = (
+            float(base_result["rel_l2_p"]) - float(raptor_result["rel_l2_p"])
+        ) / max(float(base_result["rel_l2_p"]), 1e-12)
+        sample_gains = (
+            sample_errors[base_name] - sample_errors[raptor_name]
+        ) / np.maximum(sample_errors[base_name], 1e-12)
+        idx = int(np.argmin(np.abs(sample_gains - aggregate_gain)))
         xy = data["test_x"][idx, :, :2]
         surface = data["test_surface"][idx] > .5
         truth = data["test_y"][idx, :, 2]
@@ -40,11 +111,10 @@ def main() -> None:
                      abs(float(np.percentile(truth, 99))))
         pnorm = TwoSlopeNorm(vmin=-pscale, vcenter=0, vmax=pscale)
         prange = max(float(np.percentile(truth, 99) - np.percentile(truth, 1)), 1e-12)
-        ranked = sorted(
-            ((name, root, macro_error(root / "result.json"))
-             for name, root in cfg["roots"].items()), key=lambda x: x[2])[:2]
-        predictions = [(name, macro, base.predict_one(name, root, data, idx, device))
-                       for name, root, macro in ranked]
+        predictions = [
+            (name, macro, all_predictions[name][idx])
+            for name, _, macro in ranked
+        ]
         errors = [100.0 * np.abs(pred - truth) / prange for _, _, pred in predictions]
         emax = max(float(np.percentile(err[ids], 99)) for err in errors)
 
@@ -66,8 +136,13 @@ def main() -> None:
             rank = col
             ax_e.set_title(f"Macro rank #{rank} · {name}", fontsize=11,
                            fontweight="bold", color="#0B5CAD" if name == "RAPTOR" else "#182230")
-            sample_p = base.rel_l2(pred, truth)
-            ax_e.text(.025, .045, rf"macro $L_2$={macro:.3f}  |  sample $p/\rho$ rel. $L_2$={sample_p:.3f}",
+            sample_p = float(sample_errors[name][idx])
+            gain_text = (
+                rf"  |  paired $\Delta_p$={100.0 * sample_gains[idx]:+.1f}\%"
+                if name == "RAPTOR" else ""
+            )
+            ax_e.text(.025, .045,
+                      rf"sample $p/\rho$ rel. $L_2$={sample_p:.3f}{gain_text}",
                       transform=ax_e.transAxes, fontsize=8,
                       fontweight="bold" if name == "RAPTOR" else "normal",
                       bbox=dict(boxstyle="round,pad=.24", fc="white",
@@ -90,8 +165,16 @@ def main() -> None:
         cb = fig.colorbar(e_art, cax=cax)
         cb.set_label(r"Normalized $|p/\rho-\widehat{p/\rho}|$ (\%)", fontsize=8)
         cb.ax.tick_params(labelsize=7)
-        manifest["tasks"].append({"task": slug, "test_index": idx,
-                                  "error_color_limit_percent": emax, "top2": task_rows})
+        manifest["tasks"].append({
+            "task": slug,
+            "test_index": idx,
+            "comparison_model": base_name,
+            "aggregate_pressure_improvement_percent": 100.0 * aggregate_gain,
+            "selected_sample_pressure_improvement_percent": 100.0 * float(sample_gains[idx]),
+            "selection_gap_percentage_points": 100.0 * abs(float(sample_gains[idx] - aggregate_gain)),
+            "error_color_limit_percent": emax,
+            "top2": task_rows,
+        })
 
 
     png = OUT / "Figure_AirfRANS_truth_top2_pressure_error_2x3.png"

@@ -179,7 +179,7 @@
 % Here goes the abstract
 
 \begin{abstract}
-	Aerodynamic field reconstruction on unstructured discretizations requires long-range communication while preserving local geometric detail. Dense node-level attention, however, incurs quadratic computational and memory costs. We propose RAPTOR, a resource-aware physics-token operator that augments slice-based Physics-Attention with a sparse $K$-nearest-neighbor residual adapter. The token branch captures global interactions, whereas the adapter applies direct node-space corrections to recover neighborhood information weakened by token compression. A zero-initialized bounded gate makes every block exactly equivalent to its Physics-Attention backbone at initialization and progressively activates the local correction during optimization. For a fixed input state, the frozen node-mixing matrix of each Physics-Attention head has rank at most the number of slices $S$. With precomputed neighborhoods, RAPTOR retains $\mathcal{O}(NS+S^2+NK)$ connectivity complexity without constructing a dense $N\times N$ attention matrix.	We evaluate RAPTOR on Reynolds-number and angle-of-attack extrapolation using AirfRANS and on automobile and aircraft surface-pressure-coefficient reconstruction using Mixed-3D. Under fixed splits and a single training seed, RAPTOR obtains the lowest macro relative $L_2$ error among the evaluated models on both AirfRANS tasks. Relative to Transolver-Tiny, it reduces the macro error by $2.68\%$ and $5.37\%$ and reduces standardized-space MSE by $6.77\%$ and $8.57\%$ on the automobile and aircraft tasks, respectively. All accuracy experiments use $N=4096$ on one RTX~4050 Laptop GPU. In a separate node-scaling profile, RAPTOR completes a mixed-precision training step at $N=16384$ in $66.99$\,ms with $410.31$\,MiB peak allocated memory, whereas dense attention requires memory beyond the GPU's physical capacity at $N=8192$. Overall, these results support a reproducible approach to aerodynamic field reconstruction with a low hardware barrier and favorable precomputed-graph operator scaling over the tested range.
+	Aerodynamic field reconstruction on unstructured discretizations requires long-range communication while preserving local geometric detail, yet dense node-level attention incurs quadratic computational and memory cost. We propose RAPTOR, a resource-aware physics-token operator that augments slice-based Physics-Attention with a sparse $K$-nearest-neighbor residual adapter. The token branch captures global interactions, while the adapter restores neighborhood-scale information directly in node space. A zero-initialized bounded gate makes each block identical to its Physics-Attention backbone at initialization and progressively activates the local correction. For a fixed input state, each head's frozen node-mixing matrix has rank at most the number of slices $S$. With precomputed neighborhoods, RAPTOR retains $\mathcal{O}(NS+S^2+NK)$ connectivity without constructing dense $N\times N$ attention. We evaluate Reynolds-number and angle-of-attack extrapolation on AirfRANS and automobile and aircraft surface-pressure-coefficient reconstruction on Mixed-3D. Under fixed splits and one training seed, RAPTOR attains the lowest macro relative $L_2$ error among the evaluated models on both AirfRANS tasks. Relative to Transolver-Tiny, it reduces the macro relative $L_2$ error by $2.68\%$ on Reynolds-number extrapolation and $5.37\%$ on angle-of-attack extrapolation. On Mixed-3D, it reduces standardized-space MSE by $6.77\%$ for automobiles and $8.57\%$ for aircraft. All accuracy experiments use $N=4096$ on one RTX~4050 Laptop GPU. In a separate node-scaling profile, RAPTOR completes a mixed-precision training step at $N=16384$ in $66.99$\,ms with $410.31$\,MiB peak allocated memory, whereas dense attention is not run beyond $N=8192$ to avoid memory oversubscription. These results support resource-efficient aerodynamic reconstruction with favorable precomputed-graph scaling over the tested range.
 \end{abstract}
 
 
@@ -884,7 +884,7 @@ pressure divided by density \(p/\rho\), and turbulent kinematic
 viscosity \(\nu_t\).
 
 \textbf{(2) Three-dimensional automobiles.}
-The automobile task uses the Mixed-3D benchmark~\citep{ref37}, whose
+The automobile task uses the Mixed-3D benchmark~\citep{ref18,ref37}, whose
 automobile geometries are derived from DrivAerNet++~\citep{ref05}. Mixed-3D
 provides surface pressure coefficients \(C_p\) computed by a panel method
 under the prescribed freestream \(\mathbf v_\infty=[1,0,0]\). We select
@@ -893,7 +893,7 @@ validation, and test objects, and sample 4096 surface nodes per object.
 The model receives three-dimensional coordinates and predicts \(C_p\).
 
 \textbf{(3) Three-dimensional aircraft.}
-The aircraft task uses the OpenVSP-derived portion of Mixed-3D~\citep{ref37}
+The aircraft task uses the OpenVSP-derived portion of Mixed-3D~\citep{ref18,ref37}
 and the same panel-method \(C_p\) target. We select 25 objects from each
 of the J20, P180, Boeing 737, and ERJ families with seed 42. Each family
 contributes 20 training objects, while the stratified validation and test
@@ -1079,8 +1079,30 @@ The four-variable macro error is defined as
     \label{eq:macro_error}
 \end{equation}
 
-The \(p/\rho\) MSE on sampled airfoil-surface nodes is also used for
-representative visual comparisons. Reported implementation measurements
+For the representative \(p/\rho\) visualizations, the sample-level pressure
+error of model \(a\) on test case \(q\) is
+\begin{equation}
+    e_{q,p}^{(a)}=
+    \frac{\left\|\widehat{\mathbf Y}_{q,p}^{(a)}-\mathbf Y_{q,p}\right\|_2}
+    {\left\|\mathbf Y_{q,p}\right\|_2+10^{-12}}.
+    \label{eq:sample_pressure_error}
+\end{equation}
+Let \(R\) denote RAPTOR and \(b\) the other model displayed in the same
+row. The test-set and sample-level paired pressure improvements, and the
+representative-case rule, are
+\begin{equation}
+    \Delta_p^{\mathrm{test}}=1-\frac{\varepsilon_p^{(R)}}{\varepsilon_p^{(b)}},
+    \qquad
+    \Delta_{q,p}=1-\frac{e_{q,p}^{(R)}}{e_{q,p}^{(b)}},
+    \qquad
+    q^*=\operatorname*{arg\,min}_{q}
+    \left|\Delta_{q,p}-\Delta_p^{\mathrm{test}}\right|.
+    \label{eq:pressure_case_selection}
+\end{equation}
+Both \(e_{q,p}^{(a)}\) and \(\varepsilon_p^{(a)}\) use all 4096 sampled
+nodes. The percentile-based normalization in the absolute-error maps is used
+only for visualization and does not enter the selection rule. Reported
+implementation measurements
 comprise trainable parameters, elapsed training time, and peak allocated GPU
 memory. End-to-end inference latency was not retained consistently for the
 accuracy experiments and is therefore not compared across trained runs.
@@ -1472,12 +1494,16 @@ Figure~\ref{fig2} compares the \(p/\rho\) ground truth
 and the normalized absolute \(p/\rho\) errors of the two best-performing
 models on the AirfRANS extrapolation tasks. The upper and lower rows
 correspond to Reynolds-number and angle-of-attack extrapolation,
-respectively. Test indices 27 and 119 are selected because their paired
-\(p/\rho\) improvements are closest to the corresponding task-level aggregate
-improvements, rather than because they maximize the displayed gain. Model
-ranking uses the four-variable macro relative \(L_2\) error over the complete
-test set, whereas panel annotations report sample-level \(p/\rho\) relative
-\(L_2\) error.
+respectively. The displayed models are ranked by four-variable macro relative
+\(L_2\) error; the rank-2 comparators are Transolver-Tiny for Reynolds-number
+extrapolation and LinearNO-Tiny for angle-of-attack extrapolation. Following
+Eq.~\eqref{eq:pressure_case_selection}, test indices 165 and 142 are selected
+because their paired \(p/\rho\) improvements are closest to the corresponding
+pooled test-set pressure improvements. The target/selected improvements are
+\(4.84\%/4.97\%\) for Reynolds-number extrapolation and
+\(4.63\%/4.17\%\) for angle-of-attack extrapolation. Thus, the selection and
+panel annotations use the same pressure relative \(L_2\) metric and the same
+4096-node scope.
 \begin{center}
 	\begin{minipage}{0.94\linewidth}
 		\centering
@@ -1487,24 +1513,30 @@ test set, whereas panel annotations report sample-level \(p/\rho\) relative
 		]{figs/Fig2.pdf}
 		\captionof{figure}{Ground truth and normalized absolute-error maps for
 			\(p/\rho\) on AirfRANS with seed 42. The Reynolds-number and AoA rows
-			show test indices 27 and 119, respectively, selected by the
-			closest-to-aggregate paired-improvement rule described in the text.}
+			show test indices 165 and 142, respectively. Each case minimizes the
+			difference between its sample-level paired pressure improvement and the
+			corresponding pooled test-set pressure improvement, as defined in
+			Eq.~\eqref{eq:pressure_case_selection}. Relative \(L_2\) errors use all
+			4096 nodes; percentile normalization is applied only to the displayed
+			absolute-error colors.}
 		\label{fig2}
 	\end{minipage}
 \end{center}
 \subsubsection{Representative \(p/\rho\)-error maps}
 For Reynolds-number extrapolation, RAPTOR achieves a macro error of 0.222,
 compared with 0.228 for Transolver-Tiny. On the displayed sample, its \(p/\rho\)
-relative $L_2$ error decreases from 0.344 to 0.182. Although both models show
-larger errors near the leading edge, the airfoil surface, and the downstream
-wake, Transolver-Tiny produces a more pronounced error band along the surface
-and wake. RAPTOR substantially suppresses these localized errors.
+relative $L_2$ error decreases from 0.277 to 0.263, corresponding to a
+$4.97\%$ improvement. This closely tracks the pooled test-set pressure
+improvement of $4.84\%$ and avoids selecting an unusually favorable case.
+The error maps show that the remaining deviations are concentrated near the
+airfoil surface and in the downstream wake.
 
 For angle-of-attack extrapolation, RAPTOR and LinearNO-Tiny obtain macro
 errors of 0.297 and 0.298, respectively. Their overall results are therefore
-close, but RAPTOR reduces the \(p/\rho\) error of the representative sample
-from 0.092 to 0.052. The error maps indicate that this improvement is
-primarily associated with reduced errors around the leading-edge stagnation
+close. On the representative sample, RAPTOR reduces the \(p/\rho\) relative
+$L_2$ error from 0.274 to 0.262, a $4.17\%$ improvement compared with the
+pooled test-set pressure improvement of $4.63\%$. The error maps indicate
+that the residual differences are most visible around the leading-edge
 region, the near-surface flow, and the wake.
 
 \subsection{Three-dimensional automobile \(C_p\) reconstruction}

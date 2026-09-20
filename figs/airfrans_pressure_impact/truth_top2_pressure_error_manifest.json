@@ -1,42 +1,52 @@
 {
   "device": "cuda",
-  "error_definition": "100*abs(pred-truth)/(p99(truth)-p1(truth))",
+  "map_error_definition": "100*abs(pred-truth)/(p99(truth)-p1(truth))",
+  "selection_metric": "pressure relative L2 over all 4096 sampled nodes",
+  "selection_rule": "argmin_q abs(((e_base_q-e_raptor_q)/e_base_q) - ((eps_base-eps_raptor)/eps_base))",
   "tasks": [
     {
       "task": "reynolds",
-      "test_index": 27,
-      "error_color_limit_percent": 35.60253143310547,
+      "test_index": 165,
+      "comparison_model": "Transolver-Tiny",
+      "aggregate_pressure_improvement_percent": 4.839303367294382,
+      "selected_sample_pressure_improvement_percent": 4.971176040012628,
+      "selection_gap_percentage_points": 0.13187267271824524,
+      "error_color_limit_percent": 16.645139694213867,
       "top2": [
         {
           "rank": 1,
           "model": "RAPTOR",
           "macro_rel_l2": 0.22192386427601096,
-          "sample_pressure_rel_l2": 0.1822594404220581
+          "sample_pressure_rel_l2": 0.2629767380848205
         },
         {
           "rank": 2,
           "model": "Transolver-Tiny",
           "macro_rel_l2": 0.22796333861601653,
-          "sample_pressure_rel_l2": 0.3442462682723999
+          "sample_pressure_rel_l2": 0.27673365524922094
         }
       ]
     },
     {
       "task": "aoa",
-      "test_index": 119,
-      "error_color_limit_percent": 8.542380332946777,
+      "test_index": 142,
+      "comparison_model": "LinearNO-Tiny",
+      "aggregate_pressure_improvement_percent": 4.63275666404089,
+      "selected_sample_pressure_improvement_percent": 4.167936624919812,
+      "selection_gap_percentage_points": 0.4648200391210777,
+      "error_color_limit_percent": 30.941200256347656,
       "top2": [
         {
           "rank": 1,
           "model": "RAPTOR",
           "macro_rel_l2": 0.2969246998069695,
-          "sample_pressure_rel_l2": 0.052064716815948486
+          "sample_pressure_rel_l2": 0.26247640155658697
         },
         {
           "rank": 2,
           "model": "LinearNO-Tiny",
           "macro_rel_l2": 0.2980174682644763,
-          "sample_pressure_rel_l2": 0.09228847920894623
+          "sample_pressure_rel_l2": 0.27389204856131727
         }
       ]
     }
