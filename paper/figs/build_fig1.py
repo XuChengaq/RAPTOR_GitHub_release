@@ -330,13 +330,21 @@ def main():
     arrow(ax, (15.63, gate_y), (plus_x - 0.15, gate_y), color=TEAL, lw=1.10)
 
     # The backbone output is a separate input to the final residual addition;
-    # it is not the same tensor as the local adapter's center-node input.
-    ax.plot([10.32, plus_x], [0.48, 0.48], color=INK,
-            linewidth=1.05, zorder=4)
-    arrow(ax, (plus_x, 0.48), (plus_x, gate_y - 0.15), lw=1.05)
-    ax.text(13.12, 0.68,
-            "Physics-Attention backbone output  " + r"$\mathbf{Z}_{\mathrm{PA}}^{(l)}$",
-            ha="center", va="bottom", fontsize=8.0, color=INK)
+    # an explicit input box avoids the appearance of a dangling residual line.
+    backbone_y = 0.45
+    rounded_box(
+        ax, 10.30, 0.22, 2.54, 0.52,
+        "Physics-Attention backbone output\n" +
+        r"$\mathbf{Z}_{\mathrm{PA}}^{(l)}$",
+        face="white", edge=INK, color=INK, fontsize=7.8,
+        linewidth=0.95, radius=0.055,
+    )
+    orth_arrow(
+        ax,
+        [(12.84, backbone_y), (plus_x, backbone_y),
+         (plus_x, gate_y - 0.15)],
+        color=INK, lw=1.05, mutation=9,
+    )
 
     rounded_box(ax, 16.55, 2.17, 1.30, 0.76,
                 "Updated node\nfeature\n" + r"$\mathbf{Z}^{(l+1)}$",
@@ -345,7 +353,9 @@ def main():
     arrow(ax, (plus_x + 0.15, gate_y), (16.55, gate_y), lw=1.12)
 
     fig.savefig(OUT / "Fig1.pdf", bbox_inches="tight", pad_inches=0.035)
-    fig.savefig(OUT / "Fig1.png", dpi=360, bbox_inches="tight",
+    # The PDF remains resolution-independent; 600 dpi is used for the raster
+    # export because this is a line-art figure with small labels.
+    fig.savefig(OUT / "Fig1.png", dpi=600, bbox_inches="tight",
                 pad_inches=0.035, facecolor="white")
     plt.close(fig)
 
