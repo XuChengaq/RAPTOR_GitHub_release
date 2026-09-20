@@ -554,44 +554,51 @@ Let \(\widehat{\mathbf{Y}}^{(q)}\) and \(\mathbf{Y}^{(q)}\) denote the normalize
     \label{eq:training_loss}
 \end{equation}
 
-Normalization statistics are computed using only the training set. For AirfRANS, all seven inputs and four outputs are standardized channel-wise. For the three-dimensional tasks, coordinates remain in their stored units and only \(C_p\) is standardized using the scalar training-set mean and standard deviation. Model selection uses validation loss with early stopping; the validation-selected checkpoint is restored for test evaluation, after which predictions are transformed back to physical units where required. Because the surrounding optimizer and early-stopping loop is standard, Algorithm~\ref{alg:raptor} instead exposes the RAPTOR-specific graph construction and block update used in every forward pass.
+Normalization statistics are computed using only the training set. For AirfRANS, all seven inputs and four outputs are standardized channel-wise. For the three-dimensional tasks, coordinates remain in their stored units and only \(C_p\) is standardized using the scalar training-set mean and standard deviation. Model selection uses validation loss with early stopping; the validation-selected checkpoint is restored for test evaluation, after which predictions are transformed back to physical units where required. Because the surrounding optimizer and early-stopping loop is standard, Algorithm~\ref{alg:raptor} separates the RAPTOR-specific setup from the repeatedly executed forward pass. \textsc{InitializeRAPTOR} is called once before optimization, \textsc{CacheKNNGraph} is called once for each sampled geometry, and \textsc{RAPTORForward} is called repeatedly during training and inference without reinitializing any parameter.
 
 \begin{algorithm}[H]
-\caption{RAPTOR construction and forward propagation}
+\caption{Separated RAPTOR initialization, graph caching, and forward propagation}
 \label{alg:raptor}
 \footnotesize
 \begin{algorithmic}[1]
-\Require Sampled node features \(\mathbf X\), coordinates \(\mathbf C=\{\mathbf c_i\}_{i=1}^{N}\), input preprocessor \(\mathcal P_X\), slices \(S\), neighbors \(K\), and blocks \(L\)
-\Ensure Normalized field prediction \(\widehat{\mathbf Y}\)
-\ForAll{nodes \(i=1,\ldots,N\)}
-    \State \(\mathcal N_K(i)\gets\operatorname{KNN}_K
-    (\mathbf c_i,\{\mathbf c_j:j\ne i\})\)
-    \Comment{precomputed once per sampled geometry}
-\EndFor
-\State Initialize \(\alpha_l\gets0\) for \(l=0,\ldots,L-1\)
-\State \(\mathbf Z^{(0)}\gets\phi_{\mathrm{in}}
-\!\left(\mathcal P_X(\mathbf X)\right)\)
-\For{\(l=0,\ldots,L-1\)}
-    \State \(\mathbf U_{\mathrm{PA}}^{(l)}\gets\mathbf Z^{(l)}+
-    \operatorname{PhysicsAttn}^{(l)}
-    \!\left(\operatorname{LN}_{1}^{(l)}(\mathbf Z^{(l)}),S\right)\)
-    \State \(\mathbf Z_{\mathrm{PA}}^{(l)}\gets\mathbf U_{\mathrm{PA}}^{(l)}+
-    \operatorname{FFN}^{(l)}
-    \!\left(\operatorname{LN}_{2}^{(l)}(\mathbf U_{\mathrm{PA}}^{(l)})\right)\)
-    \ForAll{nodes \(i=1,\ldots,N\) in parallel}
-        \State \(\overline{\mathbf z}_{i}^{(l)}\gets
-        K^{-1}\!\sum_{j\in\mathcal N_K(i)}\mathbf z_j^{(l)}\)
-        \State \(\mathbf m_i^{(l)}\gets\phi_{\mathrm{loc}}^{(l)}
-        \!\left([\operatorname{LN}_{\mathrm{loc}}^{(l)}(\mathbf z_i^{(l)});
-        \overline{\mathbf z}_{i}^{(l)}]\right)\)
+\Require Sampled node features \(\mathbf X\), coordinates \(\mathbf C=\{\mathbf c_i\}_{i=1}^{N}\), fitted input preprocessor \(\mathcal P_X\), slices \(S\), neighbors \(K\), and blocks \(L\)
+\Procedure{InitializeRAPTOR}{$S,L$}
+    \State Initialize all non-gate trainable parameters in \(\theta\)
+    \State Set \(\alpha_l\gets0\) for \(l=0,\ldots,L-1\)
+    \State \Return initialized model parameters \(\theta\)
+\EndProcedure
+\Procedure{CacheKNNGraph}{$\mathbf C,K$}
+    \ForAll{nodes \(i=1,\ldots,N\)}
+        \State \(\mathcal N_K(i)\gets\operatorname{KNN}_K
+        (\mathbf c_i,\{\mathbf c_j:j\ne i\})\)
     \EndFor
-    \State \(\mathbf M_{\mathrm{loc}}^{(l)}\gets
-    [\mathbf m_1^{(l)},\ldots,\mathbf m_N^{(l)}]^{\top}\)
-    \State \(\mathbf Z^{(l+1)}\gets\mathbf Z_{\mathrm{PA}}^{(l)}+
-    \tanh(\alpha_l)\mathbf M_{\mathrm{loc}}^{(l)}\)
-\EndFor
-\State \(\widehat{\mathbf Y}\gets\phi_{\mathrm{out}}(\mathbf Z^{(L)})\)
-\State \Return \(\widehat{\mathbf Y}\)
+    \State Cache and \Return the directed, self-excluding graph \(\mathcal N_K\)
+\EndProcedure
+\Procedure{RAPTORForward}{$\mathbf X,\mathcal N_K;\theta$}
+    \State \(\mathbf Z^{(0)}\gets\phi_{\mathrm{in}}
+    \!\left(\mathcal P_X(\mathbf X)\right)\)
+    \For{\(l=0,\ldots,L-1\)}
+        \State \(\mathbf U_{\mathrm{PA}}^{(l)}\gets\mathbf Z^{(l)}+
+        \operatorname{PhysicsAttn}^{(l)}
+        \!\left(\operatorname{LN}_{1}^{(l)}(\mathbf Z^{(l)}),S\right)\)
+        \State \(\mathbf Z_{\mathrm{PA}}^{(l)}\gets\mathbf U_{\mathrm{PA}}^{(l)}+
+        \operatorname{FFN}^{(l)}
+        \!\left(\operatorname{LN}_{2}^{(l)}(\mathbf U_{\mathrm{PA}}^{(l)})\right)\)
+        \ForAll{nodes \(i=1,\ldots,N\) in parallel}
+            \State \(\overline{\mathbf z}_{i}^{(l)}\gets
+            K^{-1}\!\sum_{j\in\mathcal N_K(i)}\mathbf z_j^{(l)}\)
+            \State \(\mathbf m_i^{(l)}\gets\phi_{\mathrm{loc}}^{(l)}
+            \!\left([\operatorname{LN}_{\mathrm{loc}}^{(l)}(\mathbf z_i^{(l)});
+            \overline{\mathbf z}_{i}^{(l)}]\right)\)
+        \EndFor
+        \State \(\mathbf M_{\mathrm{loc}}^{(l)}\gets
+        [\mathbf m_1^{(l)},\ldots,\mathbf m_N^{(l)}]^{\top}\)
+        \State \(\mathbf Z^{(l+1)}\gets\mathbf Z_{\mathrm{PA}}^{(l)}+
+        \tanh(\alpha_l)\mathbf M_{\mathrm{loc}}^{(l)}\)
+    \EndFor
+    \State \(\widehat{\mathbf Y}\gets\phi_{\mathrm{out}}(\mathbf Z^{(L)})\)
+    \State \Return normalized field prediction \(\widehat{\mathbf Y}\)
+\EndProcedure
 \end{algorithmic}
 \end{algorithm}
 
