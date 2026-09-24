@@ -179,7 +179,7 @@
 % Here goes the abstract
 
 \begin{abstract}
-	Aerodynamic field reconstruction on unstructured discretizations requires long-range communication while preserving local geometric detail, yet dense node-level attention incurs quadratic computational and memory cost. We propose RAPTOR, a resource-aware physics-token operator that augments slice-based Physics-Attention with a sparse $K$-nearest-neighbor residual adapter. The token branch captures global interactions, while the adapter restores neighborhood-scale information directly in node space. A zero-initialized bounded gate makes each block identical to its Physics-Attention backbone at initialization and progressively activates the local correction. For a fixed input state, each head's frozen node-mixing matrix has rank at most the number of slices $S$. With precomputed neighborhoods, RAPTOR retains $\mathcal{O}(NS+S^2+NK)$ connectivity without constructing dense $N\times N$ attention. We evaluate Reynolds-number and angle-of-attack extrapolation on AirfRANS and automobile and aircraft surface-pressure-coefficient reconstruction on Mixed-3D. Under fixed splits and one training seed, RAPTOR attains the lowest macro relative $L_2$ error among the evaluated models on both AirfRANS tasks. Relative to Transolver-Tiny, it reduces the macro relative $L_2$ error by $2.68\%$ on Reynolds-number extrapolation and $5.37\%$ on angle-of-attack extrapolation. On Mixed-3D, it reduces standardized-space MSE by $6.77\%$ for automobiles and $8.57\%$ for aircraft. All accuracy experiments use $N=4096$ on one RTX~4050 Laptop GPU. In a separate node-scaling profile, RAPTOR completes a mixed-precision training step at $N=16384$ in $66.99$\,ms with $410.31$\,MiB peak allocated memory, whereas dense attention is not run beyond $N=8192$ to avoid memory oversubscription. These results support resource-efficient aerodynamic reconstruction with favorable precomputed-graph scaling over the tested range.
+	Aerodynamic field reconstruction on unstructured discretizations requires long-range communication without losing local geometric detail, while dense node-level attention incurs quadratic cost. We propose RAPTOR, a resource-aware physics-token operator combining slice-based Physics-Attention with a sparse $K$-nearest-neighbor residual adapter. Its global branch communicates through physics tokens, while a zero-initialized bounded gate introduces node-space local correction without perturbing the backbone at initialization. For a fixed input state, each head's frozen node-mixing matrix has rank at most the number of slices $S$; with precomputed neighborhoods, RAPTOR retains $\mathcal{O}(NS+S^2+NK)$ connectivity without dense node attention. We evaluate Reynolds-number and angle-of-attack extrapolation on AirfRANS and surface-pressure-coefficient reconstruction on Mixed-3D automobile and aircraft geometries. Across three training seeds on fixed AirfRANS splits, RAPTOR has the lowest mean macro relative $L_2$ error among ten models: $0.2210\pm0.0019$ for Reynolds and $0.3083\pm0.0108$ for angle of attack. It improves over its Transolver-Tiny backbone for all three common seeds, although the Reynolds margin is sensitive to one high-error baseline run. In single-seed Mixed-3D tests, RAPTOR reduces standardized-space MSE by $6.77\%$ for automobiles and $8.57\%$ for aircraft. A parameter-matched node-wise control and a neighborhood-size study support the contribution of local aggregation while exposing an accuracy--cost tradeoff. All accuracy experiments use 4096 nodes on one RTX~4050 Laptop GPU. In node-scaling profiling with precomputed neighborhoods, RAPTOR completes a mixed-precision training step at $N=16384$ in $66.99$\,ms with $410.31$\,MiB peak allocated memory; dense attention is not run beyond $N=8192$ to avoid memory oversubscription. The results support resource-efficient reconstruction on the tested hardware, while fixed splits and limited seeds constrain broader claims.
 \end{abstract}
 
 
@@ -216,14 +216,48 @@ To address this limitation, we propose RAPTOR, a residual-augmented physics-toke
 The main contributions of this work are summarized as follows:
 
 \begin{enumerate}
-	\item We propose RAPTOR, a resource-aware hybrid neural operator that couples token-mediated global interaction with an explicit sparse $K$-nearest-neighbor residual correction in node space. Unlike mechanisms that modify only token assignment, the proposed adapter introduces direct neighborhood-level dependencies alongside the compressed global pathway. Once the neighborhoods are available, each block retains
-	$\mathcal{O}(NS+S^2+NK)$ connectivity complexity without constructing a dense $N\times N$ attention matrix.
+	\item \textbf{Node-space residual augmentation of a physics-token
+		operator.}
+	We propose a local correction mechanism that retains the original
+	Physics-Attention pathway and augments each operator block with a
+	parallel residual branch in the original node space. The branch
+	concatenates the normalized center-node feature with the mean feature
+	of its precomputed $K$-nearest neighbors and maps the result through a
+	lightweight MLP. Unlike approaches that modify token assignment or
+	inject geometric context into the latent slice space, RAPTOR directly
+	corrects the evolving node representation while leaving the global
+	tokenization and slice-attention mechanism unchanged.
 	
-	\item We introduce a zero-initialized bounded residual gate for integrating the local correction. At initialization, every RAPTOR block is exactly equivalent to its Physics-Attention backbone; during optimization, the gate progressively controls the contribution of the node-space adapter. We further characterize the token branch through its per-head conditional node-mixing rank under frozen, input-dependent assignments and attention weights, clarifying the representation bottleneck that motivates the complementary local pathway.
+	\item \textbf{Backbone-preserving integration with controlled sparse
+		overhead.}
+	Building on the zero-initialized residual-scaling principle of
+	ReZero, RAPTOR uses a bounded $\tanh(\alpha_l)$ gate to make the local
+	branch contribute exactly zero at initialization. The resulting block
+	therefore initially reproduces its Physics-Attention backbone and
+	subsequently learns the magnitude and sign of the node-space
+	correction. For fixed slice assignments and attention weights, we
+	characterize the per-head conditional node-mixing rank of the token
+	branch and show how the local adapter adds $\mathcal O(NK)$ direct
+	neighborhood dependencies. With precomputed neighborhoods, the
+	complete block retains
+	$\mathcal O(NS+S^2+NK)$ connectivity without constructing dense
+	$N\times N$ node attention.
 	
-	\item We conduct a unified evaluation on two-dimensional AirfRANS extrapolation tasks and three-dimensional automobile and aircraft surface-pressure-coefficient reconstruction tasks from the Mixed-3D benchmark. Under the reported fixed splits and single-seed protocol, RAPTOR achieves the lowest macro relative $L_2$ error among the evaluated models on both AirfRANS tasks and reduces the standardized-space MSE of Transolver-Tiny by $6.77\%$ and $8.57\%$ on the automobile and aircraft tasks, respectively.
-	
-	\item We provide an empirical resource and node-scaling study under a fixed RTX~4050 environment. The study separately measures model forward latency, full training-step latency, peak GPU memory, and exact $K$-NN construction time for up to $N=16{,}384$ nodes. RAPTOR completes the $N=16{,}384$ training-step profile in $66.99$\,ms with $410.31$\,MiB peak allocated memory, while the dense-attention baseline already incurs substantial memory spillover and a $12.51$\,s training step at $N=8{,}192$. These measurements complement the asymptotic analysis while limiting the resource-efficiency claim to the evaluated hardware and implementation.
+	\item \textbf{Cross-dimensional evaluation and measured resource
+		characterization.}
+	We evaluate the same global--local design on two-dimensional
+	AirfRANS extrapolation and three-dimensional automobile and aircraft
+	surface-pressure reconstruction. Across three AirfRANS training seeds,
+	RAPTOR obtains the lowest mean macro error among ten compared models
+	on both extrapolation tasks; the three-dimensional experiments retain
+	a single-seed protocol. A parameter-matched node-wise control and
+	$K$-sensitivity study further test the role and cost of neighborhood
+	information.
+	We further profile forward latency, complete training-step latency,
+	peak GPU memory, and exact CPU $K$-NN construction separately for up
+	to $N=16{,}384$ nodes on an RTX~4050 Laptop GPU, thereby distinguishing
+	the cost of the sparse local correction from the one-time graph
+	construction cost.
 \end{enumerate}
 
 The remainder of this paper is organized as follows.
@@ -269,6 +303,23 @@ Modeling global dependencies in a compressed space can reduce interaction costs,
 Local dependence has also become an explicit subject of neural-operator research. \citet{ref32} constrained the information available to local predictions through data decomposition and studied its effects on training and generalization. Architectures that rely entirely on local propagation require greater depth for cross-regional interaction, whereas a randomly initialized local branch can perturb an established global backbone early in training.
 
 ReZero initializes residual coefficients to zero and progressively activates residual transformations during optimization~\citep{ref28}. RAPTOR applies this principle to a bounded node-level adapter gate, preserving the function represented by an existing global operator at initialization rather than requiring the entire block to reduce to an identity map.
+
+GeoTransolver is closely related in its objective of preserving geometric
+information within a Physics-Attention architecture~\citep{ref38}.
+However, the two methods inject information at different representation
+levels. GeoTransolver constructs a shared geometry and operating-condition
+context using multi-scale ball queries and repeatedly injects this context
+into the slice-token representation through cross-attention. RAPTOR instead
+leaves the Physics-Attention token pathway unchanged and introduces a
+parallel correction directly in the evolving node representation. Its
+neighborhoods are defined by a single precomputed directed Euclidean
+$K$-NN graph among the sampled field nodes, and its local message is formed
+from the center-node feature and the mean feature of its neighbors.
+Consequently, GeoTransolver targets persistent multiscale geometry and
+regime conditioning in token space, whereas RAPTOR targets a lightweight
+node-space correction of neighborhood information that may be weakened by
+token compression. The methods are therefore complementary rather than
+architecturally equivalent.
 
 \subsection{Implementation under a Fixed Hardware Budget}
 \label{subsec:resource_efficiency}
@@ -872,8 +923,8 @@ geometries, Reynolds numbers, and angles of attack. We evaluate
 Reynolds-number and angle-of-attack extrapolation using the official
 task-specific partitions. For each task, 200 simulations are selected
 from the official training partition with selection seed 2026 and split
-into 180 training and 20 validation cases; 200 simulations are selected
-from the official test partition. Each case is downsampled to
+into 180 training and 20 validation cases. The official test partitions
+provide 200 Reynolds-number and 196 AoA cases for this evaluation. Each case is downsampled to
 \(N=4096\) nodes using 20\% surface and 80\% volume samples. Sampling
 uses deterministic split offsets 1000, 5000, and 9000 for training,
 validation, and test cases, respectively. This is a custom downsampled
@@ -974,8 +1025,14 @@ CUDA automatic mixed precision is enabled for the AirfRANS and
 three-dimensional runs. The mixed-feature scatter in MoNo-Tiny and the
 eidetic slicing operation in Transolver++-Tiny are explicitly evaluated
 in FP32 because their corresponding kernels were not autocast safe.
-All formal experiments use training seed 42. The two three-dimensional
-split manifests record every object identifier and the sampling seed.
+Seed 42 is the reference run for all tasks and for the detailed AirfRANS
+comparisons in Tables~\ref{tab:reynolds_results} and~\ref{tab:aoa_results}.
+The AirfRANS model comparison is repeated with training seeds 41 and 43,
+holding the data caches, sampled nodes, normalization statistics,
+hyperparameters, and stopping rule fixed. The three-dimensional
+experiments, the capacity and $K$ studies, and the remaining ablations
+retain the seed-42 protocol. The two three-dimensional split manifests
+record every object identifier and the sampling seed.
 
 \paragraph{Node-scaling profiling protocol.}
 Computational scaling is evaluated without retraining by applying the actual
@@ -1012,7 +1069,7 @@ the maximum CUDA allocation observed during the measured phase.
         \toprule
         Setting & Value \\
         \midrule
-        Training seed & 42 \\
+        Training seeds & 42 (all tasks); 41, 43 (AirfRANS comparison) \\
         AirfRANS data-selection seed & 2026 \\
         Nodes per sample & 4096 \\
         Hidden dimension & 64 \\
@@ -1079,30 +1136,7 @@ The four-variable macro error is defined as
     \label{eq:macro_error}
 \end{equation}
 
-For the representative \(p/\rho\) visualizations, the sample-level pressure
-error of model \(a\) on test case \(q\) is
-\begin{equation}
-    e_{q,p}^{(a)}=
-    \frac{\left\|\widehat{\mathbf Y}_{q,p}^{(a)}-\mathbf Y_{q,p}\right\|_2}
-    {\left\|\mathbf Y_{q,p}\right\|_2+10^{-12}}.
-    \label{eq:sample_pressure_error}
-\end{equation}
-Let \(R\) denote RAPTOR and \(b\) the other model displayed in the same
-row. The test-set and sample-level paired pressure improvements, and the
-representative-case rule, are
-\begin{equation}
-    \Delta_p^{\mathrm{test}}=1-\frac{\varepsilon_p^{(R)}}{\varepsilon_p^{(b)}},
-    \qquad
-    \Delta_{q,p}=1-\frac{e_{q,p}^{(R)}}{e_{q,p}^{(b)}},
-    \qquad
-    q^*=\operatorname*{arg\,min}_{q}
-    \left|\Delta_{q,p}-\Delta_p^{\mathrm{test}}\right|.
-    \label{eq:pressure_case_selection}
-\end{equation}
-Both \(e_{q,p}^{(a)}\) and \(\varepsilon_p^{(a)}\) use all 4096 sampled
-nodes. The percentile-based normalization in the absolute-error maps is used
-only for visualization and does not enter the selection rule. Reported
-implementation measurements
+Reported implementation measurements
 comprise trainable parameters, elapsed training time, and peak allocated GPU
 memory. End-to-end inference latency was not retained consistently for the
 accuracy experiments and is therefore not compared across trained runs.
@@ -1142,8 +1176,13 @@ This section evaluates RAPTOR from five complementary perspectives:
 two-dimensional aerodynamic extrapolation, the contribution of the local
 adapter and its initialization, three-dimensional automobile \(C_p\)
 reconstruction, evaluation on aircraft geometries, and empirical node
-scaling. Owing to the computational cost of the complete experimental suite,
-all formal models are trained with one fixed seed (42). The complete code, configurations, split manifests, checkpoints, per-sample predictions, and evaluation scripts are available through the GitHub repository listed on the title page.
+scaling, and the parameter-matched capacity and neighborhood-size studies.
+The detailed comparisons, ablations, capacity controls, and three-dimensional
+results use the reference training seed 42; the AirfRANS model comparison
+additionally reports training seeds 41 and 43. The complete code,
+configurations, split manifests, checkpoints, per-sample predictions, and
+evaluation scripts are available through the GitHub repository listed on
+the title page.
 
 \subsection{AirfRANS extrapolation results}
 \label{subsec:airfrans_results}
@@ -1151,15 +1190,18 @@ all formal models are trained with one fixed seed (42). The complete code, confi
 \subsubsection{Overall comparison}
 
 Tables~\ref{tab:reynolds_results} and~\ref{tab:aoa_results} report the
-relative \(L_2\) errors on the Reynolds-number and angle-of-attack
-extrapolation tasks, respectively. The macro error is the unweighted mean
-of the errors for \(u_x\), \(u_y\), \(p/\rho\), and \(\nu_t\).
+seed-42 relative \(L_2\) errors on the Reynolds-number and angle-of-attack
+extrapolation tasks, respectively. Table~\ref{tab:airfrans_three_seed}
+summarizes the corresponding macro errors over training seeds 41, 42,
+and 43. The macro error is the unweighted mean of the errors for
+\(u_x\), \(u_y\), \(p/\rho\), and \(\nu_t\).
 
 
 
-On Reynolds-number extrapolation, RAPTOR has the lowest macro relative
-\(L_2\) error (0.2219), improving on the nearest baseline, Transolver-Tiny
-(0.2280), by 2.68\%. It is best for \(u_x\) and \(\nu_t\), whereas
+In the seed-42 Reynolds-number comparison, RAPTOR has the lowest macro
+relative \(L_2\) error (0.2219), improving on the nearest baseline,
+Transolver-Tiny (0.2280), by 2.65\% using the unrounded values. It is
+best for \(u_x\) and \(\nu_t\), whereas
 Transolver-Tiny and MoNo-Tiny lead for \(u_y\) and \(p/\rho\), respectively.
 The macro advantage therefore reflects balanced errors rather than dominance
 on every output.
@@ -1207,7 +1249,7 @@ on every output.
         & 0.5654
         & 0.5185
         & 0.4357
-        & 49.07\% \\
+        & 49.06\% \\
         
         PointNet
         & 0.2050
@@ -1215,7 +1257,7 @@ on every output.
         & 0.2338
         & 0.3173
         & 0.2610
-        & 14.98\% \\
+        & 14.96\% \\
         
         Graph U-Net
         & 0.2255
@@ -1242,7 +1284,7 @@ on every output.
         & 0.2366
         & \underline{0.3003}
         & \underline{0.2280}
-        & 2.68\% \\
+        & 2.65\% \\
         
         Transolver++-Tiny
         & 0.1684
@@ -1250,7 +1292,7 @@ on every output.
         & 0.3434
         & 0.3517
         & 0.2752
-        & 19.37\% \\
+        & 19.36\% \\
         
         MoNo-Tiny
         & 0.2825
@@ -1258,7 +1300,7 @@ on every output.
         & \textbf{0.2150}
         & 0.3612
         & 0.3406
-        & 34.85\% \\
+        & 34.84\% \\
         
         LinearNO-Tiny
         & 0.1565
@@ -1266,7 +1308,7 @@ on every output.
         & 0.2360
         & 0.5360
         & 0.2884
-        & 23.06\% \\
+        & 23.04\% \\
         
         \midrule
         
@@ -1294,26 +1336,20 @@ on every output.
 
 
 
-On AoA extrapolation, RAPTOR again obtains the lowest macro
-error, 0.2969. It improves upon Transolver-Tiny by 5.37\%, showing that the
-local adapter helps the Physics-Attention backbone accommodate changes in
-the stagnation region, \(p/\rho\) distribution, and wake direction induced by
-unseen angles of attack.
+In the seed-42 AoA comparison, RAPTOR again obtains the lowest macro
+error, 0.2969, improving upon Transolver-Tiny by 5.37\%.
 
 However, the advantage over LinearNO-Tiny is only 0.37\%. The two methods
-should therefore be regarded as closely matched under this single-seed
-protocol. LinearNO-Tiny obtains the lowest \(u_x\) error, whereas RAPTOR
+should therefore be regarded as closely matched in this run.
+LinearNO-Tiny obtains the lowest \(u_x\) error, whereas RAPTOR
 performs best for \(u_y\). PointNet remains strongest for \(p/\rho\) and
 turbulent viscosity. RAPTOR achieves the lowest macro error because it
 avoids a large error in any one variable, rather than because it is uniformly
 best on all four channels.
 
-Across both tasks, the mean of the two macro errors is 0.2594 for RAPTOR,
-compared with 0.2709 for Transolver-Tiny, 0.2932 for LinearNO-Tiny, and
-0.2968 for PointNet. Under this fixed protocol, token-mediated interaction
-and node-level adaptation yield the lowest two-task mean. The small AoA
-margin and the use of one training seed preclude a claim of statistically
-established superiority.
+These seed-42 results show that the macro advantage does not require RAPTOR
+to lead on every physical variable. The three-seed summary below tests how
+the overall ranking changes with the training initialization.
 
 \begin{center}
     \begin{minipage}{1.00\linewidth}
@@ -1381,7 +1417,7 @@ established superiority.
         & 0.4576
         & 0.5982
         & 0.4204
-        & 29.37\% \\
+        & 29.38\% \\
         
         Transolver-Tiny 
         & 0.1698
@@ -1397,7 +1433,7 @@ established superiority.
         & 0.4456
         & 0.5049
         & 0.3790
-        & 21.66\% \\
+        & 21.67\% \\
         
         MoNo-Tiny
         & 0.3286
@@ -1429,6 +1465,71 @@ established superiority.
        \end{minipage}
 \end{center}
 
+\begin{center}
+    \begin{minipage}{0.80\linewidth}
+        \centering
+        \captionof{table}{AirfRANS macro relative \(L_2\) errors over training
+        seeds 41, 42, and 43 (mean \(\pm\) sample standard deviation;
+        lower is better). Each macro error is the unweighted mean of the
+        four variable-wise errors. All runs within a task use the same
+        fixed data cache and 4096 sampled nodes.}
+        \label{tab:airfrans_three_seed}
+        \renewcommand{\arraystretch}{1.12}
+        \setlength{\tabcolsep}{7pt}
+        \small
+        \begin{tabular}{@{}lcc@{}}
+            \toprule
+            Method & Reynolds number & AoA \\
+            \midrule
+            MLP & \(0.4327\pm0.0045\) & \(0.4858\pm0.0233\) \\
+            GraphSAGE & \(0.4232\pm0.0135\) & \(0.4463\pm0.0163\) \\
+            PointNet & \(0.2634\pm0.0074\) & \(0.3294\pm0.0147\) \\
+            Graph U-Net & \(0.3178\pm0.0086\) & \(0.3742\pm0.0125\) \\
+            Sparse Token & \(0.3678\pm0.0089\) & \(0.4156\pm0.0224\) \\
+            Transolver-Tiny & \(0.2595\pm0.0617\) & \(0.3202\pm0.0119\) \\
+            Transolver++-Tiny & \(0.2916\pm0.0228\) & \(0.3690\pm0.0236\) \\
+            MoNo-Tiny & \(0.3391\pm0.0044\) & \(0.4285\pm0.0351\) \\
+            LinearNO-Tiny & \(0.2499\pm0.0363\) & \(0.3132\pm0.0277\) \\
+            \midrule
+            \textbf{RAPTOR (ours)} &
+            \(\mathbf{0.2210\pm0.0019}\) &
+            \(\mathbf{0.3083\pm0.0108}\) \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{center}
+
+Across three seeds, RAPTOR has the lowest mean macro error among ten
+models on both tasks, but wins only two of three runs per task.
+LinearNO-Tiny is the closest baseline by mean on Reynolds number
+(\(0.2499\pm0.0363\)) and AoA (\(0.3132\pm0.0277\)); the AoA gap
+is not a consistent per-seed advantage.
+
+Using the same seed label and data cache, but not shared initial weights,
+we define paired improvement from unrounded macro errors as
+\(\Delta_{b,s}=100(E_{b,s}-E_{\mathrm{RAPTOR},s})/E_{b,s}\).
+Against Transolver-Tiny, RAPTOR improves in all three common-seed
+comparisons on each task. For seeds 41, 42, and 43, the improvements
+are \(32.77\%\), \(2.65\%\), and \(0.52\%\) on Reynolds number
+and \(1.02\%\), \(5.37\%\), and \(4.65\%\) on AoA, with respective
+paired means of \((11.98\pm18.03)\%\) and \((3.68\pm2.33)\%\).
+The Reynolds result is sensitive to the seed-41 Transolver-Tiny run
+(macro \(0.3305\); \(\nu_t\) error \(0.6334\)); the other two margins
+are much smaller. Against LinearNO-Tiny, paired mean improvements
+are \((10.41\pm12.14)\%\) and \((1.22\pm6.16)\%\), respectively,
+with RAPTOR losing one seed on each task.
+
+The three-seed variable-wise leaders differ from the seed-42 results.
+On Reynolds number, LinearNO-Tiny leads for \(u_x\) and \(u_y\),
+MoNo-Tiny for \(p/\rho\), and RAPTOR for \(\nu_t\). On AoA,
+LinearNO-Tiny leads for \(u_x\), RAPTOR for \(u_y\), MoNo-Tiny for
+\(p/\rho\), and PointNet for \(\nu_t\). Relative to Transolver-Tiny,
+RAPTOR lowers AoA \(p/\rho\) error in all three seeds but raises
+\(\nu_t\) error in all three. The macro gain is therefore not
+uniform across variables. These three-seed sample standard deviations
+describe variation on one fixed split; they do not establish
+statistical superiority or generalization to new splits.
+
 \subsubsection{Contribution of the local adapter and gate initialization}
 \label{subsec:ablation_results}
 
@@ -1444,7 +1545,8 @@ local adapter and RAPTOR with the adapter gate initialized to
         \captionof{table}{Core ablation results on AirfRANS. Values are four-variable
 		macro relative $L_2$ errors. Percentages reported in the text are
 		computed from unrounded values. The no-adapter entries correspond to
-		the Transolver-Tiny backbone reported in Tables~3 and~4.}
+		the Transolver-Tiny backbone reported in
+		Tables~\ref{tab:reynolds_results} and~\ref{tab:aoa_results}.}
 	\label{tab:airfrans_ablation}
 	\begin{tabular}{lcc}
 		\toprule
@@ -1465,11 +1567,14 @@ local adapter and RAPTOR with the adapter gate initialized to
 \end{center}
 
 
-On the Reynolds-number task, RAPTOR improves by 9.63\% relative to the
-nonzero-initialization variant. For Reynolds-number extrapolation, the Transolver-Tiny result reported in Table~\ref{tab:reynolds_results} (0.2280) is included as an independently trained no-adapter backbone reference, rather than as a seed-matched paired ablation. By contrast, the AoA no-adapter result is obtained from the matched ablation run. On the AoA task, RAPTOR improves by 5.37\% relative to the matched
-no-adapter backbone and by 7.84\% relative to nonzero initialization. The
-table reports macro errors only; variable-wise ablation percentages are not
-claimed because matched per-variable results are not included.
+On Reynolds-number extrapolation, RAPTOR improves by 9.63\% relative to the
+nonzero-initialization variant. The no-adapter entry from
+Table~\ref{tab:reynolds_results} is an independently trained backbone
+reference, not a seed-matched ablation; the AoA no-adapter entry is matched.
+On AoA, RAPTOR improves by 5.37\% relative to this matched backbone and
+by 7.84\% relative to nonzero initialization. Table~\ref{tab:airfrans_ablation}
+reports macro errors only; matched variable-wise ablation results are
+unavailable.
 
 The comparison between zero and nonzero initialization supports the
 baseline-preserving role of the proposed gate. Starting from
@@ -1490,64 +1595,16 @@ meaningful diagnostic is
 should be logged in future multi-seed runs.
 
 
-Figure~\ref{fig2} compares the \(p/\rho\) ground truth
-and the normalized absolute \(p/\rho\) errors of the two best-performing
-models on the AirfRANS extrapolation tasks. The upper and lower rows
-correspond to Reynolds-number and angle-of-attack extrapolation,
-respectively. The displayed models are ranked by four-variable macro relative
-\(L_2\) error; the rank-2 comparators are Transolver-Tiny for Reynolds-number
-extrapolation and LinearNO-Tiny for angle-of-attack extrapolation. Following
-Eq.~\eqref{eq:pressure_case_selection}, test indices 165 and 142 are selected
-because their paired \(p/\rho\) improvements are closest to the corresponding
-pooled test-set pressure improvements. The target/selected improvements are
-\(4.84\%/4.97\%\) for Reynolds-number extrapolation and
-\(4.63\%/4.17\%\) for angle-of-attack extrapolation. Thus, the selection and
-panel annotations use the same pressure relative \(L_2\) metric and the same
-4096-node scope.
-\begin{center}
-	\begin{minipage}{0.94\linewidth}
-		\centering
-		\includegraphics[
-		width=\linewidth,
-		keepaspectratio
-		]{figs/Fig2.pdf}
-		\captionof{figure}{Ground truth and normalized absolute-error maps for
-			\(p/\rho\) on AirfRANS with seed 42. The Reynolds-number and AoA rows
-			show test indices 165 and 142, respectively. Each case minimizes the
-			difference between its sample-level paired pressure improvement and the
-			corresponding pooled test-set pressure improvement, as defined in
-			Eq.~\eqref{eq:pressure_case_selection}. Relative \(L_2\) errors use all
-			4096 nodes; percentile normalization is applied only to the displayed
-			absolute-error colors.}
-		\label{fig2}
-	\end{minipage}
-\end{center}
-\subsubsection{Representative \(p/\rho\)-error maps}
-For Reynolds-number extrapolation, RAPTOR achieves a macro error of 0.222,
-compared with 0.228 for Transolver-Tiny. On the displayed sample, its \(p/\rho\)
-relative $L_2$ error decreases from 0.277 to 0.263, corresponding to a
-$4.97\%$ improvement. This closely tracks the pooled test-set pressure
-improvement of $4.84\%$ and avoids selecting an unusually favorable case.
-The error maps show that the remaining deviations are concentrated near the
-airfoil surface and in the downstream wake.
-
-For angle-of-attack extrapolation, RAPTOR and LinearNO-Tiny obtain macro
-errors of 0.297 and 0.298, respectively. Their overall results are therefore
-close. On the representative sample, RAPTOR reduces the \(p/\rho\) relative
-$L_2$ error from 0.274 to 0.262, a $4.17\%$ improvement compared with the
-pooled test-set pressure improvement of $4.63\%$. The error maps indicate
-that the residual differences are most visible around the leading-edge
-region, the near-surface flow, and the wake.
-
 \subsection{Three-dimensional automobile \(C_p\) reconstruction}
 \label{subsec:automobile_results}
 
 Table~\ref{tab:automobile_results} presents the results for the 100-vehicle
 experiment. Transolver-Tiny is the matched no-adapter baseline.
 
-\begin{table}[!htbp]
+\begin{center}
+  \begin{minipage}{0.94\linewidth}
     \centering
-    \caption{Results for the 100-vehicle surface-pressure-coefficient
+    \captionof{table}{Results for the 100-vehicle surface-pressure-coefficient
     reconstruction experiment.}
     \label{tab:automobile_results}
     \renewcommand{\arraystretch}{1.10}
@@ -1572,7 +1629,8 @@ experiment. Transolver-Tiny is the matched no-adapter baseline.
         & \textbf{0.135684} & 245,525 & 117.77 & 3317.2 \\
         \bottomrule
     \end{tabular}
-\end{table}
+  \end{minipage}
+\end{center}
 
 RAPTOR reduces the overall test sMSE from 0.145534 for
 Transolver-Tiny to 0.135684, an aggregate relative reduction of 6.77\%.
@@ -2020,8 +2078,102 @@ footprint increases by a factor of four whenever \(N\) doubles,
 directly reflecting the quadratic \(\mathcal{O}(N^2)\) memory cost of
 the exact \texttt{torch.cdist}-based graph-construction procedure.
 
+\subsection{Parameter-matched capacity control and neighborhood-size sensitivity}
+\label{subsec:capacity_knn}
 
+To separate the effect of neighborhood information from that of increased
+model capacity, we evaluate a node-wise residual control. It retains the
+same bounded gate, LayerNorm, two-layer MLP, and parameter count as RAPTOR,
+but replaces the mean of neighboring features with the center-node feature.
+We also evaluate $K\in\{4,8,12,24\}$ under the same AirfRANS split,
+sampling protocol, and training seed. The original $K=12$ checkpoints are
+reused rather than retrained.
 
+\begin{center}
+	\begin{minipage}{\linewidth}
+		\centering
+		\captionof{table}{Parameter-matched capacity control and $K$-sensitivity
+			results on AirfRANS. Accuracy is four-variable macro relative $L_2$ error
+			(lower is better). ``Run peak'' is the maximum allocated GPU memory
+			recorded during training and final evaluation; ``elapsed'' is the duration
+			of that complete run, including evaluation. R/A denotes Reynolds/AoA.
+			The historical Transolver-Tiny resource values are omitted because they
+			were not collected under the same run-level protocol. Each accuracy
+			result uses one training seed.}
+		\label{tab:capacity_knn}
+		\small
+		\setlength{\tabcolsep}{4pt}
+		\renewcommand{\arraystretch}{1.12}
+		\begin{tabular}{lrrrcc}
+			\toprule
+			Variant & Parameters & Reynolds & AoA
+			& \shortstack{Run peak R/A\\(MiB)}
+			& \shortstack{Elapsed R/A\\(h)} \\
+			\midrule
+			Transolver-Tiny   & 195,796 & 0.22796 & 0.31377 & --            & -- \\
+			Node-wise control & 245,976 & 0.25663 & 0.31730 & 115.77/115.77 & 2.14/1.73 \\
+			RAPTOR, $K=4$     & 245,976 & 0.20475 & 0.31650 & 115.53/115.53 & 1.90/1.94 \\
+			RAPTOR, $K=8$     & 245,976 & 0.23277 & 0.30641 & 115.65/115.65 & 1.94/2.38 \\
+			RAPTOR, $K=12$    & 245,976 & 0.22192 & 0.29692 & 118.50/117.50 & 2.18/1.84 \\
+			RAPTOR, $K=24$    & 245,976 & \textbf{0.20220}
+			& \textbf{0.29494} & 126.48/126.48 & 3.97/3.99 \\
+			\bottomrule
+		\end{tabular}
+	\end{minipage}
+\end{center}
+
+Table~\ref{tab:capacity_knn} shows that the parameter-matched node-wise
+control does not improve upon Transolver-Tiny on either task. Its macro
+error is 12.58\% higher on Reynolds-number extrapolation and 1.12\%
+higher on angle-of-attack (AoA) extrapolation. At the same parameter
+count, RAPTOR with $K=12$ reduces error relative to this control by
+13.53\% and 6.42\%, respectively. Under the present fixed split and
+seed, the extra parameters alone therefore do not account for RAPTOR's
+improvement; the comparison supports a contribution from local
+neighborhood information.
+
+The response to neighborhood size is task-dependent. Reynolds-number
+extrapolation is non-monotonic in $K$: the $K=8$ variant performs worse
+than Transolver-Tiny, whereas $K=4$ and $K=24$ obtain errors of 0.20475
+and 0.20220. On AoA extrapolation, error decreases over the tested range
+as $K$ increases. The $K=24$ variant achieves the lowest error on both
+tasks, improving over the original $K=12$ configuration by a further
+8.89\% on Reynolds and 0.67\% on AoA. Thus, $K=12$ is the preselected
+default, not the accuracy-optimal setting among those tested.
+
+\begin{center}
+	\begin{minipage}{\linewidth}
+		\centering
+		\includegraphics[width=\linewidth,keepaspectratio]
+		{figs/accuracy_cost_tradeoff.pdf}
+		\captionof{figure}{Accuracy--cost comparison at $N=4096$ on an RTX 4050
+			Laptop GPU. Each latency point is the mean of 100 mixed-precision,
+			single-sample forward passes after 20 warm-up passes; horizontal error
+			bars represent one sample standard deviation. Memory points show peak
+			allocated inference memory. Neighbor indices are precomputed, so
+			$K$-NN graph construction is excluded from these inference measurements.
+			Accuracy is obtained from one trained checkpoint per configuration and
+			has no training-seed error bar.}
+		\label{fig:accuracy_cost}
+	\end{minipage}
+\end{center}
+
+As shown in Figure~\ref{fig:accuracy_cost}, increasing $K$ from 12 to 24
+raises the mean inference latency averaged over the two tasks by 10.37\%,
+while peak allocated inference memory rises by 0.38~MiB. The run-level
+peak memory in Table~\ref{tab:capacity_knn} rises from
+118.50/117.50~MiB to 126.48/126.48~MiB for Reynolds/AoA. The summed
+elapsed durations of the two training-and-evaluation runs are 4.02~h
+and 7.96~h for $K=12$ and $K=24$, respectively. These durations include
+final evaluation and come from separate single runs; they should not be
+interpreted as controlled estimates of architectural training overhead.
+We retain the preselected $K=12$ setting for the main comparisons while
+explicitly reporting the accuracy advantage of $K=24$.
+
+Finally, the accuracy comparisons are descriptive results from one
+training seed and do not establish statistical significance across
+training runs. The 100 repeated forward passes characterize inference
+timing variability only, not variability in prediction accuracy.
 
 
 \section{Conclusions and Future Work}
@@ -2041,16 +2193,21 @@ dependencies. This characterization concerns the frozen node-mixing pattern
 and should not be interpreted as a rank bound on the complete nonlinear
 operator or its Jacobian.
 
-Under the reported fixed splits and single training seed, RAPTOR achieved the
-lowest macro error among the evaluated models on both AirfRANS extrapolation
-tasks. Its macro relative \(L_2\) errors were \(0.2219\) for Reynolds-number
-extrapolation and \(0.2969\) for angle-of-attack extrapolation. The ablation
-results further indicate that the local adapter improves the matched
-Physics-Attention backbone on the AoA task and that zero initialization is
-preferable to introducing a nonzero local correction at the start of
-training. These observations support the intended baseline-preserving role
-of the gate, although they do not constitute a general optimization or
-convergence guarantee.
+Across three training seeds on the fixed AirfRANS splits, RAPTOR achieved
+the lowest mean macro relative \(L_2\) error among ten evaluated models
+on both extrapolation tasks: \(0.2210\pm0.0019\) for Reynolds number and
+\(0.3083\pm0.0108\) for angle of attack. It reduced the error of its
+direct Transolver-Tiny backbone in all three same-seed comparisons on
+each task. Nevertheless, the Reynolds-number average is influenced by
+one high-error backbone run, and the AoA mean advantage over
+LinearNO-Tiny is small and not consistent across individual seeds.
+The seed-42 ablation results separately indicate that the local adapter
+improves the matched Physics-Attention backbone on AoA and that zero
+initialization is preferable to introducing a nonzero local correction
+at the start of training. These results support the intended
+baseline-preserving role of the gate, but neither the ablation nor the
+three-seed comparison establishes statistical superiority or a general
+optimization guarantee.
 
 The three-dimensional experiments provide additional evidence that the
 global and local pathways are complementary. Relative to Transolver-Tiny,
@@ -2068,11 +2225,21 @@ training steps at \(N=16384\) with peak allocations of 350.70~MiB and
 410.31~MiB, whereas explicit dense attention exceeds physical GPU memory at
 \(N=8192\). These measurements provide implementation-level evidence over
 the tested range, but they do not establish an accuracy--resource Pareto
-advantage or hardware-independent scalability.
+advantage or hardware-independent scalability. The seed-42
+parameter-matched control indicates that extra adapter parameters
+alone do not account for the observed gains. The neighborhood-size
+study finds lower errors at \(K=24\) than at the preselected \(K=12\)
+for both AirfRANS tasks, but the summed durations of the two recorded
+training-and-evaluation runs rise from 4.02 to 7.96~h. The latter
+remains the uniform default under the present training budget, not an
+accuracy-optimal choice across the tested \(K\) values.
 
-Future work should first evaluate multiple training seeds and larger
-object-level test sets to separate split-dependent variation from training
-randomness. Resource evaluation should next vary \(S\) and \(K\), extend
+Future work should extend the three-seed AirfRANS comparison to additional
+training seeds and data splits, and repeat the single-seed three-dimensional
+experiments across seeds and larger object-level test sets. This would help
+separate training randomness from split-dependent variation. Resource
+evaluation should next vary \(S\) and explore a broader range of \(K\),
+extend
 large-\(N\) measurements to additional hardware, and include end-to-end data
 movement, preprocessing, throughput, and accuracy--resource Pareto curves.
 The exact pairwise \(K\)-NN construction reaches
