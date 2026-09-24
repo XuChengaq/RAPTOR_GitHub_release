@@ -1,8 +1,9 @@
 # Experiment and artefact guide
 
 This document maps the implementation to the experiments and retained evidence.
-All formal comparisons use seed 42 and serial CUDA execution. Values below are
-read from saved JSON/CSV files rather than reconstructed from plot labels.
+Seed 42 is the reference run; the AirfRANS model comparison additionally uses
+training seeds 41 and 43 on the same fixed split. Values below are read from
+saved JSON/CSV files rather than reconstructed from plot labels.
 
 ## 1. Method implementation
 
@@ -20,8 +21,8 @@ read from saved JSON/CSV files rather than reconstructed from plot labels.
 ### Protocol
 
 - Tasks: Reynolds-number and angle-of-attack extrapolation.
-- Split: 180 training, 20 validation, and 200 test simulations after selecting
-  200 official training simulations and reserving 10% for validation.
+- Split: 180 training and 20 validation simulations after selecting 200
+  official training simulations; 200 Reynolds and 196 AoA test cases.
 - Nodes: 4,096 points per simulation with a 0.20 surface fraction.
 - Architecture: width 64, depth 4, 64 physics tokens, four heads, and 12-NN
   local neighborhoods.
@@ -39,6 +40,12 @@ Primary evidence:
 - `outputs/formal/reynolds-raptor-s42/result.json`
 - `outputs/aoa_formal/raptor/aoa-raptor-s42/result.json`
 - `outputs/linearno_seed42_comparison.csv`
+
+Across seeds 41/42/43, RAPTOR's macro relative L2 is
+`0.220968 +/- 0.001926` on Reynolds and `0.308298 +/- 0.010764` on AoA
+(mean +/- sample standard deviation). The [three-seed evidence guide](../outputs/airfrans_multiseed_41_43/README.md)
+links the full-precision per-run JSON files, epoch histories, console logs,
+traditional-baseline runs, paired-improvement CSV, and aggregation files.
 
 ### Core ablation
 
@@ -129,7 +136,17 @@ Primary evidence and script:
 - `outputs/node_scaling_profile/knn_scaling_results.csv`
 - `outputs/node_scaling_profile/environment.json`
 
-## 6. Tests
+## 6. Capacity control and K sensitivity
+
+The seed-42 node-wise control retains RAPTOR's gate, MLP, and parameter count
+but removes cross-node aggregation. Additional RAPTOR runs use `K=4`, `8`,
+and `24`; the original `K=12` checkpoints are reused. The
+[study evidence guide](../outputs/capacity_knn_sensitivity/README.md) gives
+the raw result JSON, training histories, summary CSV/JSON, and separate
+100-repeat inference latency and memory profile. These runs should not be
+confused with a multi-seed accuracy comparison.
+
+## 7. Tests
 
 - `tests/test_model.py`: model shapes, gradients, gates, and equivalence checks.
 - `tests/test_modern_baselines.py`: matched modern-baseline checks.
@@ -142,16 +159,18 @@ python -m pytest -q tests drivaernetpp_3d/test_formal_100car.py aircraft_3d/test
 
 Formal training additionally requires CUDA and the original datasets.
 
-## 7. Reproducibility boundaries
+## 8. Reproducibility boundaries
 
 - Raw datasets are excluded because they are large and governed by their source
   distribution terms.
 - Checkpoints, caches, and prediction tensors are excluded; compact JSON/CSV
-  results and publication PDFs are retained.
+  results, epoch histories, selected console logs, and publication PDFs are
+  retained.
 - Full-mesh 3D colors are interpolation-based visualization products. Numerical
   errors are computed on the matched sampled nodes.
-- Evidence uses one random seed and controlled 3D subsets; broader multi-seed
-  and full-dataset studies remain future work.
+- AirfRANS model comparisons use three training seeds on one fixed split.
+  The 3D and capacity/K experiments use one training seed; broader seed,
+  split, and full-dataset studies remain future work.
 - The node-scaling results characterize one hardware/software configuration
   and do not establish hardware-independent speed superiority.
 

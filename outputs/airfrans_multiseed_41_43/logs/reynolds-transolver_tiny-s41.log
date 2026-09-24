@@ -1,0 +1,120 @@
+[transolver_tiny reynolds s41] epoch=1 train=0.621176 val=0.335471
+[transolver_tiny reynolds s41] epoch=2 train=0.42468 val=0.244286
+[transolver_tiny reynolds s41] epoch=3 train=0.36882 val=0.282343
+[transolver_tiny reynolds s41] epoch=4 train=0.355626 val=0.225303
+[transolver_tiny reynolds s41] epoch=5 train=0.300174 val=0.179874
+[transolver_tiny reynolds s41] epoch=6 train=0.270733 val=0.188178
+[transolver_tiny reynolds s41] epoch=7 train=0.254606 val=0.182449
+[transolver_tiny reynolds s41] epoch=8 train=0.238662 val=0.167949
+[transolver_tiny reynolds s41] epoch=9 train=0.232128 val=0.128218
+[transolver_tiny reynolds s41] epoch=10 train=0.210054 val=0.124647
+[transolver_tiny reynolds s41] epoch=11 train=0.195067 val=0.118498
+[transolver_tiny reynolds s41] epoch=12 train=0.212468 val=0.129368
+[transolver_tiny reynolds s41] epoch=13 train=0.18868 val=0.191806
+[transolver_tiny reynolds s41] epoch=14 train=0.188025 val=0.161162
+[transolver_tiny reynolds s41] epoch=15 train=0.182602 val=0.151928
+[transolver_tiny reynolds s41] epoch=16 train=0.158533 val=0.136098
+[transolver_tiny reynolds s41] epoch=17 train=0.179051 val=0.11937
+[transolver_tiny reynolds s41] epoch=18 train=0.165082 val=0.108602
+[transolver_tiny reynolds s41] epoch=19 train=0.169008 val=0.0847362
+[transolver_tiny reynolds s41] epoch=20 train=0.143456 val=0.103845
+[transolver_tiny reynolds s41] epoch=21 train=0.140461 val=0.100533
+[transolver_tiny reynolds s41] epoch=22 train=0.139434 val=0.102443
+[transolver_tiny reynolds s41] epoch=23 train=0.135004 val=0.0753514
+[transolver_tiny reynolds s41] epoch=24 train=0.140766 val=0.0996081
+[transolver_tiny reynolds s41] epoch=25 train=0.130626 val=0.100618
+[transolver_tiny reynolds s41] epoch=26 train=0.1341 val=0.0894982
+[transolver_tiny reynolds s41] epoch=27 train=0.115394 val=0.114936
+[transolver_tiny reynolds s41] epoch=28 train=0.12455 val=0.0741299
+[transolver_tiny reynolds s41] epoch=29 train=0.120787 val=0.079759
+[transolver_tiny reynolds s41] epoch=30 train=0.127316 val=0.0860162
+[transolver_tiny reynolds s41] epoch=31 train=0.114752 val=0.10669
+[transolver_tiny reynolds s41] epoch=32 train=0.11161 val=0.0684003
+[transolver_tiny reynolds s41] epoch=33 train=0.11566 val=0.0744833
+[transolver_tiny reynolds s41] epoch=34 train=0.106148 val=0.0660733
+[transolver_tiny reynolds s41] epoch=35 train=0.101619 val=0.0728711
+[transolver_tiny reynolds s41] epoch=36 train=0.107856 val=0.0585409
+[transolver_tiny reynolds s41] epoch=37 train=0.101245 val=0.133081
+[transolver_tiny reynolds s41] epoch=38 train=0.109467 val=0.0769797
+[transolver_tiny reynolds s41] epoch=39 train=0.0939546 val=0.0610996
+[transolver_tiny reynolds s41] epoch=40 train=0.0994551 val=0.0759281
+[transolver_tiny reynolds s41] epoch=41 train=0.0951164 val=0.0608488
+[transolver_tiny reynolds s41] epoch=42 train=0.0811105 val=0.056361
+[transolver_tiny reynolds s41] epoch=43 train=0.0925234 val=0.0632182
+[transolver_tiny reynolds s41] epoch=44 train=0.0962158 val=0.0814212
+[transolver_tiny reynolds s41] epoch=45 train=0.0886714 val=0.0692544
+[transolver_tiny reynolds s41] epoch=46 train=0.0915812 val=0.076587
+[transolver_tiny reynolds s41] epoch=47 train=0.0934616 val=0.0467893
+[transolver_tiny reynolds s41] epoch=48 train=0.0866629 val=0.0503312
+[transolver_tiny reynolds s41] epoch=49 train=0.0843792 val=0.054519
+[transolver_tiny reynolds s41] epoch=50 train=0.074849 val=0.050896
+[transolver_tiny reynolds s41] epoch=51 train=0.0808548 val=0.0575247
+[transolver_tiny reynolds s41] epoch=52 train=0.0770616 val=0.0503331
+[transolver_tiny reynolds s41] epoch=53 train=0.0812897 val=0.0685869
+[transolver_tiny reynolds s41] epoch=54 train=0.0741901 val=0.0423251
+[transolver_tiny reynolds s41] epoch=55 train=0.0932907 val=0.0621721
+[transolver_tiny reynolds s41] epoch=56 train=0.0732199 val=0.0485635
+[transolver_tiny reynolds s41] epoch=57 train=0.0759515 val=0.0573391
+[transolver_tiny reynolds s41] epoch=58 train=0.0781292 val=0.0639417
+[transolver_tiny reynolds s41] epoch=59 train=0.0746058 val=0.0429112
+[transolver_tiny reynolds s41] epoch=60 train=0.0740231 val=0.0688364
+[transolver_tiny reynolds s41] epoch=61 train=0.0847168 val=0.0555799
+[transolver_tiny reynolds s41] epoch=62 train=0.0702655 val=0.0459921
+[transolver_tiny reynolds s41] epoch=63 train=0.0624527 val=0.0510977
+[transolver_tiny reynolds s41] epoch=64 train=0.0703717 val=0.0410106
+[transolver_tiny reynolds s41] epoch=65 train=0.0695245 val=0.0491149
+[transolver_tiny reynolds s41] epoch=66 train=0.0714823 val=0.0489663
+[transolver_tiny reynolds s41] epoch=67 train=0.0653988 val=0.0418949
+[transolver_tiny reynolds s41] epoch=68 train=0.0711145 val=0.0451861
+[transolver_tiny reynolds s41] epoch=69 train=0.0665653 val=0.0358719
+[transolver_tiny reynolds s41] epoch=70 train=0.0692705 val=0.0386621
+[transolver_tiny reynolds s41] epoch=71 train=0.0698414 val=0.0485093
+[transolver_tiny reynolds s41] epoch=72 train=0.0588911 val=0.0441964
+[transolver_tiny reynolds s41] epoch=73 train=0.0707638 val=0.0375477
+[transolver_tiny reynolds s41] epoch=74 train=0.0532733 val=0.0832127
+[transolver_tiny reynolds s41] epoch=75 train=0.0571197 val=0.0634042
+[transolver_tiny reynolds s41] epoch=76 train=0.0495808 val=0.0299895
+[transolver_tiny reynolds s41] epoch=77 train=0.0667549 val=0.0462275
+[transolver_tiny reynolds s41] epoch=78 train=0.0638911 val=0.0466166
+[transolver_tiny reynolds s41] epoch=79 train=0.0637348 val=0.0540044
+[transolver_tiny reynolds s41] epoch=80 train=0.0626875 val=0.0415898
+[transolver_tiny reynolds s41] epoch=81 train=0.0408778 val=0.038603
+[transolver_tiny reynolds s41] epoch=82 train=0.0579915 val=0.0410632
+[transolver_tiny reynolds s41] epoch=83 train=0.063422 val=0.0462772
+[transolver_tiny reynolds s41] epoch=84 train=0.0397124 val=0.0490236
+[transolver_tiny reynolds s41] epoch=85 train=0.0449657 val=0.0453673
+[transolver_tiny reynolds s41] epoch=86 train=0.0479626 val=0.0465412
+[transolver_tiny reynolds s41] epoch=87 train=0.0439852 val=0.0309305
+[transolver_tiny reynolds s41] epoch=88 train=0.0349551 val=0.0480385
+[transolver_tiny reynolds s41] epoch=89 train=0.0577877 val=0.0572503
+[transolver_tiny reynolds s41] epoch=90 train=0.0631111 val=0.0374703
+[transolver_tiny reynolds s41] epoch=91 train=0.0363758 val=0.0427997
+[
+  {
+    "rel_l2_ux": 0.1538326623527034,
+    "rel_l2_uy": 0.2308024507637143,
+    "rel_l2_p": 0.30410710343322966,
+    "rel_l2_nut": 0.6334177720670168,
+    "mse_ux": 55.019779205322266,
+    "mse_uy": 50.655521392822266,
+    "mse_p": 1305334.625,
+    "mse_nut": 3.455203568591969e-06,
+    "macro_rel_l2": 0.33053999715416604,
+    "surface_pressure_mse": 3031216.25,
+    "inference_ms_per_sim": 11.802639998786617,
+    "peak_memory_mib": 103.48779296875,
+    "model": "transolver_tiny",
+    "task": "reynolds",
+    "seed": 41,
+    "epochs": 91,
+    "best_validation_mse": 0.029989451728761198,
+    "train_seconds": 6178.429934263229,
+    "parameters": 195796,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "protocol": "matched_airfrans_formal_v1"
+  }
+]

@@ -1,0 +1,1360 @@
+CAPACITY_KNN_PIPELINE_START 2026-09-20T15:13:38+08:00 pid=40640
+JOB_START 1/8 NODEWISE_REYNOLDS 2026-09-20T15:13:39+08:00
+[raptor reynolds s42] epoch=1 train=0.646032 val=0.351781 adapter_mean=0.01569
+[raptor reynolds s42] epoch=2 train=0.423525 val=0.273046 adapter_mean=0.02291
+[raptor reynolds s42] epoch=3 train=0.364262 val=0.252774 adapter_mean=0.02374
+[raptor reynolds s42] epoch=4 train=0.344843 val=0.200494 adapter_mean=0.03217
+[raptor reynolds s42] epoch=5 train=0.312897 val=0.210342 adapter_mean=0.03796
+[raptor reynolds s42] epoch=6 train=0.312332 val=0.20511 adapter_mean=0.03839
+[raptor reynolds s42] epoch=7 train=0.261225 val=0.162465 adapter_mean=0.04603
+[raptor reynolds s42] epoch=8 train=0.232769 val=0.158671 adapter_mean=0.04759
+[raptor reynolds s42] epoch=9 train=0.223384 val=0.164757 adapter_mean=0.05878
+[raptor reynolds s42] epoch=10 train=0.204519 val=0.150373 adapter_mean=0.06223
+[raptor reynolds s42] epoch=11 train=0.202201 val=0.135739 adapter_mean=0.06853
+[raptor reynolds s42] epoch=12 train=0.19411 val=0.136025 adapter_mean=0.07413
+[raptor reynolds s42] epoch=13 train=0.192578 val=0.148634 adapter_mean=0.07815
+[raptor reynolds s42] epoch=14 train=0.186219 val=0.166716 adapter_mean=0.08768
+[raptor reynolds s42] epoch=15 train=0.173409 val=0.110989 adapter_mean=0.09271
+[raptor reynolds s42] epoch=16 train=0.165199 val=0.123617 adapter_mean=0.09310
+[raptor reynolds s42] epoch=17 train=0.151154 val=0.103356 adapter_mean=0.09808
+[raptor reynolds s42] epoch=18 train=0.157669 val=0.100378 adapter_mean=0.10785
+[raptor reynolds s42] epoch=19 train=0.15078 val=0.137078 adapter_mean=0.11269
+[raptor reynolds s42] epoch=20 train=0.133931 val=0.105558 adapter_mean=0.11883
+[raptor reynolds s42] epoch=21 train=0.138584 val=0.159579 adapter_mean=0.12452
+[raptor reynolds s42] epoch=22 train=0.130543 val=0.121458 adapter_mean=0.12804
+[raptor reynolds s42] epoch=23 train=0.143853 val=0.0960779 adapter_mean=0.13488
+[raptor reynolds s42] epoch=24 train=0.138793 val=0.108756 adapter_mean=0.13863
+[raptor reynolds s42] epoch=25 train=0.128244 val=0.0812729 adapter_mean=0.14261
+[raptor reynolds s42] epoch=26 train=0.118403 val=0.077028 adapter_mean=0.14654
+[raptor reynolds s42] epoch=27 train=0.119066 val=0.101046 adapter_mean=0.15286
+[raptor reynolds s42] epoch=28 train=0.124752 val=0.105901 adapter_mean=0.15718
+[raptor reynolds s42] epoch=29 train=0.136874 val=0.0642246 adapter_mean=0.15934
+[raptor reynolds s42] epoch=30 train=0.106699 val=0.0740624 adapter_mean=0.16514
+[raptor reynolds s42] epoch=31 train=0.100071 val=0.0958712 adapter_mean=0.16961
+[raptor reynolds s42] epoch=32 train=0.118035 val=0.0762329 adapter_mean=0.17216
+[raptor reynolds s42] epoch=33 train=0.1072 val=0.0951582 adapter_mean=0.17564
+[raptor reynolds s42] epoch=34 train=0.115669 val=0.0730823 adapter_mean=0.18045
+[raptor reynolds s42] epoch=35 train=0.103971 val=0.0748644 adapter_mean=0.17856
+[raptor reynolds s42] epoch=36 train=0.0974443 val=0.0734113 adapter_mean=0.18257
+[raptor reynolds s42] epoch=37 train=0.108919 val=0.0621107 adapter_mean=0.18693
+[raptor reynolds s42] epoch=38 train=0.0914669 val=0.0698315 adapter_mean=0.18926
+[raptor reynolds s42] epoch=39 train=0.0954595 val=0.0762805 adapter_mean=0.19534
+[raptor reynolds s42] epoch=40 train=0.0966046 val=0.060626 adapter_mean=0.19557
+[raptor reynolds s42] epoch=41 train=0.0923027 val=0.0860132 adapter_mean=0.19934
+[raptor reynolds s42] epoch=42 train=0.0900797 val=0.0740317 adapter_mean=0.20146
+[raptor reynolds s42] epoch=43 train=0.0829686 val=0.0526516 adapter_mean=0.20345
+[raptor reynolds s42] epoch=44 train=0.0886056 val=0.0902379 adapter_mean=0.20835
+[raptor reynolds s42] epoch=45 train=0.089969 val=0.0656122 adapter_mean=0.20674
+[raptor reynolds s42] epoch=46 train=0.101646 val=0.0645505 adapter_mean=0.20583
+[raptor reynolds s42] epoch=47 train=0.0934489 val=0.0635983 adapter_mean=0.21054
+[raptor reynolds s42] epoch=48 train=0.0752773 val=0.0550123 adapter_mean=0.21245
+[raptor reynolds s42] epoch=49 train=0.0786652 val=0.0540957 adapter_mean=0.21536
+[raptor reynolds s42] epoch=50 train=0.0826387 val=0.049326 adapter_mean=0.21905
+[raptor reynolds s42] epoch=51 train=0.0760342 val=0.064856 adapter_mean=0.22159
+[raptor reynolds s42] epoch=52 train=0.0736509 val=0.058809 adapter_mean=0.22122
+[raptor reynolds s42] epoch=53 train=0.0879618 val=0.0936425 adapter_mean=0.22273
+[raptor reynolds s42] epoch=54 train=0.0747552 val=0.0786904 adapter_mean=0.22223
+[raptor reynolds s42] epoch=55 train=0.076644 val=0.051158 adapter_mean=0.22516
+[raptor reynolds s42] epoch=56 train=0.0743736 val=0.0505076 adapter_mean=0.22759
+[raptor reynolds s42] epoch=57 train=0.0706667 val=0.0462136 adapter_mean=0.23001
+[raptor reynolds s42] epoch=58 train=0.0684669 val=0.0472753 adapter_mean=0.23123
+[raptor reynolds s42] epoch=59 train=0.0708978 val=0.0625368 adapter_mean=0.22941
+[raptor reynolds s42] epoch=60 train=0.0750961 val=0.0590346 adapter_mean=0.22836
+[raptor reynolds s42] epoch=61 train=0.0724424 val=0.0466092 adapter_mean=0.23110
+[raptor reynolds s42] epoch=62 train=0.0860702 val=0.0593217 adapter_mean=0.23244
+[raptor reynolds s42] epoch=63 train=0.0668822 val=0.0376049 adapter_mean=0.23434
+[raptor reynolds s42] epoch=64 train=0.0647668 val=0.039075 adapter_mean=0.23299
+[raptor reynolds s42] epoch=65 train=0.071925 val=0.0468206 adapter_mean=0.23437
+[raptor reynolds s42] epoch=66 train=0.066798 val=0.0369785 adapter_mean=0.23576
+[raptor reynolds s42] epoch=67 train=0.0571105 val=0.0436114 adapter_mean=0.23782
+[raptor reynolds s42] epoch=68 train=0.0640324 val=0.0544941 adapter_mean=0.23907
+[raptor reynolds s42] epoch=69 train=0.0519778 val=0.0473955 adapter_mean=0.24193
+[raptor reynolds s42] epoch=70 train=0.0567915 val=0.0427891 adapter_mean=0.24010
+[raptor reynolds s42] epoch=71 train=0.0559115 val=0.0397978 adapter_mean=0.24084
+[raptor reynolds s42] epoch=72 train=0.0536645 val=0.0355011 adapter_mean=0.24103
+[raptor reynolds s42] epoch=73 train=0.0648608 val=0.0505225 adapter_mean=0.24280
+[raptor reynolds s42] epoch=74 train=0.0539179 val=0.0382217 adapter_mean=0.24326
+[raptor reynolds s42] epoch=75 train=0.0598335 val=0.0445689 adapter_mean=0.24228
+[raptor reynolds s42] epoch=76 train=0.0506344 val=0.0395598 adapter_mean=0.24262
+[raptor reynolds s42] epoch=77 train=0.0592518 val=0.0440443 adapter_mean=0.24228
+[raptor reynolds s42] epoch=78 train=0.0597124 val=0.050013 adapter_mean=0.24482
+[raptor reynolds s42] epoch=79 train=0.0507796 val=0.045154 adapter_mean=0.24745
+[raptor reynolds s42] epoch=80 train=0.0553193 val=0.0396316 adapter_mean=0.24455
+[raptor reynolds s42] epoch=81 train=0.0503082 val=0.0339673 adapter_mean=0.24458
+[raptor reynolds s42] epoch=82 train=0.041215 val=0.0345436 adapter_mean=0.24629
+[raptor reynolds s42] epoch=83 train=0.0576955 val=0.03039 adapter_mean=0.24691
+[raptor reynolds s42] epoch=84 train=0.0441648 val=0.0623552 adapter_mean=0.24921
+[raptor reynolds s42] epoch=85 train=0.0495779 val=0.0400281 adapter_mean=0.24826
+[raptor reynolds s42] epoch=86 train=0.0638248 val=0.0321251 adapter_mean=0.24700
+[raptor reynolds s42] epoch=87 train=0.0337831 val=0.0381969 adapter_mean=0.24596
+[raptor reynolds s42] epoch=88 train=0.0444187 val=0.032824 adapter_mean=0.24931
+[raptor reynolds s42] epoch=89 train=0.0441181 val=0.0410248 adapter_mean=0.24644
+[raptor reynolds s42] epoch=90 train=0.0572793 val=0.0343397 adapter_mean=0.24711
+[raptor reynolds s42] epoch=91 train=0.0418908 val=0.0413889 adapter_mean=0.24533
+[raptor reynolds s42] epoch=92 train=0.0429325 val=0.0319919 adapter_mean=0.24665
+[raptor reynolds s42] epoch=93 train=0.0426972 val=0.0422079 adapter_mean=0.24703
+[raptor reynolds s42] epoch=94 train=0.0381353 val=0.0410177 adapter_mean=0.24764
+[raptor reynolds s42] epoch=95 train=0.0335432 val=0.0465869 adapter_mean=0.24861
+[raptor reynolds s42] epoch=96 train=0.041522 val=0.0327083 adapter_mean=0.24749
+[raptor reynolds s42] epoch=97 train=0.0567342 val=0.0453634 adapter_mean=0.24816
+[raptor reynolds s42] epoch=98 train=0.0317316 val=0.0391129 adapter_mean=0.24644
+[
+  {
+    "rel_l2_ux": 0.14941897084220143,
+    "rel_l2_uy": 0.2270836859519143,
+    "rel_l2_p": 0.25084772218370677,
+    "rel_l2_nut": 0.39918700777217436,
+    "mse_ux": 51.907867431640625,
+    "mse_uy": 49.036312103271484,
+    "mse_p": 888155.5,
+    "mse_nut": 1.372290171275381e-06,
+    "macro_rel_l2": 0.25663434668749924,
+    "surface_pressure_mse": 1439648.5,
+    "inference_ms_per_sim": 9.737923499633325,
+    "peak_memory_mib": 115.7734375,
+    "model": "raptor",
+    "task": "reynolds",
+    "seed": 42,
+    "epochs": 98,
+    "best_validation_mse": 0.030389992892742156,
+    "train_seconds": 7694.603903532028,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 12,
+    "adapter_scales": [
+      -0.6685214638710022,
+      -0.1493605375289917,
+      0.0034552833531051874,
+      0.16630052030086517
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "self",
+    "ablation_variant": "nodewise_residual_control",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 0,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "self"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Parameter-matched zero-gated node-wise residual adapter without cross-node aggregation"
+  }
+]
+JOB_DONE 1/8 NODEWISE_REYNOLDS 2026-09-20T17:22:06+08:00
+JOB_START 2/8 NODEWISE_AOA 2026-09-20T17:22:06+08:00
+[raptor aoa s42] epoch=1 train=0.636715 val=0.392879 adapter_mean=0.01520
+[raptor aoa s42] epoch=2 train=0.427447 val=0.271719 adapter_mean=0.01734
+[raptor aoa s42] epoch=3 train=0.348059 val=0.33223 adapter_mean=0.02244
+[raptor aoa s42] epoch=4 train=0.335975 val=0.21836 adapter_mean=0.02613
+[raptor aoa s42] epoch=5 train=0.298155 val=0.200635 adapter_mean=0.03253
+[raptor aoa s42] epoch=6 train=0.268427 val=0.199008 adapter_mean=0.03951
+[raptor aoa s42] epoch=7 train=0.251392 val=0.167696 adapter_mean=0.04136
+[raptor aoa s42] epoch=8 train=0.232607 val=0.154869 adapter_mean=0.04893
+[raptor aoa s42] epoch=9 train=0.222985 val=0.153928 adapter_mean=0.05401
+[raptor aoa s42] epoch=10 train=0.213385 val=0.140498 adapter_mean=0.06205
+[raptor aoa s42] epoch=11 train=0.185195 val=0.136886 adapter_mean=0.06726
+[raptor aoa s42] epoch=12 train=0.158529 val=0.122114 adapter_mean=0.07008
+[raptor aoa s42] epoch=13 train=0.171001 val=0.144062 adapter_mean=0.07655
+[raptor aoa s42] epoch=14 train=0.156014 val=0.113563 adapter_mean=0.07833
+[raptor aoa s42] epoch=15 train=0.154775 val=0.123779 adapter_mean=0.08264
+[raptor aoa s42] epoch=16 train=0.126025 val=0.0833865 adapter_mean=0.08756
+[raptor aoa s42] epoch=17 train=0.141678 val=0.0956867 adapter_mean=0.09032
+[raptor aoa s42] epoch=18 train=0.131232 val=0.0923646 adapter_mean=0.09495
+[raptor aoa s42] epoch=19 train=0.151669 val=0.0878824 adapter_mean=0.09601
+[raptor aoa s42] epoch=20 train=0.119087 val=0.0827514 adapter_mean=0.09901
+[raptor aoa s42] epoch=21 train=0.116887 val=0.111841 adapter_mean=0.10258
+[raptor aoa s42] epoch=22 train=0.101889 val=0.0961426 adapter_mean=0.10581
+[raptor aoa s42] epoch=23 train=0.101385 val=0.119257 adapter_mean=0.11012
+[raptor aoa s42] epoch=24 train=0.115491 val=0.0937991 adapter_mean=0.11185
+[raptor aoa s42] epoch=25 train=0.0923947 val=0.0641083 adapter_mean=0.11885
+[raptor aoa s42] epoch=26 train=0.100478 val=0.0778598 adapter_mean=0.12079
+[raptor aoa s42] epoch=27 train=0.0908321 val=0.0753171 adapter_mean=0.12278
+[raptor aoa s42] epoch=28 train=0.0848511 val=0.062588 adapter_mean=0.12568
+[raptor aoa s42] epoch=29 train=0.0794988 val=0.0592361 adapter_mean=0.13323
+[raptor aoa s42] epoch=30 train=0.0832449 val=0.0638122 adapter_mean=0.13378
+[raptor aoa s42] epoch=31 train=0.0723337 val=0.0916569 adapter_mean=0.13538
+[raptor aoa s42] epoch=32 train=0.0762827 val=0.0514637 adapter_mean=0.13874
+[raptor aoa s42] epoch=33 train=0.0801755 val=0.0766375 adapter_mean=0.14179
+[raptor aoa s42] epoch=34 train=0.0710139 val=0.0705559 adapter_mean=0.14548
+[raptor aoa s42] epoch=35 train=0.0583948 val=0.0608622 adapter_mean=0.14772
+[raptor aoa s42] epoch=36 train=0.0624195 val=0.0753967 adapter_mean=0.15129
+[raptor aoa s42] epoch=37 train=0.0617774 val=0.042062 adapter_mean=0.15153
+[raptor aoa s42] epoch=38 train=0.0665917 val=0.0603442 adapter_mean=0.15526
+[raptor aoa s42] epoch=39 train=0.0597109 val=0.0444184 adapter_mean=0.15633
+[raptor aoa s42] epoch=40 train=0.0630701 val=0.0504435 adapter_mean=0.16023
+[raptor aoa s42] epoch=41 train=0.0831315 val=0.066518 adapter_mean=0.16395
+[raptor aoa s42] epoch=42 train=0.0747202 val=0.067162 adapter_mean=0.16486
+[raptor aoa s42] epoch=43 train=0.063827 val=0.0393214 adapter_mean=0.16532
+[raptor aoa s42] epoch=44 train=0.0537429 val=0.0361534 adapter_mean=0.16721
+[raptor aoa s42] epoch=45 train=0.0523879 val=0.0719453 adapter_mean=0.16943
+[raptor aoa s42] epoch=46 train=0.0526071 val=0.0303019 adapter_mean=0.17236
+[raptor aoa s42] epoch=47 train=0.054384 val=0.0616636 adapter_mean=0.17440
+[raptor aoa s42] epoch=48 train=0.0431854 val=0.039715 adapter_mean=0.17649
+[raptor aoa s42] epoch=49 train=0.0452785 val=0.0373816 adapter_mean=0.17526
+[raptor aoa s42] epoch=50 train=0.0421669 val=0.0273074 adapter_mean=0.17790
+[raptor aoa s42] epoch=51 train=0.046914 val=0.0344799 adapter_mean=0.18373
+[raptor aoa s42] epoch=52 train=0.0442413 val=0.0331855 adapter_mean=0.18391
+[raptor aoa s42] epoch=53 train=0.0417845 val=0.0291917 adapter_mean=0.18249
+[raptor aoa s42] epoch=54 train=0.0473467 val=0.050977 adapter_mean=0.18641
+[raptor aoa s42] epoch=55 train=0.0474258 val=0.032242 adapter_mean=0.18676
+[raptor aoa s42] epoch=56 train=0.0418903 val=0.031692 adapter_mean=0.18807
+[raptor aoa s42] epoch=57 train=0.0427249 val=0.0406058 adapter_mean=0.19055
+[raptor aoa s42] epoch=58 train=0.0384514 val=0.0258891 adapter_mean=0.19215
+[raptor aoa s42] epoch=59 train=0.0485025 val=0.0386401 adapter_mean=0.19147
+[raptor aoa s42] epoch=60 train=0.0382468 val=0.0301903 adapter_mean=0.19358
+[raptor aoa s42] epoch=61 train=0.0383732 val=0.0293006 adapter_mean=0.19639
+[raptor aoa s42] epoch=62 train=0.0471021 val=0.0501639 adapter_mean=0.19613
+[raptor aoa s42] epoch=63 train=0.040461 val=0.0334146 adapter_mean=0.19743
+[raptor aoa s42] epoch=64 train=0.0405957 val=0.0400557 adapter_mean=0.19871
+[raptor aoa s42] epoch=65 train=0.0373219 val=0.0354851 adapter_mean=0.20099
+[raptor aoa s42] epoch=66 train=0.0513504 val=0.0371981 adapter_mean=0.19885
+[raptor aoa s42] epoch=67 train=0.0376996 val=0.0231503 adapter_mean=0.20269
+[raptor aoa s42] epoch=68 train=0.0352509 val=0.04113 adapter_mean=0.20381
+[raptor aoa s42] epoch=69 train=0.0403917 val=0.0320132 adapter_mean=0.20305
+[raptor aoa s42] epoch=70 train=0.0663931 val=0.0393066 adapter_mean=0.20474
+[raptor aoa s42] epoch=71 train=0.0384123 val=0.0332539 adapter_mean=0.20807
+[raptor aoa s42] epoch=72 train=0.0321306 val=0.0216251 adapter_mean=0.20746
+[raptor aoa s42] epoch=73 train=0.0276763 val=0.0302085 adapter_mean=0.20677
+[raptor aoa s42] epoch=74 train=0.0311317 val=0.0224365 adapter_mean=0.20900
+[raptor aoa s42] epoch=75 train=0.0332588 val=0.0329261 adapter_mean=0.21141
+[raptor aoa s42] epoch=76 train=0.0352496 val=0.0432523 adapter_mean=0.21285
+[raptor aoa s42] epoch=77 train=0.0275326 val=0.0248449 adapter_mean=0.21285
+[raptor aoa s42] epoch=78 train=0.0301822 val=0.0418573 adapter_mean=0.21131
+[raptor aoa s42] epoch=79 train=0.0289225 val=0.0221915 adapter_mean=0.21186
+[raptor aoa s42] epoch=80 train=0.0326129 val=0.0216826 adapter_mean=0.21373
+[raptor aoa s42] epoch=81 train=0.0281961 val=0.022969 adapter_mean=0.21411
+[raptor aoa s42] epoch=82 train=0.0341316 val=0.030068 adapter_mean=0.21568
+[raptor aoa s42] epoch=83 train=0.0271733 val=0.0320976 adapter_mean=0.21624
+[raptor aoa s42] epoch=84 train=0.0321139 val=0.0251622 adapter_mean=0.21499
+[raptor aoa s42] epoch=85 train=0.027428 val=0.027276 adapter_mean=0.21581
+[raptor aoa s42] epoch=86 train=0.0255398 val=0.0305239 adapter_mean=0.21673
+[raptor aoa s42] epoch=87 train=0.0307289 val=0.0218961 adapter_mean=0.21828
+[
+  {
+    "rel_l2_ux": 0.16987962847271368,
+    "rel_l2_uy": 0.23880711128685875,
+    "rel_l2_p": 0.3739414585288211,
+    "rel_l2_nut": 0.48655498519010765,
+    "mse_ux": 63.1982421875,
+    "mse_uy": 81.33847045898438,
+    "mse_p": 4036746.0,
+    "mse_nut": 4.016540970042115e-06,
+    "macro_rel_l2": 0.3172957958696253,
+    "surface_pressure_mse": 10695188.0,
+    "inference_ms_per_sim": 13.9925658163984,
+    "peak_memory_mib": 115.7734375,
+    "model": "raptor",
+    "task": "aoa",
+    "seed": 42,
+    "epochs": 87,
+    "best_validation_mse": 0.02162506312597543,
+    "train_seconds": 6237.770868301392,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 12,
+    "adapter_scales": [
+      -0.572941780090332,
+      0.08571036159992218,
+      -0.005591813940554857,
+      -0.1655873954296112
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "self",
+    "ablation_variant": "nodewise_residual_control",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 0,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "self"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Parameter-matched zero-gated node-wise residual adapter without cross-node aggregation"
+  }
+]
+JOB_DONE 2/8 NODEWISE_AOA 2026-09-20T19:06:10+08:00
+JOB_START 3/8 K4_REYNOLDS 2026-09-20T19:06:10+08:00
+[data] loading official AirfRANS task=reynolds
+[data] cache saved C:\Users\cheng\OneDrive\Desktop\cx\RAPTOR\cache\knn_sensitivity\k4\reynolds_tr200_te200_n4096.npz
+[raptor reynolds s42] epoch=1 train=0.631739 val=0.318842 adapter_mean=0.10061
+[raptor reynolds s42] epoch=2 train=0.389291 val=0.253769 adapter_mean=0.11429
+[raptor reynolds s42] epoch=3 train=0.332397 val=0.233762 adapter_mean=0.11937
+[raptor reynolds s42] epoch=4 train=0.307246 val=0.18397 adapter_mean=0.12943
+[raptor reynolds s42] epoch=5 train=0.264204 val=0.154842 adapter_mean=0.14270
+[raptor reynolds s42] epoch=6 train=0.272376 val=0.167692 adapter_mean=0.14627
+[raptor reynolds s42] epoch=7 train=0.222958 val=0.17207 adapter_mean=0.15238
+[raptor reynolds s42] epoch=8 train=0.200624 val=0.150171 adapter_mean=0.15891
+[raptor reynolds s42] epoch=9 train=0.198654 val=0.146637 adapter_mean=0.16266
+[raptor reynolds s42] epoch=10 train=0.180801 val=0.130298 adapter_mean=0.16800
+[raptor reynolds s42] epoch=11 train=0.181628 val=0.119044 adapter_mean=0.16840
+[raptor reynolds s42] epoch=12 train=0.178372 val=0.128762 adapter_mean=0.17446
+[raptor reynolds s42] epoch=13 train=0.1803 val=0.132292 adapter_mean=0.17315
+[raptor reynolds s42] epoch=14 train=0.163242 val=0.118653 adapter_mean=0.18075
+[raptor reynolds s42] epoch=15 train=0.158942 val=0.108722 adapter_mean=0.18410
+[raptor reynolds s42] epoch=16 train=0.152782 val=0.116081 adapter_mean=0.18476
+[raptor reynolds s42] epoch=17 train=0.152191 val=0.113207 adapter_mean=0.18778
+[raptor reynolds s42] epoch=18 train=0.153353 val=0.0945197 adapter_mean=0.19057
+[raptor reynolds s42] epoch=19 train=0.154148 val=0.0962836 adapter_mean=0.19422
+[raptor reynolds s42] epoch=20 train=0.133974 val=0.107653 adapter_mean=0.19719
+[raptor reynolds s42] epoch=21 train=0.136877 val=0.152219 adapter_mean=0.19751
+[raptor reynolds s42] epoch=22 train=0.132775 val=0.126939 adapter_mean=0.20072
+[raptor reynolds s42] epoch=23 train=0.131891 val=0.0851153 adapter_mean=0.20375
+[raptor reynolds s42] epoch=24 train=0.133242 val=0.0956668 adapter_mean=0.20416
+[raptor reynolds s42] epoch=25 train=0.125544 val=0.0901478 adapter_mean=0.20802
+[raptor reynolds s42] epoch=26 train=0.123808 val=0.0882607 adapter_mean=0.20976
+[raptor reynolds s42] epoch=27 train=0.115928 val=0.0823862 adapter_mean=0.20930
+[raptor reynolds s42] epoch=28 train=0.113874 val=0.0811303 adapter_mean=0.21091
+[raptor reynolds s42] epoch=29 train=0.117522 val=0.0785479 adapter_mean=0.21183
+[raptor reynolds s42] epoch=30 train=0.108659 val=0.0693557 adapter_mean=0.21086
+[raptor reynolds s42] epoch=31 train=0.118229 val=0.100726 adapter_mean=0.21257
+[raptor reynolds s42] epoch=32 train=0.12487 val=0.119765 adapter_mean=0.21605
+[raptor reynolds s42] epoch=33 train=0.108568 val=0.0807802 adapter_mean=0.21659
+[raptor reynolds s42] epoch=34 train=0.107803 val=0.0673587 adapter_mean=0.21509
+[raptor reynolds s42] epoch=35 train=0.107233 val=0.0849528 adapter_mean=0.21629
+[raptor reynolds s42] epoch=36 train=0.103457 val=0.0789568 adapter_mean=0.21672
+[raptor reynolds s42] epoch=37 train=0.103697 val=0.0828799 adapter_mean=0.21660
+[raptor reynolds s42] epoch=38 train=0.0996602 val=0.0760221 adapter_mean=0.21903
+[raptor reynolds s42] epoch=39 train=0.0952094 val=0.0835503 adapter_mean=0.21823
+[raptor reynolds s42] epoch=40 train=0.0987277 val=0.0780589 adapter_mean=0.21919
+[raptor reynolds s42] epoch=41 train=0.097991 val=0.0930123 adapter_mean=0.21936
+[raptor reynolds s42] epoch=42 train=0.0962074 val=0.0643859 adapter_mean=0.22152
+[raptor reynolds s42] epoch=43 train=0.0889285 val=0.0693706 adapter_mean=0.22200
+[raptor reynolds s42] epoch=44 train=0.091359 val=0.0953839 adapter_mean=0.22256
+[raptor reynolds s42] epoch=45 train=0.0982306 val=0.0643176 adapter_mean=0.22136
+[raptor reynolds s42] epoch=46 train=0.0979011 val=0.0672543 adapter_mean=0.22309
+[raptor reynolds s42] epoch=47 train=0.0968116 val=0.0890412 adapter_mean=0.22647
+[raptor reynolds s42] epoch=48 train=0.0893294 val=0.0786872 adapter_mean=0.22512
+[raptor reynolds s42] epoch=49 train=0.0908462 val=0.0641397 adapter_mean=0.22409
+[raptor reynolds s42] epoch=50 train=0.0876685 val=0.0759392 adapter_mean=0.22381
+[raptor reynolds s42] epoch=51 train=0.0814765 val=0.0736456 adapter_mean=0.22253
+[raptor reynolds s42] epoch=52 train=0.0877179 val=0.066147 adapter_mean=0.22417
+[raptor reynolds s42] epoch=53 train=0.0805662 val=0.0575321 adapter_mean=0.22691
+[raptor reynolds s42] epoch=54 train=0.0904466 val=0.0832052 adapter_mean=0.22377
+[raptor reynolds s42] epoch=55 train=0.0841111 val=0.0696172 adapter_mean=0.22705
+[raptor reynolds s42] epoch=56 train=0.0878356 val=0.0533103 adapter_mean=0.22664
+[raptor reynolds s42] epoch=57 train=0.0735201 val=0.0468454 adapter_mean=0.22593
+[raptor reynolds s42] epoch=58 train=0.0754204 val=0.0545859 adapter_mean=0.22533
+[raptor reynolds s42] epoch=59 train=0.0813843 val=0.0613686 adapter_mean=0.22520
+[raptor reynolds s42] epoch=60 train=0.0756258 val=0.0477267 adapter_mean=0.22493
+[raptor reynolds s42] epoch=61 train=0.0783734 val=0.0672837 adapter_mean=0.22557
+[raptor reynolds s42] epoch=62 train=0.0741338 val=0.0564943 adapter_mean=0.22802
+[raptor reynolds s42] epoch=63 train=0.0687854 val=0.0551547 adapter_mean=0.22793
+[raptor reynolds s42] epoch=64 train=0.0760391 val=0.0522227 adapter_mean=0.22445
+[raptor reynolds s42] epoch=65 train=0.0677374 val=0.0557306 adapter_mean=0.22599
+[raptor reynolds s42] epoch=66 train=0.0759479 val=0.0585626 adapter_mean=0.22666
+[raptor reynolds s42] epoch=67 train=0.0693797 val=0.0461539 adapter_mean=0.22701
+[raptor reynolds s42] epoch=68 train=0.0712967 val=0.0546753 adapter_mean=0.22634
+[raptor reynolds s42] epoch=69 train=0.0617711 val=0.0590715 adapter_mean=0.22715
+[raptor reynolds s42] epoch=70 train=0.0583875 val=0.0579257 adapter_mean=0.22514
+[raptor reynolds s42] epoch=71 train=0.0483933 val=0.0476758 adapter_mean=0.22346
+[raptor reynolds s42] epoch=72 train=0.0613972 val=0.0519248 adapter_mean=0.22476
+[raptor reynolds s42] epoch=73 train=0.0669749 val=0.0507551 adapter_mean=0.22475
+[raptor reynolds s42] epoch=74 train=0.0701115 val=0.0530043 adapter_mean=0.22450
+[raptor reynolds s42] epoch=75 train=0.0619968 val=0.0452941 adapter_mean=0.22404
+[raptor reynolds s42] epoch=76 train=0.0522729 val=0.0525319 adapter_mean=0.22348
+[raptor reynolds s42] epoch=77 train=0.051209 val=0.0542379 adapter_mean=0.22435
+[raptor reynolds s42] epoch=78 train=0.0607675 val=0.0546617 adapter_mean=0.22528
+[raptor reynolds s42] epoch=79 train=0.0510085 val=0.0478589 adapter_mean=0.22364
+[raptor reynolds s42] epoch=80 train=0.051107 val=0.0470479 adapter_mean=0.22481
+[raptor reynolds s42] epoch=81 train=0.0528684 val=0.0420137 adapter_mean=0.22080
+[raptor reynolds s42] epoch=82 train=0.0758861 val=0.0413188 adapter_mean=0.22031
+[raptor reynolds s42] epoch=83 train=0.0607614 val=0.0427828 adapter_mean=0.22176
+[raptor reynolds s42] epoch=84 train=0.048182 val=0.0432799 adapter_mean=0.22222
+[raptor reynolds s42] epoch=85 train=0.0635573 val=0.053064 adapter_mean=0.21802
+[raptor reynolds s42] epoch=86 train=0.0465474 val=0.0381389 adapter_mean=0.21855
+[raptor reynolds s42] epoch=87 train=0.0562736 val=0.042186 adapter_mean=0.21806
+[raptor reynolds s42] epoch=88 train=0.0464683 val=0.0481079 adapter_mean=0.21818
+[raptor reynolds s42] epoch=89 train=0.0421814 val=0.0416685 adapter_mean=0.21965
+[raptor reynolds s42] epoch=90 train=0.0703211 val=0.0539582 adapter_mean=0.21689
+[raptor reynolds s42] epoch=91 train=0.0451123 val=0.0504873 adapter_mean=0.21776
+[raptor reynolds s42] epoch=92 train=0.0469222 val=0.0509098 adapter_mean=0.21768
+[raptor reynolds s42] epoch=93 train=0.0526942 val=0.040538 adapter_mean=0.21704
+[raptor reynolds s42] epoch=94 train=0.0434469 val=0.0448499 adapter_mean=0.21544
+[raptor reynolds s42] epoch=95 train=0.0385494 val=0.0367659 adapter_mean=0.21537
+[raptor reynolds s42] epoch=96 train=0.0390552 val=0.050581 adapter_mean=0.21555
+[raptor reynolds s42] epoch=97 train=0.0642729 val=0.0453161 adapter_mean=0.21711
+[raptor reynolds s42] epoch=98 train=0.0438367 val=0.03481 adapter_mean=0.21516
+[raptor reynolds s42] epoch=99 train=0.0512484 val=0.0371518 adapter_mean=0.21482
+[raptor reynolds s42] epoch=100 train=0.0498356 val=0.0421537 adapter_mean=0.21442
+[
+  {
+    "rel_l2_ux": 0.15032566111492393,
+    "rel_l2_uy": 0.22119562161563677,
+    "rel_l2_p": 0.19328014756231193,
+    "rel_l2_nut": 0.2542000189569867,
+    "mse_ux": 52.53974533081055,
+    "mse_uy": 46.5263557434082,
+    "mse_p": 527282.3125,
+    "mse_nut": 5.564732532548078e-07,
+    "macro_rel_l2": 0.20475036231246485,
+    "surface_pressure_mse": 1015590.9375,
+    "inference_ms_per_sim": 14.200561999896308,
+    "peak_memory_mib": 115.525390625,
+    "model": "raptor",
+    "task": "reynolds",
+    "seed": 42,
+    "epochs": 100,
+    "best_validation_mse": 0.0348100311588496,
+    "train_seconds": 6840.133212566376,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 4,
+    "adapter_scales": [
+      -0.41270825266838074,
+      -0.14466089010238647,
+      0.10794200003147125,
+      0.19534768164157867
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "knn_mean",
+    "ablation_variant": "zero_initialized_adapter",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 16384,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "knn_mean"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
+  }
+]
+JOB_DONE 3/8 K4_REYNOLDS 2026-09-20T21:12:44+08:00
+JOB_START 4/8 K4_AOA 2026-09-20T21:12:44+08:00
+[data] loading official AirfRANS task=aoa
+[data] cache saved C:\Users\cheng\OneDrive\Desktop\cx\RAPTOR\cache\knn_sensitivity\k4\aoa_tr200_te200_n4096.npz
+[raptor aoa s42] epoch=1 train=0.612131 val=0.345461 adapter_mean=0.10767
+[raptor aoa s42] epoch=2 train=0.381598 val=0.261655 adapter_mean=0.12215
+[raptor aoa s42] epoch=3 train=0.314802 val=0.275734 adapter_mean=0.13394
+[raptor aoa s42] epoch=4 train=0.288176 val=0.184496 adapter_mean=0.14250
+[raptor aoa s42] epoch=5 train=0.27523 val=0.263915 adapter_mean=0.15065
+[raptor aoa s42] epoch=6 train=0.252623 val=0.17119 adapter_mean=0.15540
+[raptor aoa s42] epoch=7 train=0.223649 val=0.137296 adapter_mean=0.15982
+[raptor aoa s42] epoch=8 train=0.207497 val=0.120733 adapter_mean=0.16380
+[raptor aoa s42] epoch=9 train=0.205932 val=0.134565 adapter_mean=0.16533
+[raptor aoa s42] epoch=10 train=0.199046 val=0.14644 adapter_mean=0.17183
+[raptor aoa s42] epoch=11 train=0.174749 val=0.121677 adapter_mean=0.17464
+[raptor aoa s42] epoch=12 train=0.154266 val=0.112224 adapter_mean=0.17853
+[raptor aoa s42] epoch=13 train=0.164928 val=0.116408 adapter_mean=0.18055
+[raptor aoa s42] epoch=14 train=0.158265 val=0.10902 adapter_mean=0.18408
+[raptor aoa s42] epoch=15 train=0.152528 val=0.110134 adapter_mean=0.18619
+[raptor aoa s42] epoch=16 train=0.122121 val=0.095591 adapter_mean=0.18926
+[raptor aoa s42] epoch=17 train=0.127403 val=0.0757711 adapter_mean=0.18913
+[raptor aoa s42] epoch=18 train=0.116797 val=0.0883225 adapter_mean=0.19110
+[raptor aoa s42] epoch=19 train=0.131558 val=0.0828296 adapter_mean=0.19425
+[raptor aoa s42] epoch=20 train=0.115916 val=0.0869334 adapter_mean=0.19254
+[raptor aoa s42] epoch=21 train=0.101566 val=0.136745 adapter_mean=0.19469
+[raptor aoa s42] epoch=22 train=0.100799 val=0.0851751 adapter_mean=0.19570
+[raptor aoa s42] epoch=23 train=0.0923281 val=0.0763077 adapter_mean=0.19924
+[raptor aoa s42] epoch=24 train=0.100344 val=0.0781438 adapter_mean=0.19884
+[raptor aoa s42] epoch=25 train=0.0973462 val=0.0769798 adapter_mean=0.19768
+[raptor aoa s42] epoch=26 train=0.103369 val=0.0995625 adapter_mean=0.19969
+[raptor aoa s42] epoch=27 train=0.0856014 val=0.0705249 adapter_mean=0.20168
+[raptor aoa s42] epoch=28 train=0.0838701 val=0.0704375 adapter_mean=0.20087
+[raptor aoa s42] epoch=29 train=0.0801072 val=0.070458 adapter_mean=0.19994
+[raptor aoa s42] epoch=30 train=0.0798621 val=0.0826156 adapter_mean=0.20172
+[raptor aoa s42] epoch=31 train=0.0748332 val=0.0754129 adapter_mean=0.20221
+[raptor aoa s42] epoch=32 train=0.0828346 val=0.0617258 adapter_mean=0.20125
+[raptor aoa s42] epoch=33 train=0.0905535 val=0.068083 adapter_mean=0.20347
+[raptor aoa s42] epoch=34 train=0.074768 val=0.0964307 adapter_mean=0.20239
+[raptor aoa s42] epoch=35 train=0.0905174 val=0.0624331 adapter_mean=0.20194
+[raptor aoa s42] epoch=36 train=0.0822765 val=0.0625763 adapter_mean=0.20306
+[raptor aoa s42] epoch=37 train=0.0714579 val=0.060332 adapter_mean=0.20264
+[raptor aoa s42] epoch=38 train=0.0709371 val=0.0652395 adapter_mean=0.20323
+[raptor aoa s42] epoch=39 train=0.0654312 val=0.0625556 adapter_mean=0.20505
+[raptor aoa s42] epoch=40 train=0.0669374 val=0.0659253 adapter_mean=0.20478
+[raptor aoa s42] epoch=41 train=0.0707627 val=0.0766229 adapter_mean=0.20563
+[raptor aoa s42] epoch=42 train=0.0718472 val=0.0812795 adapter_mean=0.20669
+[raptor aoa s42] epoch=43 train=0.0704689 val=0.0532107 adapter_mean=0.20685
+[raptor aoa s42] epoch=44 train=0.0635602 val=0.0493901 adapter_mean=0.20613
+[raptor aoa s42] epoch=45 train=0.0611436 val=0.0627297 adapter_mean=0.20571
+[raptor aoa s42] epoch=46 train=0.0627569 val=0.0501197 adapter_mean=0.20627
+[raptor aoa s42] epoch=47 train=0.0638325 val=0.104913 adapter_mean=0.20535
+[raptor aoa s42] epoch=48 train=0.0681935 val=0.0563976 adapter_mean=0.20575
+[raptor aoa s42] epoch=49 train=0.0543505 val=0.0489866 adapter_mean=0.20318
+[raptor aoa s42] epoch=50 train=0.0535788 val=0.0415621 adapter_mean=0.20223
+[raptor aoa s42] epoch=51 train=0.0547071 val=0.057496 adapter_mean=0.20423
+[raptor aoa s42] epoch=52 train=0.0635712 val=0.055294 adapter_mean=0.20455
+[raptor aoa s42] epoch=53 train=0.0545837 val=0.047675 adapter_mean=0.20449
+[raptor aoa s42] epoch=54 train=0.0476025 val=0.0472256 adapter_mean=0.20361
+[raptor aoa s42] epoch=55 train=0.0546886 val=0.0545228 adapter_mean=0.20313
+[raptor aoa s42] epoch=56 train=0.052226 val=0.0517893 adapter_mean=0.20381
+[raptor aoa s42] epoch=57 train=0.0567137 val=0.0399191 adapter_mean=0.20161
+[raptor aoa s42] epoch=58 train=0.0458844 val=0.0411874 adapter_mean=0.20202
+[raptor aoa s42] epoch=59 train=0.0494294 val=0.0541306 adapter_mean=0.20182
+[raptor aoa s42] epoch=60 train=0.0485209 val=0.0378973 adapter_mean=0.19934
+[raptor aoa s42] epoch=61 train=0.0457805 val=0.0527937 adapter_mean=0.20002
+[raptor aoa s42] epoch=62 train=0.0506666 val=0.0474072 adapter_mean=0.19789
+[raptor aoa s42] epoch=63 train=0.047038 val=0.0443581 adapter_mean=0.19941
+[raptor aoa s42] epoch=64 train=0.0599401 val=0.06387 adapter_mean=0.20025
+[raptor aoa s42] epoch=65 train=0.0487888 val=0.0494589 adapter_mean=0.20082
+[raptor aoa s42] epoch=66 train=0.0471765 val=0.0446981 adapter_mean=0.19983
+[raptor aoa s42] epoch=67 train=0.0478181 val=0.0373021 adapter_mean=0.19841
+[raptor aoa s42] epoch=68 train=0.0515812 val=0.0574286 adapter_mean=0.19935
+[raptor aoa s42] epoch=69 train=0.053248 val=0.0574719 adapter_mean=0.19765
+[raptor aoa s42] epoch=70 train=0.0507458 val=0.0417366 adapter_mean=0.19929
+[raptor aoa s42] epoch=71 train=0.0436365 val=0.0490234 adapter_mean=0.19850
+[raptor aoa s42] epoch=72 train=0.0437473 val=0.0555405 adapter_mean=0.19499
+[raptor aoa s42] epoch=73 train=0.0416418 val=0.0432447 adapter_mean=0.19800
+[raptor aoa s42] epoch=74 train=0.0393238 val=0.0351119 adapter_mean=0.19611
+[raptor aoa s42] epoch=75 train=0.0411216 val=0.0377515 adapter_mean=0.19516
+[raptor aoa s42] epoch=76 train=0.0422155 val=0.0297202 adapter_mean=0.19400
+[raptor aoa s42] epoch=77 train=0.0408065 val=0.036267 adapter_mean=0.19464
+[raptor aoa s42] epoch=78 train=0.0387419 val=0.0492984 adapter_mean=0.19259
+[raptor aoa s42] epoch=79 train=0.0392302 val=0.0351682 adapter_mean=0.19192
+[raptor aoa s42] epoch=80 train=0.0462252 val=0.0352572 adapter_mean=0.19284
+[raptor aoa s42] epoch=81 train=0.0381165 val=0.0350237 adapter_mean=0.19010
+[raptor aoa s42] epoch=82 train=0.0457663 val=0.0405269 adapter_mean=0.18948
+[raptor aoa s42] epoch=83 train=0.0354838 val=0.0386631 adapter_mean=0.18736
+[raptor aoa s42] epoch=84 train=0.0450196 val=0.0484267 adapter_mean=0.18666
+[raptor aoa s42] epoch=85 train=0.033366 val=0.0311283 adapter_mean=0.18549
+[raptor aoa s42] epoch=86 train=0.0364533 val=0.0314785 adapter_mean=0.18313
+[raptor aoa s42] epoch=87 train=0.0382483 val=0.0298596 adapter_mean=0.18348
+[raptor aoa s42] epoch=88 train=0.0430004 val=0.0492153 adapter_mean=0.18299
+[raptor aoa s42] epoch=89 train=0.0422757 val=0.0291337 adapter_mean=0.18523
+[raptor aoa s42] epoch=90 train=0.0404534 val=0.0406948 adapter_mean=0.18231
+[raptor aoa s42] epoch=91 train=0.0350202 val=0.0305429 adapter_mean=0.18400
+[raptor aoa s42] epoch=92 train=0.0292788 val=0.033533 adapter_mean=0.17961
+[raptor aoa s42] epoch=93 train=0.0334658 val=0.0324556 adapter_mean=0.17914
+[raptor aoa s42] epoch=94 train=0.0287992 val=0.0294962 adapter_mean=0.17533
+[raptor aoa s42] epoch=95 train=0.0312678 val=0.041365 adapter_mean=0.17510
+[raptor aoa s42] epoch=96 train=0.0351541 val=0.0438628 adapter_mean=0.17557
+[raptor aoa s42] epoch=97 train=0.0309902 val=0.0268807 adapter_mean=0.17445
+[raptor aoa s42] epoch=98 train=0.0285923 val=0.0325977 adapter_mean=0.17297
+[raptor aoa s42] epoch=99 train=0.0348432 val=0.0220802 adapter_mean=0.17369
+[raptor aoa s42] epoch=100 train=0.0317163 val=0.0234901 adapter_mean=0.17525
+[
+  {
+    "rel_l2_ux": 0.1621004584626972,
+    "rel_l2_uy": 0.24665381440680284,
+    "rel_l2_p": 0.38029366624025396,
+    "rel_l2_nut": 0.47696500581526197,
+    "mse_ux": 57.542789459228516,
+    "mse_uy": 86.7715072631836,
+    "mse_p": 4175056.25,
+    "mse_nut": 3.859769549308112e-06,
+    "macro_rel_l2": 0.316503236231254,
+    "surface_pressure_mse": 8788769.0,
+    "inference_ms_per_sim": 15.870005102683812,
+    "peak_memory_mib": 115.525390625,
+    "model": "raptor",
+    "task": "aoa",
+    "seed": 42,
+    "epochs": 100,
+    "best_validation_mse": 0.022080244054086505,
+    "train_seconds": 6967.342780351639,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 4,
+    "adapter_scales": [
+      -0.33869031071662903,
+      0.10927850753068924,
+      0.11131499707698822,
+      -0.13546806573867798
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "knn_mean",
+    "ablation_variant": "zero_initialized_adapter",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 16384,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "knn_mean"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
+  }
+]
+JOB_DONE 4/8 K4_AOA 2026-09-20T23:15:52+08:00
+JOB_START 5/8 K8_REYNOLDS 2026-09-20T23:15:52+08:00
+[data] loading official AirfRANS task=reynolds
+[data] cache saved C:\Users\cheng\OneDrive\Desktop\cx\RAPTOR\cache\knn_sensitivity\k8\reynolds_tr200_te200_n4096.npz
+[raptor reynolds s42] epoch=1 train=0.641195 val=0.374871 adapter_mean=0.09753
+[raptor reynolds s42] epoch=2 train=0.39074 val=0.283827 adapter_mean=0.11960
+[raptor reynolds s42] epoch=3 train=0.3439 val=0.227881 adapter_mean=0.12630
+[raptor reynolds s42] epoch=4 train=0.298775 val=0.18061 adapter_mean=0.13646
+[raptor reynolds s42] epoch=5 train=0.263899 val=0.180496 adapter_mean=0.14477
+[raptor reynolds s42] epoch=6 train=0.267144 val=0.179553 adapter_mean=0.15793
+[raptor reynolds s42] epoch=7 train=0.219444 val=0.187105 adapter_mean=0.15974
+[raptor reynolds s42] epoch=8 train=0.209947 val=0.145354 adapter_mean=0.16618
+[raptor reynolds s42] epoch=9 train=0.188807 val=0.153163 adapter_mean=0.16995
+[raptor reynolds s42] epoch=10 train=0.182304 val=0.119006 adapter_mean=0.17511
+[raptor reynolds s42] epoch=11 train=0.181757 val=0.125384 adapter_mean=0.17420
+[raptor reynolds s42] epoch=12 train=0.169565 val=0.143622 adapter_mean=0.18209
+[raptor reynolds s42] epoch=13 train=0.16771 val=0.168543 adapter_mean=0.17924
+[raptor reynolds s42] epoch=14 train=0.165711 val=0.128225 adapter_mean=0.18368
+[raptor reynolds s42] epoch=15 train=0.164188 val=0.116949 adapter_mean=0.18802
+[raptor reynolds s42] epoch=16 train=0.150193 val=0.152831 adapter_mean=0.18766
+[raptor reynolds s42] epoch=17 train=0.15054 val=0.107002 adapter_mean=0.18887
+[raptor reynolds s42] epoch=18 train=0.157624 val=0.0983047 adapter_mean=0.19205
+[raptor reynolds s42] epoch=19 train=0.14852 val=0.102036 adapter_mean=0.19329
+[raptor reynolds s42] epoch=20 train=0.135362 val=0.12372 adapter_mean=0.19566
+[raptor reynolds s42] epoch=21 train=0.143723 val=0.173518 adapter_mean=0.19761
+[raptor reynolds s42] epoch=22 train=0.13487 val=0.127147 adapter_mean=0.19991
+[raptor reynolds s42] epoch=23 train=0.132029 val=0.0799648 adapter_mean=0.20250
+[raptor reynolds s42] epoch=24 train=0.138496 val=0.104575 adapter_mean=0.20314
+[raptor reynolds s42] epoch=25 train=0.124922 val=0.0913412 adapter_mean=0.20504
+[raptor reynolds s42] epoch=26 train=0.134073 val=0.0914725 adapter_mean=0.20574
+[raptor reynolds s42] epoch=27 train=0.11832 val=0.0807331 adapter_mean=0.20738
+[raptor reynolds s42] epoch=28 train=0.129857 val=0.0857871 adapter_mean=0.20720
+[raptor reynolds s42] epoch=29 train=0.12518 val=0.0896492 adapter_mean=0.20803
+[raptor reynolds s42] epoch=30 train=0.11436 val=0.0741076 adapter_mean=0.20963
+[raptor reynolds s42] epoch=31 train=0.11603 val=0.106026 adapter_mean=0.21128
+[raptor reynolds s42] epoch=32 train=0.125849 val=0.0966918 adapter_mean=0.21339
+[raptor reynolds s42] epoch=33 train=0.10437 val=0.0901121 adapter_mean=0.21382
+[raptor reynolds s42] epoch=34 train=0.120246 val=0.0825906 adapter_mean=0.21402
+[raptor reynolds s42] epoch=35 train=0.108003 val=0.118102 adapter_mean=0.21501
+[raptor reynolds s42] epoch=36 train=0.102365 val=0.0671343 adapter_mean=0.21620
+[raptor reynolds s42] epoch=37 train=0.0983792 val=0.0914466 adapter_mean=0.21755
+[raptor reynolds s42] epoch=38 train=0.106095 val=0.0789465 adapter_mean=0.21685
+[raptor reynolds s42] epoch=39 train=0.0962386 val=0.0773618 adapter_mean=0.21733
+[raptor reynolds s42] epoch=40 train=0.101564 val=0.0683896 adapter_mean=0.21895
+[raptor reynolds s42] epoch=41 train=0.0936812 val=0.0851444 adapter_mean=0.21861
+[raptor reynolds s42] epoch=42 train=0.0873573 val=0.0674755 adapter_mean=0.22022
+[raptor reynolds s42] epoch=43 train=0.0929835 val=0.0712471 adapter_mean=0.22032
+[raptor reynolds s42] epoch=44 train=0.0958726 val=0.0872282 adapter_mean=0.21994
+[raptor reynolds s42] epoch=45 train=0.0941732 val=0.0644469 adapter_mean=0.21743
+[raptor reynolds s42] epoch=46 train=0.0909303 val=0.0597938 adapter_mean=0.21975
+[raptor reynolds s42] epoch=47 train=0.0878251 val=0.0633219 adapter_mean=0.22021
+[raptor reynolds s42] epoch=48 train=0.0848645 val=0.0770698 adapter_mean=0.22147
+[raptor reynolds s42] epoch=49 train=0.0858608 val=0.060786 adapter_mean=0.21774
+[raptor reynolds s42] epoch=50 train=0.0909732 val=0.0646607 adapter_mean=0.21986
+[raptor reynolds s42] epoch=51 train=0.0783139 val=0.0713802 adapter_mean=0.21841
+[raptor reynolds s42] epoch=52 train=0.0797277 val=0.0553206 adapter_mean=0.21972
+[raptor reynolds s42] epoch=53 train=0.0917413 val=0.107478 adapter_mean=0.22175
+[raptor reynolds s42] epoch=54 train=0.0800003 val=0.0815103 adapter_mean=0.22064
+[raptor reynolds s42] epoch=55 train=0.0900013 val=0.0725739 adapter_mean=0.22128
+[raptor reynolds s42] epoch=56 train=0.0790459 val=0.0546568 adapter_mean=0.22034
+[raptor reynolds s42] epoch=57 train=0.0693107 val=0.050117 adapter_mean=0.21962
+[raptor reynolds s42] epoch=58 train=0.0712614 val=0.0550116 adapter_mean=0.21930
+[raptor reynolds s42] epoch=59 train=0.0733157 val=0.0545941 adapter_mean=0.21957
+[raptor reynolds s42] epoch=60 train=0.0738241 val=0.0515938 adapter_mean=0.21942
+[raptor reynolds s42] epoch=61 train=0.0721129 val=0.0490087 adapter_mean=0.21822
+[raptor reynolds s42] epoch=62 train=0.0651587 val=0.0523976 adapter_mean=0.21890
+[raptor reynolds s42] epoch=63 train=0.0630582 val=0.0618824 adapter_mean=0.21968
+[raptor reynolds s42] epoch=64 train=0.0665859 val=0.0471613 adapter_mean=0.21841
+[raptor reynolds s42] epoch=65 train=0.0642061 val=0.0537883 adapter_mean=0.21830
+[raptor reynolds s42] epoch=66 train=0.0762857 val=0.0500671 adapter_mean=0.21856
+[raptor reynolds s42] epoch=67 train=0.0605202 val=0.0422111 adapter_mean=0.21763
+[raptor reynolds s42] epoch=68 train=0.0527562 val=0.0533816 adapter_mean=0.21783
+[raptor reynolds s42] epoch=69 train=0.0520765 val=0.0546163 adapter_mean=0.21645
+[raptor reynolds s42] epoch=70 train=0.0528436 val=0.0529264 adapter_mean=0.21610
+[raptor reynolds s42] epoch=71 train=0.0605576 val=0.0536057 adapter_mean=0.21542
+[raptor reynolds s42] epoch=72 train=0.0580262 val=0.0510549 adapter_mean=0.21776
+[raptor reynolds s42] epoch=73 train=0.0525764 val=0.042714 adapter_mean=0.21457
+[raptor reynolds s42] epoch=74 train=0.0574155 val=0.0451889 adapter_mean=0.21538
+[raptor reynolds s42] epoch=75 train=0.0518672 val=0.0430014 adapter_mean=0.21541
+[raptor reynolds s42] epoch=76 train=0.0482893 val=0.0422412 adapter_mean=0.21574
+[raptor reynolds s42] epoch=77 train=0.0454854 val=0.051052 adapter_mean=0.21535
+[raptor reynolds s42] epoch=78 train=0.0519214 val=0.0684172 adapter_mean=0.21352
+[raptor reynolds s42] epoch=79 train=0.0512542 val=0.0523023 adapter_mean=0.21286
+[raptor reynolds s42] epoch=80 train=0.0417312 val=0.0534615 adapter_mean=0.21257
+[raptor reynolds s42] epoch=81 train=0.0682824 val=0.0423869 adapter_mean=0.21034
+[raptor reynolds s42] epoch=82 train=0.0675897 val=0.0437398 adapter_mean=0.20866
+[
+  {
+    "rel_l2_ux": 0.1640386722718538,
+    "rel_l2_uy": 0.23303759103799007,
+    "rel_l2_p": 0.2199741275670034,
+    "rel_l2_nut": 0.31401775630270345,
+    "mse_ux": 62.56251907348633,
+    "mse_uy": 51.641387939453125,
+    "mse_p": 682986.25,
+    "mse_nut": 8.491835501445166e-07,
+    "macro_rel_l2": 0.2327670367948877,
+    "surface_pressure_mse": 1411759.25,
+    "inference_ms_per_sim": 15.751362000446534,
+    "peak_memory_mib": 115.650390625,
+    "model": "raptor",
+    "task": "reynolds",
+    "seed": 42,
+    "epochs": 82,
+    "best_validation_mse": 0.042211099341511724,
+    "train_seconds": 7000.027469873428,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 8,
+    "adapter_scales": [
+      -0.3298235833644867,
+      -0.17996206879615784,
+      0.12841416895389557,
+      0.23230323195457458
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "knn_mean",
+    "ablation_variant": "zero_initialized_adapter",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 32768,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "knn_mean"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
+  }
+]
+JOB_DONE 5/8 K8_REYNOLDS 2026-09-21T01:25:11+08:00
+JOB_START 6/8 K8_AOA 2026-09-21T01:25:11+08:00
+[data] loading official AirfRANS task=aoa
+[data] cache saved C:\Users\cheng\OneDrive\Desktop\cx\RAPTOR\cache\knn_sensitivity\k8\aoa_tr200_te200_n4096.npz
+[raptor aoa s42] epoch=1 train=0.611071 val=0.365663 adapter_mean=0.10777
+[raptor aoa s42] epoch=2 train=0.378822 val=0.278662 adapter_mean=0.12588
+[raptor aoa s42] epoch=3 train=0.30673 val=0.274358 adapter_mean=0.13692
+[raptor aoa s42] epoch=4 train=0.292027 val=0.189778 adapter_mean=0.15187
+[raptor aoa s42] epoch=5 train=0.261956 val=0.236222 adapter_mean=0.15847
+[raptor aoa s42] epoch=6 train=0.245615 val=0.189026 adapter_mean=0.16261
+[raptor aoa s42] epoch=7 train=0.222656 val=0.132625 adapter_mean=0.16922
+[raptor aoa s42] epoch=8 train=0.207306 val=0.120469 adapter_mean=0.17472
+[raptor aoa s42] epoch=9 train=0.203753 val=0.129188 adapter_mean=0.17738
+[raptor aoa s42] epoch=10 train=0.201796 val=0.150681 adapter_mean=0.18013
+[raptor aoa s42] epoch=11 train=0.177255 val=0.115829 adapter_mean=0.18327
+[raptor aoa s42] epoch=12 train=0.152119 val=0.116894 adapter_mean=0.18615
+[raptor aoa s42] epoch=13 train=0.16934 val=0.101622 adapter_mean=0.18944
+[raptor aoa s42] epoch=14 train=0.146177 val=0.106271 adapter_mean=0.18970
+[raptor aoa s42] epoch=15 train=0.150818 val=0.131771 adapter_mean=0.19105
+[raptor aoa s42] epoch=16 train=0.117251 val=0.0918198 adapter_mean=0.19519
+[raptor aoa s42] epoch=17 train=0.11915 val=0.083832 adapter_mean=0.19775
+[raptor aoa s42] epoch=18 train=0.115729 val=0.0870668 adapter_mean=0.19762
+[raptor aoa s42] epoch=19 train=0.120682 val=0.102083 adapter_mean=0.20099
+[raptor aoa s42] epoch=20 train=0.116394 val=0.0953848 adapter_mean=0.19979
+[raptor aoa s42] epoch=21 train=0.112543 val=0.0938057 adapter_mean=0.20252
+[raptor aoa s42] epoch=22 train=0.103407 val=0.0951125 adapter_mean=0.20376
+[raptor aoa s42] epoch=23 train=0.096518 val=0.087242 adapter_mean=0.20428
+[raptor aoa s42] epoch=24 train=0.0948736 val=0.0807197 adapter_mean=0.20398
+[raptor aoa s42] epoch=25 train=0.0978164 val=0.0793665 adapter_mean=0.20439
+[raptor aoa s42] epoch=26 train=0.10091 val=0.0746902 adapter_mean=0.20556
+[raptor aoa s42] epoch=27 train=0.0851514 val=0.0965729 adapter_mean=0.20668
+[raptor aoa s42] epoch=28 train=0.0822753 val=0.0752505 adapter_mean=0.20815
+[raptor aoa s42] epoch=29 train=0.0868836 val=0.0852433 adapter_mean=0.20862
+[raptor aoa s42] epoch=30 train=0.0797637 val=0.103664 adapter_mean=0.20764
+[raptor aoa s42] epoch=31 train=0.0801771 val=0.121842 adapter_mean=0.20922
+[raptor aoa s42] epoch=32 train=0.0813002 val=0.0645627 adapter_mean=0.21095
+[raptor aoa s42] epoch=33 train=0.0746586 val=0.0643074 adapter_mean=0.21358
+[raptor aoa s42] epoch=34 train=0.0711692 val=0.0712467 adapter_mean=0.21125
+[raptor aoa s42] epoch=35 train=0.0719714 val=0.066701 adapter_mean=0.21207
+[raptor aoa s42] epoch=36 train=0.0700166 val=0.0544393 adapter_mean=0.21230
+[raptor aoa s42] epoch=37 train=0.066503 val=0.0626192 adapter_mean=0.21198
+[raptor aoa s42] epoch=38 train=0.0670482 val=0.0664203 adapter_mean=0.21159
+[raptor aoa s42] epoch=39 train=0.0688128 val=0.0581975 adapter_mean=0.21408
+[raptor aoa s42] epoch=40 train=0.0660839 val=0.0583614 adapter_mean=0.21292
+[raptor aoa s42] epoch=41 train=0.0860808 val=0.0929164 adapter_mean=0.21203
+[raptor aoa s42] epoch=42 train=0.0741482 val=0.0528951 adapter_mean=0.21327
+[raptor aoa s42] epoch=43 train=0.0657561 val=0.0583633 adapter_mean=0.21352
+[raptor aoa s42] epoch=44 train=0.0647637 val=0.0468911 adapter_mean=0.21602
+[raptor aoa s42] epoch=45 train=0.0579929 val=0.0571113 adapter_mean=0.21261
+[raptor aoa s42] epoch=46 train=0.054378 val=0.0422955 adapter_mean=0.21218
+[raptor aoa s42] epoch=47 train=0.0637331 val=0.0872403 adapter_mean=0.21034
+[raptor aoa s42] epoch=48 train=0.0604431 val=0.0468324 adapter_mean=0.21138
+[raptor aoa s42] epoch=49 train=0.0550459 val=0.0493863 adapter_mean=0.21184
+[raptor aoa s42] epoch=50 train=0.055838 val=0.0393257 adapter_mean=0.20912
+[raptor aoa s42] epoch=51 train=0.0485925 val=0.0497989 adapter_mean=0.20935
+[raptor aoa s42] epoch=52 train=0.0603372 val=0.0527248 adapter_mean=0.20989
+[raptor aoa s42] epoch=53 train=0.0563387 val=0.048165 adapter_mean=0.20983
+[raptor aoa s42] epoch=54 train=0.0495566 val=0.0374964 adapter_mean=0.20842
+[raptor aoa s42] epoch=55 train=0.0485977 val=0.0434519 adapter_mean=0.20659
+[raptor aoa s42] epoch=56 train=0.0491144 val=0.0556188 adapter_mean=0.20908
+[raptor aoa s42] epoch=57 train=0.0534361 val=0.0375668 adapter_mean=0.20865
+[raptor aoa s42] epoch=58 train=0.0519368 val=0.0391326 adapter_mean=0.20639
+[raptor aoa s42] epoch=59 train=0.04691 val=0.0408457 adapter_mean=0.20597
+[raptor aoa s42] epoch=60 train=0.0446591 val=0.038758 adapter_mean=0.20392
+[raptor aoa s42] epoch=61 train=0.0476283 val=0.0486603 adapter_mean=0.20701
+[raptor aoa s42] epoch=62 train=0.0451442 val=0.0491931 adapter_mean=0.20479
+[raptor aoa s42] epoch=63 train=0.0459484 val=0.0348716 adapter_mean=0.20191
+[raptor aoa s42] epoch=64 train=0.0539824 val=0.0402427 adapter_mean=0.20542
+[raptor aoa s42] epoch=65 train=0.0448768 val=0.0387696 adapter_mean=0.20523
+[raptor aoa s42] epoch=66 train=0.0438061 val=0.0404625 adapter_mean=0.20637
+[raptor aoa s42] epoch=67 train=0.039901 val=0.0423239 adapter_mean=0.20187
+[raptor aoa s42] epoch=68 train=0.0462091 val=0.0350005 adapter_mean=0.20239
+[raptor aoa s42] epoch=69 train=0.0415373 val=0.0424664 adapter_mean=0.20051
+[raptor aoa s42] epoch=70 train=0.042767 val=0.037308 adapter_mean=0.20039
+[raptor aoa s42] epoch=71 train=0.0356892 val=0.0392696 adapter_mean=0.19946
+[raptor aoa s42] epoch=72 train=0.042327 val=0.0446773 adapter_mean=0.19663
+[raptor aoa s42] epoch=73 train=0.04054 val=0.0412265 adapter_mean=0.19726
+[raptor aoa s42] epoch=74 train=0.0396214 val=0.033216 adapter_mean=0.19750
+[raptor aoa s42] epoch=75 train=0.044179 val=0.0522879 adapter_mean=0.19630
+[raptor aoa s42] epoch=76 train=0.0382341 val=0.0265983 adapter_mean=0.19481
+[raptor aoa s42] epoch=77 train=0.035732 val=0.0341124 adapter_mean=0.19462
+[raptor aoa s42] epoch=78 train=0.0371033 val=0.0348238 adapter_mean=0.19574
+[raptor aoa s42] epoch=79 train=0.0346169 val=0.0288736 adapter_mean=0.19475
+[raptor aoa s42] epoch=80 train=0.040608 val=0.0343225 adapter_mean=0.19347
+[raptor aoa s42] epoch=81 train=0.0362565 val=0.0364676 adapter_mean=0.19047
+[raptor aoa s42] epoch=82 train=0.0378889 val=0.0484111 adapter_mean=0.18865
+[raptor aoa s42] epoch=83 train=0.0295907 val=0.0305319 adapter_mean=0.18627
+[raptor aoa s42] epoch=84 train=0.050298 val=0.0512131 adapter_mean=0.18966
+[raptor aoa s42] epoch=85 train=0.0377447 val=0.0434005 adapter_mean=0.18853
+[raptor aoa s42] epoch=86 train=0.0322191 val=0.043274 adapter_mean=0.18609
+[raptor aoa s42] epoch=87 train=0.0380518 val=0.0332223 adapter_mean=0.18514
+[raptor aoa s42] epoch=88 train=0.0359129 val=0.0339991 adapter_mean=0.18327
+[raptor aoa s42] epoch=89 train=0.0331645 val=0.0291596 adapter_mean=0.18399
+[raptor aoa s42] epoch=90 train=0.0263615 val=0.0258383 adapter_mean=0.18320
+[raptor aoa s42] epoch=91 train=0.0324833 val=0.0246593 adapter_mean=0.18193
+[raptor aoa s42] epoch=92 train=0.0292615 val=0.0416421 adapter_mean=0.17924
+[raptor aoa s42] epoch=93 train=0.0292133 val=0.0264611 adapter_mean=0.17854
+[raptor aoa s42] epoch=94 train=0.0318961 val=0.0314587 adapter_mean=0.17773
+[raptor aoa s42] epoch=95 train=0.0309286 val=0.0274181 adapter_mean=0.17788
+[raptor aoa s42] epoch=96 train=0.035757 val=0.0346147 adapter_mean=0.17721
+[raptor aoa s42] epoch=97 train=0.0348387 val=0.0255562 adapter_mean=0.17503
+[raptor aoa s42] epoch=98 train=0.0290487 val=0.0296483 adapter_mean=0.17381
+[raptor aoa s42] epoch=99 train=0.0288107 val=0.0185515 adapter_mean=0.17359
+[raptor aoa s42] epoch=100 train=0.0266249 val=0.0228575 adapter_mean=0.17296
+[
+  {
+    "rel_l2_ux": 0.15067302405934607,
+    "rel_l2_uy": 0.22470491187518288,
+    "rel_l2_p": 0.370702631783074,
+    "rel_l2_nut": 0.47955075028352256,
+    "mse_ux": 49.7156867980957,
+    "mse_uy": 72.0156021118164,
+    "mse_p": 3967121.75,
+    "mse_nut": 3.901732270605862e-06,
+    "macro_rel_l2": 0.3064078295002814,
+    "surface_pressure_mse": 9552304.0,
+    "inference_ms_per_sim": 14.020940306720002,
+    "peak_memory_mib": 115.650390625,
+    "model": "raptor",
+    "task": "aoa",
+    "seed": 42,
+    "epochs": 100,
+    "best_validation_mse": 0.018551471177488565,
+    "train_seconds": 8564.54566526413,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 8,
+    "adapter_scales": [
+      -0.3023292124271393,
+      0.13045302033424377,
+      0.1297491043806076,
+      -0.13184434175491333
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "knn_mean",
+    "ablation_variant": "zero_initialized_adapter",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 32768,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "knn_mean"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
+  }
+]
+JOB_DONE 6/8 K8_AOA 2026-09-21T03:54:49+08:00
+JOB_START 7/8 K24_REYNOLDS 2026-09-21T03:54:49+08:00
+[data] loading official AirfRANS task=reynolds
+[data] cache saved C:\Users\cheng\OneDrive\Desktop\cx\RAPTOR\cache\knn_sensitivity\k24\reynolds_tr200_te200_n4096.npz
+[raptor reynolds s42] epoch=1 train=0.629084 val=0.368547 adapter_mean=0.09531
+[raptor reynolds s42] epoch=2 train=0.397568 val=0.272839 adapter_mean=0.11940
+[raptor reynolds s42] epoch=3 train=0.338113 val=0.249391 adapter_mean=0.12663
+[raptor reynolds s42] epoch=4 train=0.304424 val=0.183024 adapter_mean=0.13773
+[raptor reynolds s42] epoch=5 train=0.270198 val=0.225091 adapter_mean=0.14514
+[raptor reynolds s42] epoch=6 train=0.267856 val=0.178279 adapter_mean=0.15700
+[raptor reynolds s42] epoch=7 train=0.22783 val=0.15061 adapter_mean=0.16218
+[raptor reynolds s42] epoch=8 train=0.201467 val=0.144217 adapter_mean=0.17194
+[raptor reynolds s42] epoch=9 train=0.192028 val=0.178777 adapter_mean=0.17670
+[raptor reynolds s42] epoch=10 train=0.18276 val=0.129064 adapter_mean=0.18190
+[raptor reynolds s42] epoch=11 train=0.173183 val=0.11159 adapter_mean=0.18552
+[raptor reynolds s42] epoch=12 train=0.172813 val=0.129296 adapter_mean=0.19171
+[raptor reynolds s42] epoch=13 train=0.166743 val=0.151714 adapter_mean=0.18999
+[raptor reynolds s42] epoch=14 train=0.170881 val=0.10778 adapter_mean=0.19723
+[raptor reynolds s42] epoch=15 train=0.150558 val=0.109712 adapter_mean=0.20029
+[raptor reynolds s42] epoch=16 train=0.152966 val=0.1505 adapter_mean=0.20173
+[raptor reynolds s42] epoch=17 train=0.151925 val=0.108799 adapter_mean=0.20243
+[raptor reynolds s42] epoch=18 train=0.14511 val=0.0873532 adapter_mean=0.20582
+[raptor reynolds s42] epoch=19 train=0.144393 val=0.101005 adapter_mean=0.20697
+[raptor reynolds s42] epoch=20 train=0.12898 val=0.10517 adapter_mean=0.20805
+[raptor reynolds s42] epoch=21 train=0.138213 val=0.127238 adapter_mean=0.21146
+[raptor reynolds s42] epoch=22 train=0.127975 val=0.127418 adapter_mean=0.21062
+[raptor reynolds s42] epoch=23 train=0.139408 val=0.0946029 adapter_mean=0.21303
+[raptor reynolds s42] epoch=24 train=0.125607 val=0.07726 adapter_mean=0.21453
+[raptor reynolds s42] epoch=25 train=0.12233 val=0.0783397 adapter_mean=0.21523
+[raptor reynolds s42] epoch=26 train=0.120656 val=0.0810207 adapter_mean=0.21764
+[raptor reynolds s42] epoch=27 train=0.115241 val=0.0747976 adapter_mean=0.21787
+[raptor reynolds s42] epoch=28 train=0.119493 val=0.0829411 adapter_mean=0.21701
+[raptor reynolds s42] epoch=29 train=0.115627 val=0.0865434 adapter_mean=0.21824
+[raptor reynolds s42] epoch=30 train=0.108091 val=0.0668307 adapter_mean=0.21920
+[raptor reynolds s42] epoch=31 train=0.116301 val=0.0989391 adapter_mean=0.21875
+[raptor reynolds s42] epoch=32 train=0.119121 val=0.0931009 adapter_mean=0.22066
+[raptor reynolds s42] epoch=33 train=0.10512 val=0.123548 adapter_mean=0.22078
+[raptor reynolds s42] epoch=34 train=0.108006 val=0.076247 adapter_mean=0.22154
+[raptor reynolds s42] epoch=35 train=0.105829 val=0.11616 adapter_mean=0.22034
+[raptor reynolds s42] epoch=36 train=0.0992892 val=0.0781094 adapter_mean=0.22248
+[raptor reynolds s42] epoch=37 train=0.0978688 val=0.0881336 adapter_mean=0.22225
+[raptor reynolds s42] epoch=38 train=0.101208 val=0.072917 adapter_mean=0.22386
+[raptor reynolds s42] epoch=39 train=0.0984657 val=0.0717052 adapter_mean=0.22382
+[raptor reynolds s42] epoch=40 train=0.0955992 val=0.0738147 adapter_mean=0.22404
+[raptor reynolds s42] epoch=41 train=0.09209 val=0.0813059 adapter_mean=0.22508
+[raptor reynolds s42] epoch=42 train=0.0868278 val=0.0570487 adapter_mean=0.21982
+[raptor reynolds s42] epoch=43 train=0.0908699 val=0.0824977 adapter_mean=0.22430
+[raptor reynolds s42] epoch=44 train=0.098852 val=0.0730431 adapter_mean=0.22279
+[raptor reynolds s42] epoch=45 train=0.0955759 val=0.0626662 adapter_mean=0.22172
+[raptor reynolds s42] epoch=46 train=0.0901193 val=0.0554661 adapter_mean=0.22322
+[raptor reynolds s42] epoch=47 train=0.0824762 val=0.0551391 adapter_mean=0.22286
+[raptor reynolds s42] epoch=48 train=0.0857577 val=0.0647181 adapter_mean=0.22562
+[raptor reynolds s42] epoch=49 train=0.0774892 val=0.0592613 adapter_mean=0.22156
+[raptor reynolds s42] epoch=50 train=0.0845808 val=0.0534461 adapter_mean=0.22439
+[raptor reynolds s42] epoch=51 train=0.0775965 val=0.0581653 adapter_mean=0.22391
+[raptor reynolds s42] epoch=52 train=0.077864 val=0.0559583 adapter_mean=0.22347
+[raptor reynolds s42] epoch=53 train=0.0855576 val=0.0674167 adapter_mean=0.22560
+[raptor reynolds s42] epoch=54 train=0.0856092 val=0.0721827 adapter_mean=0.22479
+[raptor reynolds s42] epoch=55 train=0.086571 val=0.0643969 adapter_mean=0.22557
+[raptor reynolds s42] epoch=56 train=0.0831659 val=0.0518467 adapter_mean=0.22592
+[raptor reynolds s42] epoch=57 train=0.0696872 val=0.0450665 adapter_mean=0.22736
+[raptor reynolds s42] epoch=58 train=0.0731323 val=0.0529806 adapter_mean=0.22524
+[raptor reynolds s42] epoch=59 train=0.0750225 val=0.0623888 adapter_mean=0.22374
+[raptor reynolds s42] epoch=60 train=0.0769839 val=0.0509984 adapter_mean=0.22490
+[raptor reynolds s42] epoch=61 train=0.0734765 val=0.0536832 adapter_mean=0.22875
+[raptor reynolds s42] epoch=62 train=0.0681178 val=0.0580709 adapter_mean=0.22688
+[raptor reynolds s42] epoch=63 train=0.0675159 val=0.0504713 adapter_mean=0.22474
+[raptor reynolds s42] epoch=64 train=0.0577541 val=0.0419706 adapter_mean=0.22456
+[raptor reynolds s42] epoch=65 train=0.0560685 val=0.0449316 adapter_mean=0.22535
+[raptor reynolds s42] epoch=66 train=0.0655201 val=0.0452661 adapter_mean=0.22660
+[raptor reynolds s42] epoch=67 train=0.0573608 val=0.0450685 adapter_mean=0.22518
+[raptor reynolds s42] epoch=68 train=0.0597915 val=0.0871233 adapter_mean=0.22545
+[raptor reynolds s42] epoch=69 train=0.0550461 val=0.0596417 adapter_mean=0.22433
+[raptor reynolds s42] epoch=70 train=0.0547869 val=0.0488611 adapter_mean=0.22451
+[raptor reynolds s42] epoch=71 train=0.0517053 val=0.0419527 adapter_mean=0.22381
+[raptor reynolds s42] epoch=72 train=0.0478057 val=0.0448756 adapter_mean=0.22340
+[raptor reynolds s42] epoch=73 train=0.0540218 val=0.0577701 adapter_mean=0.22525
+[raptor reynolds s42] epoch=74 train=0.0743443 val=0.0448629 adapter_mean=0.22735
+[raptor reynolds s42] epoch=75 train=0.056561 val=0.0491241 adapter_mean=0.22701
+[raptor reynolds s42] epoch=76 train=0.056262 val=0.0459958 adapter_mean=0.22493
+[raptor reynolds s42] epoch=77 train=0.0543754 val=0.0458309 adapter_mean=0.22432
+[raptor reynolds s42] epoch=78 train=0.0528778 val=0.0625272 adapter_mean=0.22596
+[raptor reynolds s42] epoch=79 train=0.042158 val=0.0428256 adapter_mean=0.22553
+[raptor reynolds s42] epoch=80 train=0.0611988 val=0.0438181 adapter_mean=0.22501
+[raptor reynolds s42] epoch=81 train=0.0670172 val=0.0412828 adapter_mean=0.22316
+[raptor reynolds s42] epoch=82 train=0.0599668 val=0.0433433 adapter_mean=0.22464
+[raptor reynolds s42] epoch=83 train=0.0525591 val=0.032388 adapter_mean=0.22358
+[raptor reynolds s42] epoch=84 train=0.0540574 val=0.0343051 adapter_mean=0.22129
+[raptor reynolds s42] epoch=85 train=0.0530214 val=0.0397199 adapter_mean=0.22157
+[raptor reynolds s42] epoch=86 train=0.0481354 val=0.0415335 adapter_mean=0.22043
+[raptor reynolds s42] epoch=87 train=0.0449998 val=0.0360755 adapter_mean=0.22331
+[raptor reynolds s42] epoch=88 train=0.056868 val=0.039314 adapter_mean=0.22239
+[raptor reynolds s42] epoch=89 train=0.0404828 val=0.0326107 adapter_mean=0.22434
+[raptor reynolds s42] epoch=90 train=0.0428373 val=0.0396044 adapter_mean=0.22325
+[raptor reynolds s42] epoch=91 train=0.0456675 val=0.0445001 adapter_mean=0.22277
+[raptor reynolds s42] epoch=92 train=0.0619121 val=0.0411989 adapter_mean=0.22270
+[raptor reynolds s42] epoch=93 train=0.0495084 val=0.0405174 adapter_mean=0.22209
+[raptor reynolds s42] epoch=94 train=0.0413185 val=0.0558484 adapter_mean=0.22115
+[raptor reynolds s42] epoch=95 train=0.0386117 val=0.0428224 adapter_mean=0.22103
+[raptor reynolds s42] epoch=96 train=0.0307588 val=0.0342928 adapter_mean=0.21955
+[raptor reynolds s42] epoch=97 train=0.064604 val=0.0512391 adapter_mean=0.21915
+[raptor reynolds s42] epoch=98 train=0.0540556 val=0.0392602 adapter_mean=0.21942
+[
+  {
+    "rel_l2_ux": 0.13777080312715656,
+    "rel_l2_uy": 0.20648429000802015,
+    "rel_l2_p": 0.17740080526440744,
+    "rel_l2_nut": 0.2871283878771412,
+    "mse_ux": 44.130218505859375,
+    "mse_uy": 40.54338455200195,
+    "mse_p": 444201.375,
+    "mse_nut": 7.099789058884198e-07,
+    "macro_rel_l2": 0.20219607156918135,
+    "surface_pressure_mse": 1002243.875,
+    "inference_ms_per_sim": 14.593689000466838,
+    "peak_memory_mib": 126.48291015625,
+    "model": "raptor",
+    "task": "reynolds",
+    "seed": 42,
+    "epochs": 98,
+    "best_validation_mse": 0.03238804140128195,
+    "train_seconds": 14284.75556397438,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 24,
+    "adapter_scales": [
+      -0.26763004064559937,
+      -0.16077642142772675,
+      0.1944778561592102,
+      0.27141931653022766
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "knn_mean",
+    "ablation_variant": "zero_initialized_adapter",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 98304,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "knn_mean"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
+  }
+]
+JOB_DONE 7/8 K24_REYNOLDS 2026-09-21T08:06:03+08:00
+JOB_START 8/8 K24_AOA 2026-09-21T08:06:03+08:00
+[data] loading official AirfRANS task=aoa
+[data] cache saved C:\Users\cheng\OneDrive\Desktop\cx\RAPTOR\cache\knn_sensitivity\k24\aoa_tr200_te200_n4096.npz
+[raptor aoa s42] epoch=1 train=0.608758 val=0.410151 adapter_mean=0.10535
+[raptor aoa s42] epoch=2 train=0.366169 val=0.298408 adapter_mean=0.12479
+[raptor aoa s42] epoch=3 train=0.304184 val=0.25209 adapter_mean=0.13865
+[raptor aoa s42] epoch=4 train=0.293595 val=0.196431 adapter_mean=0.15243
+[raptor aoa s42] epoch=5 train=0.26251 val=0.216248 adapter_mean=0.15912
+[raptor aoa s42] epoch=6 train=0.242615 val=0.169191 adapter_mean=0.16885
+[raptor aoa s42] epoch=7 train=0.228192 val=0.15388 adapter_mean=0.17590
+[raptor aoa s42] epoch=8 train=0.202066 val=0.10734 adapter_mean=0.18231
+[raptor aoa s42] epoch=9 train=0.187129 val=0.119064 adapter_mean=0.18718
+[raptor aoa s42] epoch=10 train=0.197352 val=0.124166 adapter_mean=0.18730
+[raptor aoa s42] epoch=11 train=0.161524 val=0.117899 adapter_mean=0.19233
+[raptor aoa s42] epoch=12 train=0.144393 val=0.117572 adapter_mean=0.19710
+[raptor aoa s42] epoch=13 train=0.162297 val=0.103628 adapter_mean=0.19733
+[raptor aoa s42] epoch=14 train=0.136333 val=0.125631 adapter_mean=0.20020
+[raptor aoa s42] epoch=15 train=0.143713 val=0.115926 adapter_mean=0.20080
+[raptor aoa s42] epoch=16 train=0.111277 val=0.0846953 adapter_mean=0.20483
+[raptor aoa s42] epoch=17 train=0.122819 val=0.0801992 adapter_mean=0.20781
+[raptor aoa s42] epoch=18 train=0.105042 val=0.0901688 adapter_mean=0.20976
+[raptor aoa s42] epoch=19 train=0.113552 val=0.0809955 adapter_mean=0.21258
+[raptor aoa s42] epoch=20 train=0.112315 val=0.0794572 adapter_mean=0.21448
+[raptor aoa s42] epoch=21 train=0.105179 val=0.0893375 adapter_mean=0.21420
+[raptor aoa s42] epoch=22 train=0.0873026 val=0.0883961 adapter_mean=0.21727
+[raptor aoa s42] epoch=23 train=0.0907809 val=0.0841749 adapter_mean=0.21730
+[raptor aoa s42] epoch=24 train=0.0885861 val=0.071548 adapter_mean=0.21871
+[raptor aoa s42] epoch=25 train=0.0915988 val=0.063062 adapter_mean=0.21938
+[raptor aoa s42] epoch=26 train=0.0834541 val=0.0773509 adapter_mean=0.22253
+[raptor aoa s42] epoch=27 train=0.0863166 val=0.0730627 adapter_mean=0.22293
+[raptor aoa s42] epoch=28 train=0.0811293 val=0.059274 adapter_mean=0.22510
+[raptor aoa s42] epoch=29 train=0.072192 val=0.0567891 adapter_mean=0.22628
+[raptor aoa s42] epoch=30 train=0.0728171 val=0.0720296 adapter_mean=0.22652
+[raptor aoa s42] epoch=31 train=0.0695363 val=0.0539128 adapter_mean=0.22679
+[raptor aoa s42] epoch=32 train=0.0641639 val=0.0516256 adapter_mean=0.22638
+[raptor aoa s42] epoch=33 train=0.0731245 val=0.0638073 adapter_mean=0.22935
+[raptor aoa s42] epoch=34 train=0.0729257 val=0.0670328 adapter_mean=0.22963
+[raptor aoa s42] epoch=35 train=0.0674757 val=0.0821558 adapter_mean=0.22853
+[raptor aoa s42] epoch=36 train=0.0664055 val=0.0543718 adapter_mean=0.22812
+[raptor aoa s42] epoch=37 train=0.0592178 val=0.0508378 adapter_mean=0.22960
+[raptor aoa s42] epoch=38 train=0.0656195 val=0.05496 adapter_mean=0.22917
+[raptor aoa s42] epoch=39 train=0.0614897 val=0.0466807 adapter_mean=0.22867
+[raptor aoa s42] epoch=40 train=0.0568216 val=0.0652878 adapter_mean=0.22801
+[raptor aoa s42] epoch=41 train=0.0749128 val=0.0994616 adapter_mean=0.22880
+[raptor aoa s42] epoch=42 train=0.0786699 val=0.0786141 adapter_mean=0.23002
+[raptor aoa s42] epoch=43 train=0.0663031 val=0.0505581 adapter_mean=0.22874
+[raptor aoa s42] epoch=44 train=0.06012 val=0.0473766 adapter_mean=0.22877
+[raptor aoa s42] epoch=45 train=0.0553391 val=0.0590695 adapter_mean=0.22738
+[raptor aoa s42] epoch=46 train=0.0596089 val=0.0452627 adapter_mean=0.22701
+[raptor aoa s42] epoch=47 train=0.0619987 val=0.0645912 adapter_mean=0.22874
+[raptor aoa s42] epoch=48 train=0.0559922 val=0.0498119 adapter_mean=0.22885
+[raptor aoa s42] epoch=49 train=0.0533425 val=0.0426868 adapter_mean=0.23084
+[raptor aoa s42] epoch=50 train=0.0517613 val=0.0394956 adapter_mean=0.23050
+[raptor aoa s42] epoch=51 train=0.0432448 val=0.0733355 adapter_mean=0.22599
+[raptor aoa s42] epoch=52 train=0.0461034 val=0.0383563 adapter_mean=0.23053
+[raptor aoa s42] epoch=53 train=0.0418504 val=0.0396204 adapter_mean=0.22691
+[raptor aoa s42] epoch=54 train=0.0446485 val=0.0386418 adapter_mean=0.22904
+[raptor aoa s42] epoch=55 train=0.0393939 val=0.0348511 adapter_mean=0.22866
+[raptor aoa s42] epoch=56 train=0.0488913 val=0.0373902 adapter_mean=0.23072
+[raptor aoa s42] epoch=57 train=0.0467619 val=0.0326729 adapter_mean=0.22855
+[raptor aoa s42] epoch=58 train=0.0454766 val=0.0409689 adapter_mean=0.22782
+[raptor aoa s42] epoch=59 train=0.0476002 val=0.0419634 adapter_mean=0.22833
+[raptor aoa s42] epoch=60 train=0.0555008 val=0.036596 adapter_mean=0.22786
+[raptor aoa s42] epoch=61 train=0.0402438 val=0.0361473 adapter_mean=0.22699
+[raptor aoa s42] epoch=62 train=0.0512599 val=0.0379596 adapter_mean=0.22924
+[raptor aoa s42] epoch=63 train=0.0357703 val=0.0394729 adapter_mean=0.22571
+[raptor aoa s42] epoch=64 train=0.0488563 val=0.0486806 adapter_mean=0.22498
+[raptor aoa s42] epoch=65 train=0.0451177 val=0.0502527 adapter_mean=0.22525
+[raptor aoa s42] epoch=66 train=0.0444669 val=0.0436234 adapter_mean=0.22267
+[raptor aoa s42] epoch=67 train=0.0382574 val=0.0313683 adapter_mean=0.22401
+[raptor aoa s42] epoch=68 train=0.0406063 val=0.0444013 adapter_mean=0.22410
+[raptor aoa s42] epoch=69 train=0.0375741 val=0.0318953 adapter_mean=0.22304
+[raptor aoa s42] epoch=70 train=0.0473119 val=0.0401623 adapter_mean=0.22328
+[raptor aoa s42] epoch=71 train=0.0368181 val=0.0426923 adapter_mean=0.22226
+[raptor aoa s42] epoch=72 train=0.0417134 val=0.040707 adapter_mean=0.21814
+[raptor aoa s42] epoch=73 train=0.0353804 val=0.0535837 adapter_mean=0.22068
+[raptor aoa s42] epoch=74 train=0.0373312 val=0.0279945 adapter_mean=0.21892
+[raptor aoa s42] epoch=75 train=0.0345596 val=0.0332318 adapter_mean=0.21782
+[raptor aoa s42] epoch=76 train=0.0297531 val=0.029073 adapter_mean=0.21827
+[raptor aoa s42] epoch=77 train=0.036187 val=0.0379615 adapter_mean=0.21842
+[raptor aoa s42] epoch=78 train=0.0406201 val=0.0413996 adapter_mean=0.21932
+[raptor aoa s42] epoch=79 train=0.0284063 val=0.025583 adapter_mean=0.21796
+[raptor aoa s42] epoch=80 train=0.0324499 val=0.0325614 adapter_mean=0.21831
+[raptor aoa s42] epoch=81 train=0.0320403 val=0.032579 adapter_mean=0.21864
+[raptor aoa s42] epoch=82 train=0.0354212 val=0.0374646 adapter_mean=0.21608
+[raptor aoa s42] epoch=83 train=0.0287682 val=0.0305578 adapter_mean=0.21579
+[raptor aoa s42] epoch=84 train=0.0350537 val=0.033761 adapter_mean=0.21927
+[raptor aoa s42] epoch=85 train=0.0348218 val=0.0359089 adapter_mean=0.21536
+[raptor aoa s42] epoch=86 train=0.0291382 val=0.0256341 adapter_mean=0.21741
+[raptor aoa s42] epoch=87 train=0.028653 val=0.026181 adapter_mean=0.21393
+[raptor aoa s42] epoch=88 train=0.0345968 val=0.0499514 adapter_mean=0.21286
+[raptor aoa s42] epoch=89 train=0.0304188 val=0.0247354 adapter_mean=0.21296
+[raptor aoa s42] epoch=90 train=0.0349238 val=0.028635 adapter_mean=0.21367
+[raptor aoa s42] epoch=91 train=0.0292833 val=0.0255345 adapter_mean=0.21566
+[raptor aoa s42] epoch=92 train=0.0266524 val=0.0228158 adapter_mean=0.21496
+[raptor aoa s42] epoch=93 train=0.021953 val=0.0257895 adapter_mean=0.21290
+[raptor aoa s42] epoch=94 train=0.0264025 val=0.0293689 adapter_mean=0.21120
+[raptor aoa s42] epoch=95 train=0.0257188 val=0.0339375 adapter_mean=0.21158
+[raptor aoa s42] epoch=96 train=0.0248717 val=0.0231179 adapter_mean=0.21298
+[raptor aoa s42] epoch=97 train=0.0373129 val=0.0260448 adapter_mean=0.21190
+[raptor aoa s42] epoch=98 train=0.029261 val=0.0310502 adapter_mean=0.21036
+[raptor aoa s42] epoch=99 train=0.0263728 val=0.0240883 adapter_mean=0.20892
+[raptor aoa s42] epoch=100 train=0.0255536 val=0.0240305 adapter_mean=0.20652
+[
+  {
+    "rel_l2_ux": 0.1498171045267151,
+    "rel_l2_uy": 0.22992495869174087,
+    "rel_l2_p": 0.3208469910877,
+    "rel_l2_nut": 0.4791883905943874,
+    "mse_ux": 49.1524543762207,
+    "mse_uy": 75.4004135131836,
+    "mse_p": 2971803.75,
+    "mse_nut": 3.895838290191023e-06,
+    "macro_rel_l2": 0.29494436122513584,
+    "surface_pressure_mse": 7231731.5,
+    "inference_ms_per_sim": 12.634834694724805,
+    "peak_memory_mib": 126.48291015625,
+    "model": "raptor",
+    "task": "aoa",
+    "seed": 42,
+    "epochs": 100,
+    "best_validation_mse": 0.022815830470062793,
+    "train_seconds": 14371.884906768799,
+    "parameters": 245976,
+    "device": "cuda",
+    "hidden_dim": 64,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "knn_k": 24,
+    "adapter_scales": [
+      -0.26131919026374817,
+      0.1589820683002472,
+      0.19426226615905762,
+      -0.24528031051158905
+    ],
+    "adapter_enabled": true,
+    "adapter_alpha_init": 0.0,
+    "adapter_neighbor_mode": "knn_mean",
+    "ablation_variant": "zero_initialized_adapter",
+    "connection_audit": {
+      "nodes": 4096,
+      "knn_connections_per_layer": 98304,
+      "point_to_slice_scores_per_layer": 262144,
+      "slice_attention_scores_per_layer": 4096,
+      "dense_node_connections_per_layer": 16777216,
+      "uses_dense_node_attention": false,
+      "adapter_neighbor_mode": "knn_mean"
+    },
+    "protocol": "matched_airfrans_formal_v1",
+    "method": "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
+  }
+]
+JOB_DONE 8/8 K24_AOA 2026-09-21T12:12:46+08:00
+{
+  "protocol": "AirfRANS fixed split, seed 42, N=4096",
+  "rows": [
+    {
+      "variant": "nodewise",
+      "task": "reynolds",
+      "knn_k": 12,
+      "adapter_neighbor_mode": "self",
+      "macro_rel_l2": 0.25663434668749924,
+      "rel_l2_ux": 0.14941897084220143,
+      "rel_l2_uy": 0.2270836859519143,
+      "rel_l2_p": 0.25084772218370677,
+      "rel_l2_nut": 0.39918700777217436,
+      "parameters": 245976,
+      "peak_memory_mib": 115.7734375,
+      "inference_ms_per_sim": 9.737923499633325,
+      "train_seconds": 7694.603903532028,
+      "epochs": 98
+    },
+    {
+      "variant": "nodewise",
+      "task": "aoa",
+      "knn_k": 12,
+      "adapter_neighbor_mode": "self",
+      "macro_rel_l2": 0.3172957958696253,
+      "rel_l2_ux": 0.16987962847271368,
+      "rel_l2_uy": 0.23880711128685875,
+      "rel_l2_p": 0.3739414585288211,
+      "rel_l2_nut": 0.48655498519010765,
+      "parameters": 245976,
+      "peak_memory_mib": 115.7734375,
+      "inference_ms_per_sim": 13.9925658163984,
+      "train_seconds": 6237.770868301392,
+      "epochs": 87
+    },
+    {
+      "variant": "knn_k4",
+      "task": "reynolds",
+      "knn_k": 4,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.20475036231246485,
+      "rel_l2_ux": 0.15032566111492393,
+      "rel_l2_uy": 0.22119562161563677,
+      "rel_l2_p": 0.19328014756231193,
+      "rel_l2_nut": 0.2542000189569867,
+      "parameters": 245976,
+      "peak_memory_mib": 115.525390625,
+      "inference_ms_per_sim": 14.200561999896308,
+      "train_seconds": 6840.133212566376,
+      "epochs": 100
+    },
+    {
+      "variant": "knn_k4",
+      "task": "aoa",
+      "knn_k": 4,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.316503236231254,
+      "rel_l2_ux": 0.1621004584626972,
+      "rel_l2_uy": 0.24665381440680284,
+      "rel_l2_p": 0.38029366624025396,
+      "rel_l2_nut": 0.47696500581526197,
+      "parameters": 245976,
+      "peak_memory_mib": 115.525390625,
+      "inference_ms_per_sim": 15.870005102683812,
+      "train_seconds": 6967.342780351639,
+      "epochs": 100
+    },
+    {
+      "variant": "knn_k8",
+      "task": "reynolds",
+      "knn_k": 8,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.2327670367948877,
+      "rel_l2_ux": 0.1640386722718538,
+      "rel_l2_uy": 0.23303759103799007,
+      "rel_l2_p": 0.2199741275670034,
+      "rel_l2_nut": 0.31401775630270345,
+      "parameters": 245976,
+      "peak_memory_mib": 115.650390625,
+      "inference_ms_per_sim": 15.751362000446534,
+      "train_seconds": 7000.027469873428,
+      "epochs": 82
+    },
+    {
+      "variant": "knn_k8",
+      "task": "aoa",
+      "knn_k": 8,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.3064078295002814,
+      "rel_l2_ux": 0.15067302405934607,
+      "rel_l2_uy": 0.22470491187518288,
+      "rel_l2_p": 0.370702631783074,
+      "rel_l2_nut": 0.47955075028352256,
+      "parameters": 245976,
+      "peak_memory_mib": 115.650390625,
+      "inference_ms_per_sim": 14.020940306720002,
+      "train_seconds": 8564.54566526413,
+      "epochs": 100
+    },
+    {
+      "variant": "knn_k12",
+      "task": "reynolds",
+      "knn_k": 12,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.22192386427601096,
+      "rel_l2_ux": 0.1394728572667219,
+      "rel_l2_uy": 0.22917099595301435,
+      "rel_l2_p": 0.2251490000727968,
+      "rel_l2_nut": 0.2939026038115108,
+      "parameters": 245976,
+      "peak_memory_mib": 118.5,
+      "inference_ms_per_sim": 8.968532999861054,
+      "train_seconds": 7852.403805017471,
+      "epochs": 100
+    },
+    {
+      "variant": "knn_k12",
+      "task": "aoa",
+      "knn_k": 12,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.2969246998069695,
+      "rel_l2_ux": 0.15097348333721636,
+      "rel_l2_uy": 0.2189480079661465,
+      "rel_l2_p": 0.3349721536142087,
+      "rel_l2_nut": 0.48280515431030646,
+      "parameters": 245976,
+      "peak_memory_mib": 117.5,
+      "inference_ms_per_sim": 8.907186225881059,
+      "train_seconds": 6614.818076848984,
+      "epochs": 100
+    },
+    {
+      "variant": "knn_k24",
+      "task": "reynolds",
+      "knn_k": 24,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.20219607156918135,
+      "rel_l2_ux": 0.13777080312715656,
+      "rel_l2_uy": 0.20648429000802015,
+      "rel_l2_p": 0.17740080526440744,
+      "rel_l2_nut": 0.2871283878771412,
+      "parameters": 245976,
+      "peak_memory_mib": 126.48291015625,
+      "inference_ms_per_sim": 14.593689000466838,
+      "train_seconds": 14284.75556397438,
+      "epochs": 98
+    },
+    {
+      "variant": "knn_k24",
+      "task": "aoa",
+      "knn_k": 24,
+      "adapter_neighbor_mode": "knn_mean",
+      "macro_rel_l2": 0.29494436122513584,
+      "rel_l2_ux": 0.1498171045267151,
+      "rel_l2_uy": 0.22992495869174087,
+      "rel_l2_p": 0.3208469910877,
+      "rel_l2_nut": 0.4791883905943874,
+      "parameters": 245976,
+      "peak_memory_mib": 126.48291015625,
+      "inference_ms_per_sim": 12.634834694724805,
+      "train_seconds": 14371.884906768799,
+      "epochs": 100
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,115 @@
+[mono_tiny aoa s41] epoch=1 train=0.894949 val=0.742076
+[mono_tiny aoa s41] epoch=2 train=0.772082 val=0.585431
+[mono_tiny aoa s41] epoch=3 train=0.626837 val=0.512566
+[mono_tiny aoa s41] epoch=4 train=0.553975 val=0.460484
+[mono_tiny aoa s41] epoch=5 train=0.489976 val=0.391297
+[mono_tiny aoa s41] epoch=6 train=0.438409 val=0.355133
+[mono_tiny aoa s41] epoch=7 train=0.401876 val=0.307346
+[mono_tiny aoa s41] epoch=8 train=0.372285 val=0.310753
+[mono_tiny aoa s41] epoch=9 train=0.352355 val=0.287916
+[mono_tiny aoa s41] epoch=10 train=0.327722 val=0.26598
+[mono_tiny aoa s41] epoch=11 train=0.334218 val=0.267716
+[mono_tiny aoa s41] epoch=12 train=0.312681 val=0.279206
+[mono_tiny aoa s41] epoch=13 train=0.290593 val=0.253784
+[mono_tiny aoa s41] epoch=14 train=0.30625 val=0.220845
+[mono_tiny aoa s41] epoch=15 train=0.290887 val=0.242792
+[mono_tiny aoa s41] epoch=16 train=0.28817 val=0.254658
+[mono_tiny aoa s41] epoch=17 train=0.274387 val=0.221959
+[mono_tiny aoa s41] epoch=18 train=0.258539 val=0.202264
+[mono_tiny aoa s41] epoch=19 train=0.252329 val=0.2242
+[mono_tiny aoa s41] epoch=20 train=0.232305 val=0.236386
+[mono_tiny aoa s41] epoch=21 train=0.247251 val=0.193151
+[mono_tiny aoa s41] epoch=22 train=0.22411 val=0.212746
+[mono_tiny aoa s41] epoch=23 train=0.225573 val=0.203945
+[mono_tiny aoa s41] epoch=24 train=0.213456 val=0.175145
+[mono_tiny aoa s41] epoch=25 train=0.226919 val=0.219088
+[mono_tiny aoa s41] epoch=26 train=0.206827 val=0.212249
+[mono_tiny aoa s41] epoch=27 train=0.203023 val=0.180292
+[mono_tiny aoa s41] epoch=28 train=0.195512 val=0.151296
+[mono_tiny aoa s41] epoch=29 train=0.199769 val=0.16116
+[mono_tiny aoa s41] epoch=30 train=0.195027 val=0.15706
+[mono_tiny aoa s41] epoch=31 train=0.184789 val=0.169
+[mono_tiny aoa s41] epoch=32 train=0.202895 val=0.188352
+[mono_tiny aoa s41] epoch=33 train=0.182845 val=0.156272
+[mono_tiny aoa s41] epoch=34 train=0.182444 val=0.154351
+[mono_tiny aoa s41] epoch=35 train=0.176602 val=0.147861
+[mono_tiny aoa s41] epoch=36 train=0.16257 val=0.145131
+[mono_tiny aoa s41] epoch=37 train=0.168792 val=0.142294
+[mono_tiny aoa s41] epoch=38 train=0.164978 val=0.170479
+[mono_tiny aoa s41] epoch=39 train=0.191604 val=0.187534
+[mono_tiny aoa s41] epoch=40 train=0.176213 val=0.143054
+[mono_tiny aoa s41] epoch=41 train=0.15879 val=0.122313
+[mono_tiny aoa s41] epoch=42 train=0.162079 val=0.143366
+[mono_tiny aoa s41] epoch=43 train=0.167085 val=0.216796
+[mono_tiny aoa s41] epoch=44 train=0.165713 val=0.14161
+[mono_tiny aoa s41] epoch=45 train=0.150118 val=0.129495
+[mono_tiny aoa s41] epoch=46 train=0.157081 val=0.129491
+[mono_tiny aoa s41] epoch=47 train=0.147674 val=0.124675
+[mono_tiny aoa s41] epoch=48 train=0.146637 val=0.145096
+[mono_tiny aoa s41] epoch=49 train=0.148901 val=0.124836
+[mono_tiny aoa s41] epoch=50 train=0.151728 val=0.125345
+[mono_tiny aoa s41] epoch=51 train=0.164443 val=0.15813
+[mono_tiny aoa s41] epoch=52 train=0.159643 val=0.145295
+[mono_tiny aoa s41] epoch=53 train=0.150611 val=0.132982
+[mono_tiny aoa s41] epoch=54 train=0.152396 val=0.166802
+[mono_tiny aoa s41] epoch=55 train=0.168222 val=0.142151
+[mono_tiny aoa s41] epoch=56 train=0.144636 val=0.119503
+[mono_tiny aoa s41] epoch=57 train=0.140036 val=0.119203
+[mono_tiny aoa s41] epoch=58 train=0.151127 val=0.127422
+[mono_tiny aoa s41] epoch=59 train=0.135713 val=0.162061
+[mono_tiny aoa s41] epoch=60 train=0.139888 val=0.119109
+[mono_tiny aoa s41] epoch=61 train=0.153038 val=0.108644
+[mono_tiny aoa s41] epoch=62 train=0.150393 val=0.139254
+[mono_tiny aoa s41] epoch=63 train=0.134947 val=0.113526
+[mono_tiny aoa s41] epoch=64 train=0.145413 val=0.126591
+[mono_tiny aoa s41] epoch=65 train=0.142903 val=0.114239
+[mono_tiny aoa s41] epoch=66 train=0.138821 val=0.125712
+[mono_tiny aoa s41] epoch=67 train=0.161263 val=0.123182
+[mono_tiny aoa s41] epoch=68 train=0.142047 val=0.102568
+[mono_tiny aoa s41] epoch=69 train=0.206402 val=0.152435
+[mono_tiny aoa s41] epoch=70 train=0.25627 val=0.215313
+[mono_tiny aoa s41] epoch=71 train=0.225181 val=0.176746
+[mono_tiny aoa s41] epoch=72 train=0.180238 val=0.151715
+[mono_tiny aoa s41] epoch=73 train=0.193966 val=0.151417
+[mono_tiny aoa s41] epoch=74 train=0.192441 val=0.143507
+[mono_tiny aoa s41] epoch=75 train=0.174308 val=0.135227
+[mono_tiny aoa s41] epoch=76 train=0.180847 val=0.160688
+[mono_tiny aoa s41] epoch=77 train=0.164137 val=0.149035
+[mono_tiny aoa s41] epoch=78 train=0.177343 val=0.15255
+[mono_tiny aoa s41] epoch=79 train=0.171329 val=0.143821
+[mono_tiny aoa s41] epoch=80 train=0.179769 val=0.129435
+[mono_tiny aoa s41] epoch=81 train=0.149956 val=0.12246
+[mono_tiny aoa s41] epoch=82 train=0.149449 val=0.11766
+[mono_tiny aoa s41] epoch=83 train=0.131028 val=0.131553
+[
+  {
+    "rel_l2_ux": 0.2829864763449376,
+    "rel_l2_uy": 0.46285006481076774,
+    "rel_l2_p": 0.2513837678514098,
+    "rel_l2_nut": 0.558233010441658,
+    "mse_ux": 175.369384765625,
+    "mse_uy": 305.5498962402344,
+    "mse_p": 1824310.25,
+    "mse_nut": 5.2871223488182295e-06,
+    "macro_rel_l2": 0.3888633298621933,
+    "surface_pressure_mse": 4513026.0,
+    "inference_ms_per_sim": 20.64762806266841,
+    "peak_memory_mib": 71.55029296875,
+    "model": "mono_tiny",
+    "task": "aoa",
+    "seed": 41,
+    "epochs": 83,
+    "best_validation_mse": 0.10256826328113675,
+    "train_seconds": 6046.15078496933,
+    "parameters": 708541,
+    "device": "cuda",
+    "protocol": "matched_airfrans_reynolds_v2",
+    "hidden_dim": 64,
+    "tiny_adaptation": true,
+    "mono_modes": 64,
+    "mono_layers": 2,
+    "amp_core": false,
+    "amp_disabled_reason": "official mixed-feature scatter requires FP32",
+    "upstream_commit": "60d086a45d4929769796fb3b2dfacc6680528f3b"
+  }
+]

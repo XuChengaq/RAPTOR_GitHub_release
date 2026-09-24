@@ -1,0 +1,129 @@
+[transolver_plus_tiny reynolds s43] epoch=1 train=0.689913 val=0.386046
+[transolver_plus_tiny reynolds s43] epoch=2 train=0.447114 val=0.460453
+[transolver_plus_tiny reynolds s43] epoch=3 train=0.375848 val=0.280818
+[transolver_plus_tiny reynolds s43] epoch=4 train=0.344273 val=0.244732
+[transolver_plus_tiny reynolds s43] epoch=5 train=0.312415 val=0.275605
+[transolver_plus_tiny reynolds s43] epoch=6 train=0.303065 val=0.190426
+[transolver_plus_tiny reynolds s43] epoch=7 train=0.267276 val=0.29903
+[transolver_plus_tiny reynolds s43] epoch=8 train=0.26781 val=0.204922
+[transolver_plus_tiny reynolds s43] epoch=9 train=0.241803 val=0.190153
+[transolver_plus_tiny reynolds s43] epoch=10 train=0.24413 val=0.200272
+[transolver_plus_tiny reynolds s43] epoch=11 train=0.222031 val=0.192553
+[transolver_plus_tiny reynolds s43] epoch=12 train=0.221139 val=0.147005
+[transolver_plus_tiny reynolds s43] epoch=13 train=0.210382 val=0.131378
+[transolver_plus_tiny reynolds s43] epoch=14 train=0.182628 val=0.154192
+[transolver_plus_tiny reynolds s43] epoch=15 train=0.192996 val=0.1189
+[transolver_plus_tiny reynolds s43] epoch=16 train=0.19181 val=0.132896
+[transolver_plus_tiny reynolds s43] epoch=17 train=0.178937 val=0.106814
+[transolver_plus_tiny reynolds s43] epoch=18 train=0.167001 val=0.1484
+[transolver_plus_tiny reynolds s43] epoch=19 train=0.167315 val=0.13653
+[transolver_plus_tiny reynolds s43] epoch=20 train=0.172471 val=0.182072
+[transolver_plus_tiny reynolds s43] epoch=21 train=0.170666 val=0.118322
+[transolver_plus_tiny reynolds s43] epoch=22 train=0.153411 val=0.12033
+[transolver_plus_tiny reynolds s43] epoch=23 train=0.151876 val=0.101393
+[transolver_plus_tiny reynolds s43] epoch=24 train=0.147245 val=0.111683
+[transolver_plus_tiny reynolds s43] epoch=25 train=0.150712 val=0.0961613
+[transolver_plus_tiny reynolds s43] epoch=26 train=0.149913 val=0.107552
+[transolver_plus_tiny reynolds s43] epoch=27 train=0.139729 val=0.108477
+[transolver_plus_tiny reynolds s43] epoch=28 train=0.137364 val=0.100202
+[transolver_plus_tiny reynolds s43] epoch=29 train=0.147362 val=0.0844844
+[transolver_plus_tiny reynolds s43] epoch=30 train=0.145384 val=0.0956499
+[transolver_plus_tiny reynolds s43] epoch=31 train=0.13566 val=0.109236
+[transolver_plus_tiny reynolds s43] epoch=32 train=0.135342 val=0.0980273
+[transolver_plus_tiny reynolds s43] epoch=33 train=0.129504 val=0.118458
+[transolver_plus_tiny reynolds s43] epoch=34 train=0.144053 val=0.131427
+[transolver_plus_tiny reynolds s43] epoch=35 train=0.138158 val=0.0815527
+[transolver_plus_tiny reynolds s43] epoch=36 train=0.128651 val=0.0923255
+[transolver_plus_tiny reynolds s43] epoch=37 train=0.119903 val=0.0889779
+[transolver_plus_tiny reynolds s43] epoch=38 train=0.133651 val=0.100231
+[transolver_plus_tiny reynolds s43] epoch=39 train=0.123349 val=0.155796
+[transolver_plus_tiny reynolds s43] epoch=40 train=0.119461 val=0.117833
+[transolver_plus_tiny reynolds s43] epoch=41 train=0.124771 val=0.0829314
+[transolver_plus_tiny reynolds s43] epoch=42 train=0.117884 val=0.0955601
+[transolver_plus_tiny reynolds s43] epoch=43 train=0.123477 val=0.106442
+[transolver_plus_tiny reynolds s43] epoch=44 train=0.114684 val=0.0848141
+[transolver_plus_tiny reynolds s43] epoch=45 train=0.120166 val=0.0931803
+[transolver_plus_tiny reynolds s43] epoch=46 train=0.10683 val=0.106437
+[transolver_plus_tiny reynolds s43] epoch=47 train=0.126286 val=0.126285
+[transolver_plus_tiny reynolds s43] epoch=48 train=0.101627 val=0.0793852
+[transolver_plus_tiny reynolds s43] epoch=49 train=0.105678 val=0.0854681
+[transolver_plus_tiny reynolds s43] epoch=50 train=0.110203 val=0.0846385
+[transolver_plus_tiny reynolds s43] epoch=51 train=0.112228 val=0.0890575
+[transolver_plus_tiny reynolds s43] epoch=52 train=0.103807 val=0.0825149
+[transolver_plus_tiny reynolds s43] epoch=53 train=0.106876 val=0.0920176
+[transolver_plus_tiny reynolds s43] epoch=54 train=0.0976127 val=0.091583
+[transolver_plus_tiny reynolds s43] epoch=55 train=0.115034 val=0.117271
+[transolver_plus_tiny reynolds s43] epoch=56 train=0.11335 val=0.0749627
+[transolver_plus_tiny reynolds s43] epoch=57 train=0.103424 val=0.0998908
+[transolver_plus_tiny reynolds s43] epoch=58 train=0.10236 val=0.078708
+[transolver_plus_tiny reynolds s43] epoch=59 train=0.0969927 val=0.0758598
+[transolver_plus_tiny reynolds s43] epoch=60 train=0.0985291 val=0.0900626
+[transolver_plus_tiny reynolds s43] epoch=61 train=0.0949627 val=0.0848267
+[transolver_plus_tiny reynolds s43] epoch=62 train=0.0875041 val=0.0830629
+[transolver_plus_tiny reynolds s43] epoch=63 train=0.101641 val=0.081301
+[transolver_plus_tiny reynolds s43] epoch=64 train=0.0987016 val=0.0735201
+[transolver_plus_tiny reynolds s43] epoch=65 train=0.104472 val=0.0949204
+[transolver_plus_tiny reynolds s43] epoch=66 train=0.0824128 val=0.0836335
+[transolver_plus_tiny reynolds s43] epoch=67 train=0.0953116 val=0.0840361
+[transolver_plus_tiny reynolds s43] epoch=68 train=0.0900433 val=0.0742395
+[transolver_plus_tiny reynolds s43] epoch=69 train=0.0851482 val=0.0911874
+[transolver_plus_tiny reynolds s43] epoch=70 train=0.0888276 val=0.0696531
+[transolver_plus_tiny reynolds s43] epoch=71 train=0.0824404 val=0.0875036
+[transolver_plus_tiny reynolds s43] epoch=72 train=0.096433 val=0.0759144
+[transolver_plus_tiny reynolds s43] epoch=73 train=0.0794132 val=0.0643717
+[transolver_plus_tiny reynolds s43] epoch=74 train=0.0869451 val=0.0976713
+[transolver_plus_tiny reynolds s43] epoch=75 train=0.0844585 val=0.0652127
+[transolver_plus_tiny reynolds s43] epoch=76 train=0.0820358 val=0.080303
+[transolver_plus_tiny reynolds s43] epoch=77 train=0.0811037 val=0.07355
+[transolver_plus_tiny reynolds s43] epoch=78 train=0.0828546 val=0.0650724
+[transolver_plus_tiny reynolds s43] epoch=79 train=0.078198 val=0.0704828
+[transolver_plus_tiny reynolds s43] epoch=80 train=0.0707283 val=0.0624639
+[transolver_plus_tiny reynolds s43] epoch=81 train=0.0805218 val=0.210797
+[transolver_plus_tiny reynolds s43] epoch=82 train=0.089558 val=0.0573019
+[transolver_plus_tiny reynolds s43] epoch=83 train=0.0823108 val=0.0653753
+[transolver_plus_tiny reynolds s43] epoch=84 train=0.0721422 val=0.0657722
+[transolver_plus_tiny reynolds s43] epoch=85 train=0.0693521 val=0.0770638
+[transolver_plus_tiny reynolds s43] epoch=86 train=0.0785497 val=0.0932937
+[transolver_plus_tiny reynolds s43] epoch=87 train=0.0849243 val=0.0825365
+[transolver_plus_tiny reynolds s43] epoch=88 train=0.0766807 val=0.066197
+[transolver_plus_tiny reynolds s43] epoch=89 train=0.0768902 val=0.0685968
+[transolver_plus_tiny reynolds s43] epoch=90 train=0.0652043 val=0.0745702
+[transolver_plus_tiny reynolds s43] epoch=91 train=0.0732675 val=0.0586933
+[transolver_plus_tiny reynolds s43] epoch=92 train=0.0760022 val=0.0706705
+[transolver_plus_tiny reynolds s43] epoch=93 train=0.0636828 val=0.0716446
+[transolver_plus_tiny reynolds s43] epoch=94 train=0.0608838 val=0.0695284
+[transolver_plus_tiny reynolds s43] epoch=95 train=0.075897 val=0.0646724
+[transolver_plus_tiny reynolds s43] epoch=96 train=0.0683796 val=0.0679074
+[transolver_plus_tiny reynolds s43] epoch=97 train=0.0642579 val=0.0990018
+[
+  {
+    "rel_l2_ux": 0.2210690652052535,
+    "rel_l2_uy": 0.2993691146621573,
+    "rel_l2_p": 0.35339719141735415,
+    "rel_l2_nut": 0.39672178608395753,
+    "mse_ux": 113.62598419189453,
+    "mse_uy": 85.2236099243164,
+    "mse_p": 1762767.0,
+    "mse_nut": 1.355393010271655e-06,
+    "macro_rel_l2": 0.3176392893421806,
+    "surface_pressure_mse": 3633293.5,
+    "inference_ms_per_sim": 14.028246001689695,
+    "peak_memory_mib": 144.03076171875,
+    "model": "transolver_plus_tiny",
+    "task": "reynolds",
+    "seed": 43,
+    "epochs": 97,
+    "best_validation_mse": 0.05730185117572546,
+    "train_seconds": 9667.929774999619,
+    "parameters": 179608,
+    "device": "cuda",
+    "protocol": "matched_airfrans_reynolds_v2",
+    "hidden_dim": 64,
+    "tiny_adaptation": true,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "amp_safe_fp32_eidetic_slicing": true,
+    "upstream_commit": "d5a23bc734a0ebac56384cf72049a26af9673452"
+  }
+]

@@ -23,6 +23,12 @@ from transolver_tiny.run import evaluate, seed_all, tensors, validation_loss  # 
 def adapter_variant(cfg):
     if not cfg.get("adapter_enabled", True):
         return "no_local_adapter", "Transolver-Tiny physics-attention backbone without the RAPTOR KNN local adapter"
+    neighbor_mode = cfg.get("adapter_neighbor_mode", "knn_mean")
+    if neighbor_mode == "self":
+        return (
+            "nodewise_residual_control",
+            "Parameter-matched zero-gated node-wise residual adapter without cross-node aggregation",
+        )
     alpha = float(cfg.get("adapter_alpha_init", 0.0))
     if alpha == 0.0:
         return "zero_initialized_adapter", "Transolver-Tiny physics-attention backbone with zero-initialized RAPTOR KNN local adapters"
@@ -39,6 +45,7 @@ def run_one(cfg, task, seed, data, output):
         slices=cfg["slice_count"], knn_k=cfg["knn_k"],
         adapter_enabled=cfg.get("adapter_enabled", True),
         adapter_alpha_init=cfg.get("adapter_alpha_init", 0.0),
+        adapter_neighbor_mode=cfg.get("adapter_neighbor_mode", "knn_mean"),
     ).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=cfg["learning_rate"], weight_decay=cfg["weight_decay"])
     scaler = torch.amp.GradScaler("cuda", enabled=cfg["amp"])
@@ -87,6 +94,7 @@ def run_one(cfg, task, seed, data, output):
         adapter_scales=model.adapter_scales(),
         adapter_enabled=cfg.get("adapter_enabled", True),
         adapter_alpha_init=cfg.get("adapter_alpha_init", 0.0),
+        adapter_neighbor_mode=cfg.get("adapter_neighbor_mode", "knn_mean"),
         ablation_variant=variant,
         connection_audit=model.connection_audit(cfg["points_per_simulation"]),
         protocol="matched_airfrans_formal_v1",

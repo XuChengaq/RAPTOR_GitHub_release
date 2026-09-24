@@ -1,0 +1,20 @@
+{
+  "rel_l2_ux": 0.24333305656909943,
+  "rel_l2_uy": 0.32543978095054626,
+  "rel_l2_p": 0.3257034122943878,
+  "rel_l2_nut": 0.43573832511901855,
+  "mse_ux": 129.66555786132812,
+  "mse_uy": 151.0576629638672,
+  "mse_p": 3062449.0,
+  "mse_nut": 3.2213645226875087e-06,
+  "surface_pressure_mse": 6261716.5,
+  "inference_ms_per_sim": 1.1598994910576836,
+  "peak_memory_mib": 25.86572265625,
+  "model": "pointnet",
+  "seed": 42,
+  "epochs": 85,
+  "train_seconds": 4814.6952068805695,
+  "parameters": 29700,
+  "device": "cuda",
+  "task": "aoa"
+}

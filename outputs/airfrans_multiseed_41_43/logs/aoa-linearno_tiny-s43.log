@@ -1,0 +1,108 @@
+[linearno_tiny aoa s43] epoch=1 train=0.626216 val=0.394397
+[linearno_tiny aoa s43] epoch=2 train=0.436649 val=0.264964
+[linearno_tiny aoa s43] epoch=3 train=0.364006 val=0.248261
+[linearno_tiny aoa s43] epoch=4 train=0.334718 val=0.259676
+[linearno_tiny aoa s43] epoch=5 train=0.296893 val=0.226423
+[linearno_tiny aoa s43] epoch=6 train=0.268245 val=0.178921
+[linearno_tiny aoa s43] epoch=7 train=0.257321 val=0.223382
+[linearno_tiny aoa s43] epoch=8 train=0.235638 val=0.187022
+[linearno_tiny aoa s43] epoch=9 train=0.230631 val=0.17295
+[linearno_tiny aoa s43] epoch=10 train=0.2094 val=0.154726
+[linearno_tiny aoa s43] epoch=11 train=0.19485 val=0.147051
+[linearno_tiny aoa s43] epoch=12 train=0.173462 val=0.141928
+[linearno_tiny aoa s43] epoch=13 train=0.16798 val=0.123848
+[linearno_tiny aoa s43] epoch=14 train=0.143858 val=0.101877
+[linearno_tiny aoa s43] epoch=15 train=0.14041 val=0.12908
+[linearno_tiny aoa s43] epoch=16 train=0.134331 val=0.110136
+[linearno_tiny aoa s43] epoch=17 train=0.125826 val=0.163238
+[linearno_tiny aoa s43] epoch=18 train=0.125631 val=0.102938
+[linearno_tiny aoa s43] epoch=19 train=0.114771 val=0.075247
+[linearno_tiny aoa s43] epoch=20 train=0.105376 val=0.0737493
+[linearno_tiny aoa s43] epoch=21 train=0.099228 val=0.0788255
+[linearno_tiny aoa s43] epoch=22 train=0.0881067 val=0.0827694
+[linearno_tiny aoa s43] epoch=23 train=0.104236 val=0.0785896
+[linearno_tiny aoa s43] epoch=24 train=0.107673 val=0.0799495
+[linearno_tiny aoa s43] epoch=25 train=0.086012 val=0.0762898
+[linearno_tiny aoa s43] epoch=26 train=0.10843 val=0.076557
+[linearno_tiny aoa s43] epoch=27 train=0.0958372 val=0.0765843
+[linearno_tiny aoa s43] epoch=28 train=0.0997198 val=0.0727973
+[linearno_tiny aoa s43] epoch=29 train=0.0811046 val=0.083364
+[linearno_tiny aoa s43] epoch=30 train=0.0893226 val=0.0801447
+[linearno_tiny aoa s43] epoch=31 train=0.0790444 val=0.0624173
+[linearno_tiny aoa s43] epoch=32 train=0.0728622 val=0.0776352
+[linearno_tiny aoa s43] epoch=33 train=0.077223 val=0.0881571
+[linearno_tiny aoa s43] epoch=34 train=0.0773068 val=0.0561017
+[linearno_tiny aoa s43] epoch=35 train=0.0590583 val=0.0660602
+[linearno_tiny aoa s43] epoch=36 train=0.0765055 val=0.0530749
+[linearno_tiny aoa s43] epoch=37 train=0.0673906 val=0.0714628
+[linearno_tiny aoa s43] epoch=38 train=0.0617863 val=0.0602197
+[linearno_tiny aoa s43] epoch=39 train=0.0621299 val=0.0485544
+[linearno_tiny aoa s43] epoch=40 train=0.0588255 val=0.0411589
+[linearno_tiny aoa s43] epoch=41 train=0.0616356 val=0.0739937
+[linearno_tiny aoa s43] epoch=42 train=0.0602683 val=0.0366651
+[linearno_tiny aoa s43] epoch=43 train=0.0570352 val=0.0798071
+[linearno_tiny aoa s43] epoch=44 train=0.054747 val=0.0364195
+[linearno_tiny aoa s43] epoch=45 train=0.0528722 val=0.045575
+[linearno_tiny aoa s43] epoch=46 train=0.0495103 val=0.0396477
+[linearno_tiny aoa s43] epoch=47 train=0.0467544 val=0.0370723
+[linearno_tiny aoa s43] epoch=48 train=0.0646611 val=0.0406777
+[linearno_tiny aoa s43] epoch=49 train=0.0790267 val=0.0493178
+[linearno_tiny aoa s43] epoch=50 train=0.0496901 val=0.0467358
+[linearno_tiny aoa s43] epoch=51 train=0.0411592 val=0.027972
+[linearno_tiny aoa s43] epoch=52 train=0.05272 val=0.0365304
+[linearno_tiny aoa s43] epoch=53 train=0.0423759 val=0.0549427
+[linearno_tiny aoa s43] epoch=54 train=0.039058 val=0.0387243
+[linearno_tiny aoa s43] epoch=55 train=0.0456474 val=0.0342672
+[linearno_tiny aoa s43] epoch=56 train=0.0407634 val=0.0328071
+[linearno_tiny aoa s43] epoch=57 train=0.0543646 val=0.0282224
+[linearno_tiny aoa s43] epoch=58 train=0.0456283 val=0.0336698
+[linearno_tiny aoa s43] epoch=59 train=0.0341525 val=0.0210306
+[linearno_tiny aoa s43] epoch=60 train=0.0345891 val=0.0334077
+[linearno_tiny aoa s43] epoch=61 train=0.0372234 val=0.0259189
+[linearno_tiny aoa s43] epoch=62 train=0.0398835 val=0.0349045
+[linearno_tiny aoa s43] epoch=63 train=0.035499 val=0.0417172
+[linearno_tiny aoa s43] epoch=64 train=0.0393399 val=0.0334474
+[linearno_tiny aoa s43] epoch=65 train=0.0392821 val=0.035708
+[linearno_tiny aoa s43] epoch=66 train=0.0403542 val=0.0401566
+[linearno_tiny aoa s43] epoch=67 train=0.037977 val=0.0241378
+[linearno_tiny aoa s43] epoch=68 train=0.0322204 val=0.027435
+[linearno_tiny aoa s43] epoch=69 train=0.0312914 val=0.0471285
+[linearno_tiny aoa s43] epoch=70 train=0.0432455 val=0.0234219
+[linearno_tiny aoa s43] epoch=71 train=0.0387142 val=0.0226163
+[linearno_tiny aoa s43] epoch=72 train=0.0317544 val=0.0305081
+[linearno_tiny aoa s43] epoch=73 train=0.0332612 val=0.0493644
+[linearno_tiny aoa s43] epoch=74 train=0.0345572 val=0.0350133
+[
+  {
+    "rel_l2_ux": 0.17532491353397295,
+    "rel_l2_uy": 0.2611613186197377,
+    "rel_l2_p": 0.4546395894134685,
+    "rel_l2_nut": 0.48926349684267595,
+    "mse_ux": 67.31465911865234,
+    "mse_uy": 97.27901458740234,
+    "mse_p": 5967036.0,
+    "mse_nut": 4.061383151565678e-06,
+    "macro_rel_l2": 0.34509732960246375,
+    "surface_pressure_mse": 15240400.0,
+    "inference_ms_per_sim": 8.141309693479453,
+    "peak_memory_mib": 112.18701171875,
+    "model": "linearno_tiny",
+    "task": "aoa",
+    "seed": 43,
+    "epochs": 74,
+    "best_validation_mse": 0.021030624862760305,
+    "train_seconds": 5011.850314617157,
+    "parameters": 164804,
+    "device": "cuda",
+    "protocol": "matched_airfrans_reynolds_v2",
+    "hidden_dim": 64,
+    "tiny_adaptation": true,
+    "depth": 4,
+    "heads": 4,
+    "linearno_states": 64,
+    "asymmetric_query_key_maps": true,
+    "slice_self_attention": false,
+    "method_source": "Hu et al., AAAI 2026",
+    "doi": "10.1609/aaai.v40i1.37003"
+  }
+]

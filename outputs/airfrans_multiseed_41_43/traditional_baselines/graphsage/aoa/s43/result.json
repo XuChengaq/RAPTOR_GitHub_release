@@ -1,0 +1,20 @@
+{
+  "rel_l2_ux": 0.27620840072631836,
+  "rel_l2_uy": 0.3968711793422699,
+  "rel_l2_p": 0.6284552812576294,
+  "rel_l2_nut": 0.5585718750953674,
+  "mse_ux": 167.06906127929688,
+  "mse_uy": 224.64695739746094,
+  "mse_p": 11401787.0,
+  "mse_nut": 5.293543836160097e-06,
+  "surface_pressure_mse": 26094954.0,
+  "inference_ms_per_sim": 6.6674622449004435,
+  "peak_memory_mib": 4144.41455078125,
+  "model": "graphsage",
+  "seed": 43,
+  "epochs": 35,
+  "train_seconds": 4972.319543600082,
+  "parameters": 100612,
+  "device": "cuda",
+  "task": "aoa"
+}

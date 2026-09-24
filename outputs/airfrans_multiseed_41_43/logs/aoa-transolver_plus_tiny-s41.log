@@ -1,0 +1,132 @@
+[transolver_plus_tiny aoa s41] epoch=1 train=0.670953 val=0.381053
+[transolver_plus_tiny aoa s41] epoch=2 train=0.442569 val=0.358085
+[transolver_plus_tiny aoa s41] epoch=3 train=0.370404 val=0.289087
+[transolver_plus_tiny aoa s41] epoch=4 train=0.348309 val=0.38406
+[transolver_plus_tiny aoa s41] epoch=5 train=0.302029 val=0.336288
+[transolver_plus_tiny aoa s41] epoch=6 train=0.301197 val=0.29371
+[transolver_plus_tiny aoa s41] epoch=7 train=0.283121 val=0.319162
+[transolver_plus_tiny aoa s41] epoch=8 train=0.248864 val=0.245084
+[transolver_plus_tiny aoa s41] epoch=9 train=0.244887 val=0.283536
+[transolver_plus_tiny aoa s41] epoch=10 train=0.225498 val=0.263928
+[transolver_plus_tiny aoa s41] epoch=11 train=0.220931 val=0.244031
+[transolver_plus_tiny aoa s41] epoch=12 train=0.208765 val=0.192425
+[transolver_plus_tiny aoa s41] epoch=13 train=0.198387 val=0.22582
+[transolver_plus_tiny aoa s41] epoch=14 train=0.178477 val=0.241658
+[transolver_plus_tiny aoa s41] epoch=15 train=0.170315 val=0.160468
+[transolver_plus_tiny aoa s41] epoch=16 train=0.176438 val=0.220209
+[transolver_plus_tiny aoa s41] epoch=17 train=0.17428 val=0.201884
+[transolver_plus_tiny aoa s41] epoch=18 train=0.16037 val=0.156922
+[transolver_plus_tiny aoa s41] epoch=19 train=0.158779 val=0.186806
+[transolver_plus_tiny aoa s41] epoch=20 train=0.148228 val=0.156273
+[transolver_plus_tiny aoa s41] epoch=21 train=0.133344 val=0.190383
+[transolver_plus_tiny aoa s41] epoch=22 train=0.130608 val=0.24126
+[transolver_plus_tiny aoa s41] epoch=23 train=0.141072 val=0.162315
+[transolver_plus_tiny aoa s41] epoch=24 train=0.130328 val=0.145326
+[transolver_plus_tiny aoa s41] epoch=25 train=0.144018 val=0.177337
+[transolver_plus_tiny aoa s41] epoch=26 train=0.125027 val=0.146006
+[transolver_plus_tiny aoa s41] epoch=27 train=0.130968 val=0.228249
+[transolver_plus_tiny aoa s41] epoch=28 train=0.122997 val=0.149049
+[transolver_plus_tiny aoa s41] epoch=29 train=0.125016 val=0.146828
+[transolver_plus_tiny aoa s41] epoch=30 train=0.105947 val=0.152245
+[transolver_plus_tiny aoa s41] epoch=31 train=0.106163 val=0.18924
+[transolver_plus_tiny aoa s41] epoch=32 train=0.104763 val=0.1758
+[transolver_plus_tiny aoa s41] epoch=33 train=0.130286 val=0.119965
+[transolver_plus_tiny aoa s41] epoch=34 train=0.106829 val=0.145988
+[transolver_plus_tiny aoa s41] epoch=35 train=0.101129 val=0.122515
+[transolver_plus_tiny aoa s41] epoch=36 train=0.101395 val=0.136769
+[transolver_plus_tiny aoa s41] epoch=37 train=0.0942236 val=0.124722
+[transolver_plus_tiny aoa s41] epoch=38 train=0.0963984 val=0.154133
+[transolver_plus_tiny aoa s41] epoch=39 train=0.0974831 val=0.138444
+[transolver_plus_tiny aoa s41] epoch=40 train=0.0881038 val=0.135682
+[transolver_plus_tiny aoa s41] epoch=41 train=0.091148 val=0.117927
+[transolver_plus_tiny aoa s41] epoch=42 train=0.0930128 val=0.190303
+[transolver_plus_tiny aoa s41] epoch=43 train=0.0879399 val=0.119151
+[transolver_plus_tiny aoa s41] epoch=44 train=0.0956683 val=0.11846
+[transolver_plus_tiny aoa s41] epoch=45 train=0.0944768 val=0.18629
+[transolver_plus_tiny aoa s41] epoch=46 train=0.0850418 val=0.252525
+[transolver_plus_tiny aoa s41] epoch=47 train=0.091145 val=0.107778
+[transolver_plus_tiny aoa s41] epoch=48 train=0.0785907 val=0.136012
+[transolver_plus_tiny aoa s41] epoch=49 train=0.0789712 val=0.102169
+[transolver_plus_tiny aoa s41] epoch=50 train=0.0803981 val=0.106955
+[transolver_plus_tiny aoa s41] epoch=51 train=0.0783675 val=0.177321
+[transolver_plus_tiny aoa s41] epoch=52 train=0.0731291 val=0.168484
+[transolver_plus_tiny aoa s41] epoch=53 train=0.0763026 val=0.147395
+[transolver_plus_tiny aoa s41] epoch=54 train=0.0657845 val=0.107886
+[transolver_plus_tiny aoa s41] epoch=55 train=0.0715685 val=0.0943968
+[transolver_plus_tiny aoa s41] epoch=56 train=0.0793462 val=0.161715
+[transolver_plus_tiny aoa s41] epoch=57 train=0.0808406 val=0.088635
+[transolver_plus_tiny aoa s41] epoch=58 train=0.075666 val=0.123378
+[transolver_plus_tiny aoa s41] epoch=59 train=0.0728202 val=0.135533
+[transolver_plus_tiny aoa s41] epoch=60 train=0.0621468 val=0.0937
+[transolver_plus_tiny aoa s41] epoch=61 train=0.0773363 val=0.0795229
+[transolver_plus_tiny aoa s41] epoch=62 train=0.07011 val=0.11957
+[transolver_plus_tiny aoa s41] epoch=63 train=0.0822141 val=0.0976655
+[transolver_plus_tiny aoa s41] epoch=64 train=0.0697019 val=0.102703
+[transolver_plus_tiny aoa s41] epoch=65 train=0.0646778 val=0.080485
+[transolver_plus_tiny aoa s41] epoch=66 train=0.0568417 val=0.112146
+[transolver_plus_tiny aoa s41] epoch=67 train=0.0681864 val=0.0850773
+[transolver_plus_tiny aoa s41] epoch=68 train=0.0636945 val=0.07317
+[transolver_plus_tiny aoa s41] epoch=69 train=0.0670455 val=0.0844565
+[transolver_plus_tiny aoa s41] epoch=70 train=0.0568283 val=0.07411
+[transolver_plus_tiny aoa s41] epoch=71 train=0.0633091 val=0.117503
+[transolver_plus_tiny aoa s41] epoch=72 train=0.0655398 val=0.138417
+[transolver_plus_tiny aoa s41] epoch=73 train=0.054257 val=0.0882214
+[transolver_plus_tiny aoa s41] epoch=74 train=0.0541558 val=0.088705
+[transolver_plus_tiny aoa s41] epoch=75 train=0.0654279 val=0.0924625
+[transolver_plus_tiny aoa s41] epoch=76 train=0.0655298 val=0.0682758
+[transolver_plus_tiny aoa s41] epoch=77 train=0.0575136 val=0.0923896
+[transolver_plus_tiny aoa s41] epoch=78 train=0.0556366 val=0.0766195
+[transolver_plus_tiny aoa s41] epoch=79 train=0.0615059 val=0.0677947
+[transolver_plus_tiny aoa s41] epoch=80 train=0.0649757 val=0.0756161
+[transolver_plus_tiny aoa s41] epoch=81 train=0.0535417 val=0.0877078
+[transolver_plus_tiny aoa s41] epoch=82 train=0.0527622 val=0.0560839
+[transolver_plus_tiny aoa s41] epoch=83 train=0.0575189 val=0.0735854
+[transolver_plus_tiny aoa s41] epoch=84 train=0.054639 val=0.0444099
+[transolver_plus_tiny aoa s41] epoch=85 train=0.0508906 val=0.0639065
+[transolver_plus_tiny aoa s41] epoch=86 train=0.0551208 val=0.0674832
+[transolver_plus_tiny aoa s41] epoch=87 train=0.0509242 val=0.096589
+[transolver_plus_tiny aoa s41] epoch=88 train=0.0564152 val=0.0585422
+[transolver_plus_tiny aoa s41] epoch=89 train=0.0592483 val=0.0745947
+[transolver_plus_tiny aoa s41] epoch=90 train=0.0516951 val=0.0635568
+[transolver_plus_tiny aoa s41] epoch=91 train=0.045543 val=0.0673157
+[transolver_plus_tiny aoa s41] epoch=92 train=0.0450539 val=0.096379
+[transolver_plus_tiny aoa s41] epoch=93 train=0.0494824 val=0.0461764
+[transolver_plus_tiny aoa s41] epoch=94 train=0.0423901 val=0.0678434
+[transolver_plus_tiny aoa s41] epoch=95 train=0.0562741 val=0.0449382
+[transolver_plus_tiny aoa s41] epoch=96 train=0.0453309 val=0.0706768
+[transolver_plus_tiny aoa s41] epoch=97 train=0.0491204 val=0.0575503
+[transolver_plus_tiny aoa s41] epoch=98 train=0.0429682 val=0.0415227
+[transolver_plus_tiny aoa s41] epoch=99 train=0.0462668 val=0.0939813
+[transolver_plus_tiny aoa s41] epoch=100 train=0.0451606 val=0.0792982
+[
+  {
+    "rel_l2_ux": 0.20566511425360312,
+    "rel_l2_uy": 0.2508729442679455,
+    "rel_l2_p": 0.423839440210876,
+    "rel_l2_nut": 0.4876077321301385,
+    "mse_ux": 92.6282958984375,
+    "mse_uy": 89.76543426513672,
+    "mse_p": 5185933.0,
+    "mse_nut": 4.033940513181733e-06,
+    "macro_rel_l2": 0.3419963077156408,
+    "surface_pressure_mse": 11740166.0,
+    "inference_ms_per_sim": 12.134687241216723,
+    "peak_memory_mib": 144.03076171875,
+    "model": "transolver_plus_tiny",
+    "task": "aoa",
+    "seed": 41,
+    "epochs": 100,
+    "best_validation_mse": 0.041522721340879795,
+    "train_seconds": 9074.28611588478,
+    "parameters": 179608,
+    "device": "cuda",
+    "protocol": "matched_airfrans_reynolds_v2",
+    "hidden_dim": 64,
+    "tiny_adaptation": true,
+    "depth": 4,
+    "heads": 4,
+    "slice_count": 64,
+    "amp_safe_fp32_eidetic_slicing": true,
+    "upstream_commit": "d5a23bc734a0ebac56384cf72049a26af9673452"
+  }
+]

@@ -17,22 +17,24 @@ tests, analysis scripts, compact numerical evidence, and paper figures for:
 - 100-vehicle three-dimensional surface-field reconstruction;
 - 100-aircraft evaluation across J-20, P180, Boeing 737, and ERJ families.
 
-All accuracy experiments use seed 42, 4,096 sampled nodes, latent width 64,
-four operator blocks, 64 physics tokens, and 12 nearest neighbours where the
-local adapter is enabled. Training was performed with CUDA mixed precision on
+Seed 42 is the reference accuracy run; the AirfRANS comparison additionally
+uses training seeds 41 and 43 on the same fixed data split. The main experiments
+use 4,096 sampled nodes, latent width 64, four operator blocks, 64 physics
+tokens, and 12 nearest neighbours where the local adapter is enabled. Training
+was performed with CUDA mixed precision on
 an NVIDIA RTX 4050 Laptop GPU with 6,141 MiB of physical device memory. A
 separate node-scaling profile evaluates 1,024--16,384 nodes without retraining.
 
-The current manuscript source and compiled PDF are available under
-[`paper/`](paper/). The manuscript reports fixed-split, single-seed accuracy
-results and does not claim universal per-object improvement.
+The current manuscript source, compiled PDF, and supplementary material are
+available under [`paper/`](paper/). The three-dimensional, capacity-control,
+and neighbourhood-size accuracy experiments remain single-seed results.
 
 ## Main results
 
 | Experiment | Reference | RAPTOR | Relative change |
 |---|---:|---:|---:|
-| AirfRANS Reynolds, macro relative L2 | Transolver-Tiny: 0.2280 | **0.2219** | -2.68% error |
-| AirfRANS AoA, macro relative L2 | Transolver-Tiny: 0.3138 | **0.2969** | -5.37% error |
+| AirfRANS Reynolds, macro relative L2 (seed 42) | Transolver-Tiny: 0.2280 | **0.2219** | -2.65% error |
+| AirfRANS AoA, macro relative L2 (seed 42) | Transolver-Tiny: 0.3138 | **0.2969** | -5.37% error |
 | 100-car surface $C_p$, standardized-space MSE | Transolver-Tiny: 0.145534 | **0.135684** | -6.77% error |
 | 100-aircraft surface $C_p$, standardized-space MSE | Transolver-Tiny: 0.843596 | **0.771331** | -8.57% error |
 
@@ -40,6 +42,10 @@ The aircraft gain is not uniform: RAPTOR wins on 6 of 10 held-out aircraft and
 improves the family mean for J-20, Boeing 737, and ERJ, while degrading P180.
 See [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md) for protocols, ablations,
 resource measurements, evidence locations, and limitations.
+The additional [three-seed AirfRANS evidence](outputs/airfrans_multiseed_41_43/README.md)
+and [capacity-control and K-sensitivity evidence](outputs/capacity_knn_sensitivity/README.md)
+include per-run metrics, epoch histories, training logs, aggregate tables,
+and the corresponding run configurations.
 For a path-by-path implementation index, see
 [CODE_STRUCTURE.md](CODE_STRUCTURE.md).
 
@@ -66,6 +72,8 @@ drivaernetpp_3d/           100-car training and analysis
 aircraft_3d/               100-aircraft training and analysis
 outputs/                   compact AirfRANS numerical evidence
 outputs/node_scaling_profile/ measured latency, memory, and KNN evidence
+outputs/airfrans_multiseed_41_43/ three-seed metrics and training logs
+outputs/capacity_knn_sensitivity/ node-wise control and K-study evidence
 figs/                      publication figures and editable framework source
 paper_assets/              bibliography and reference-document utilities
 paper/                     current LaTeX manuscript, figures, and compiled PDF
@@ -73,8 +81,9 @@ docs/                      experiment guide and implementation notes
 vendor/SOURCES.md          exact upstream baseline provenance
 ```
 
-Large raw datasets, generated caches, checkpoints, prediction tensors, and logs
-are intentionally excluded from version control.
+Large raw datasets, generated caches, checkpoints, and prediction tensors are
+excluded from version control. Selected training logs for the new experiments
+are included so that reported epochs and losses can be inspected.
 
 ## Data preparation
 
@@ -154,8 +163,10 @@ sampled nodes. Reported MSE values are evaluated on the sampled nodes.
 - AirfRANS and 3D tasks use different targets; their errors are not directly
   comparable across datasets.
 - The 3D studies use controlled subsets of 100 objects with 80/10/10 splits.
-- Current evidence uses one training seed and does not establish universal
-  per-sample improvement or hardware-independent speed superiority.
+- The AirfRANS model comparison uses three training seeds on one fixed split;
+  the 3D, capacity-control, and K-sensitivity results use one seed. These do
+  not establish universal per-sample improvement or hardware-independent speed
+  superiority.
 - The node-scaling profile is an implementation-level measurement on one RTX
   4050 Laptop GPU, not an accuracy--resource Pareto study.
 - Exact CPU KNN construction is reported separately because its materialized

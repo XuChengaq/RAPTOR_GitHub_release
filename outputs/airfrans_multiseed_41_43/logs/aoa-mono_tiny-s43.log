@@ -1,0 +1,95 @@
+[mono_tiny aoa s43] epoch=1 train=0.863383 val=0.596859
+[mono_tiny aoa s43] epoch=2 train=0.600323 val=0.426526
+[mono_tiny aoa s43] epoch=3 train=0.520815 val=0.397556
+[mono_tiny aoa s43] epoch=4 train=0.484078 val=0.390115
+[mono_tiny aoa s43] epoch=5 train=0.466706 val=0.381005
+[mono_tiny aoa s43] epoch=6 train=0.437482 val=0.368558
+[mono_tiny aoa s43] epoch=7 train=0.441264 val=0.367992
+[mono_tiny aoa s43] epoch=8 train=0.424419 val=0.329177
+[mono_tiny aoa s43] epoch=9 train=0.399487 val=0.324357
+[mono_tiny aoa s43] epoch=10 train=0.376856 val=0.320044
+[mono_tiny aoa s43] epoch=11 train=0.374171 val=0.297202
+[mono_tiny aoa s43] epoch=12 train=0.343903 val=0.278872
+[mono_tiny aoa s43] epoch=13 train=0.350325 val=0.286687
+[mono_tiny aoa s43] epoch=14 train=0.320012 val=0.549931
+[mono_tiny aoa s43] epoch=15 train=0.331354 val=0.325342
+[mono_tiny aoa s43] epoch=16 train=0.303985 val=0.249199
+[mono_tiny aoa s43] epoch=17 train=0.279356 val=0.277143
+[mono_tiny aoa s43] epoch=18 train=0.285342 val=0.241355
+[mono_tiny aoa s43] epoch=19 train=0.275361 val=0.237089
+[mono_tiny aoa s43] epoch=20 train=0.24913 val=0.204812
+[mono_tiny aoa s43] epoch=21 train=0.260169 val=0.208798
+[mono_tiny aoa s43] epoch=22 train=0.247655 val=0.21203
+[mono_tiny aoa s43] epoch=23 train=0.236366 val=0.242602
+[mono_tiny aoa s43] epoch=24 train=0.225479 val=0.214417
+[mono_tiny aoa s43] epoch=25 train=0.216264 val=0.182498
+[mono_tiny aoa s43] epoch=26 train=0.225565 val=0.191316
+[mono_tiny aoa s43] epoch=27 train=0.213342 val=0.171699
+[mono_tiny aoa s43] epoch=28 train=0.226512 val=0.173732
+[mono_tiny aoa s43] epoch=29 train=0.206513 val=0.247579
+[mono_tiny aoa s43] epoch=30 train=0.221055 val=0.197048
+[mono_tiny aoa s43] epoch=31 train=0.204956 val=0.187521
+[mono_tiny aoa s43] epoch=32 train=0.206999 val=0.169838
+[mono_tiny aoa s43] epoch=33 train=0.194441 val=0.180919
+[mono_tiny aoa s43] epoch=34 train=0.210368 val=0.212315
+[mono_tiny aoa s43] epoch=35 train=0.206669 val=0.182882
+[mono_tiny aoa s43] epoch=36 train=0.195948 val=0.179579
+[mono_tiny aoa s43] epoch=37 train=0.187399 val=0.169151
+[mono_tiny aoa s43] epoch=38 train=0.183662 val=0.173784
+[mono_tiny aoa s43] epoch=39 train=0.183832 val=0.194655
+[mono_tiny aoa s43] epoch=40 train=0.179858 val=0.168632
+[mono_tiny aoa s43] epoch=41 train=0.193742 val=0.166755
+[mono_tiny aoa s43] epoch=42 train=0.186929 val=0.152986
+[mono_tiny aoa s43] epoch=43 train=0.163124 val=0.183183
+[mono_tiny aoa s43] epoch=44 train=0.171626 val=0.156787
+[mono_tiny aoa s43] epoch=45 train=0.159623 val=0.12673
+[mono_tiny aoa s43] epoch=46 train=0.205445 val=0.163952
+[mono_tiny aoa s43] epoch=47 train=0.174333 val=0.146696
+[mono_tiny aoa s43] epoch=48 train=0.167095 val=0.122374
+[mono_tiny aoa s43] epoch=49 train=0.16497 val=0.141271
+[mono_tiny aoa s43] epoch=50 train=0.161187 val=0.126719
+[mono_tiny aoa s43] epoch=51 train=0.163224 val=0.141637
+[mono_tiny aoa s43] epoch=52 train=0.171994 val=0.146722
+[mono_tiny aoa s43] epoch=53 train=0.195643 val=0.197516
+[mono_tiny aoa s43] epoch=54 train=0.185363 val=0.148032
+[mono_tiny aoa s43] epoch=55 train=0.192968 val=0.159817
+[mono_tiny aoa s43] epoch=56 train=0.177797 val=0.16145
+[mono_tiny aoa s43] epoch=57 train=0.198323 val=0.160716
+[mono_tiny aoa s43] epoch=58 train=0.20492 val=0.166615
+[mono_tiny aoa s43] epoch=59 train=0.186562 val=0.141317
+[mono_tiny aoa s43] epoch=60 train=0.168494 val=0.133193
+[mono_tiny aoa s43] epoch=61 train=0.162569 val=0.154345
+[mono_tiny aoa s43] epoch=62 train=0.178527 val=0.145699
+[mono_tiny aoa s43] epoch=63 train=0.171902 val=0.146635
+[
+  {
+    "rel_l2_ux": 0.3067712418711599,
+    "rel_l2_uy": 0.5128324160132864,
+    "rel_l2_p": 0.33879620528633003,
+    "rel_l2_nut": 0.6048778257346342,
+    "mse_ux": 206.0875244140625,
+    "mse_uy": 375.1046447753906,
+    "mse_p": 3313609.25,
+    "mse_nut": 6.207598744367715e-06,
+    "macro_rel_l2": 0.4408194222263526,
+    "surface_pressure_mse": 7957017.0,
+    "inference_ms_per_sim": 23.848338775771516,
+    "peak_memory_mib": 71.55029296875,
+    "model": "mono_tiny",
+    "task": "aoa",
+    "seed": 43,
+    "epochs": 63,
+    "best_validation_mse": 0.12237419625744224,
+    "train_seconds": 4649.308179616928,
+    "parameters": 708541,
+    "device": "cuda",
+    "protocol": "matched_airfrans_reynolds_v2",
+    "hidden_dim": 64,
+    "tiny_adaptation": true,
+    "mono_modes": 64,
+    "mono_layers": 2,
+    "amp_core": false,
+    "amp_disabled_reason": "official mixed-feature scatter requires FP32",
+    "upstream_commit": "60d086a45d4929769796fb3b2dfacc6680528f3b"
+  }
+]
